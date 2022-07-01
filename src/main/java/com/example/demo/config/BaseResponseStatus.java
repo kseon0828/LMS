@@ -39,8 +39,9 @@ public enum BaseResponseStatus {
     POST_USERS_INVALID_PASSWORD(false, 2031, "비밀번호 형식을 확인해주세요."),
 
     POST_USERS_EMPTY_NAME(false, 2040, "이름을 입력해주세요"),
-    POST_USERS_EMPTY_BIRTHDAY(false, 2041, "생일을 입력해주세요"),
-    POST_USERS_EMPTY_NICKNAME(false, 2042, "닉네임을 입력해주세요"),
+    POST_USERS_EMPTY_UNIVERSITY(false, 2050, "학교를 입력해주세요"),
+    POST_USERS_INVALID_UNIVERSITY(false, 2051, "대학교 이름 형식을 확인해주세요."),
+    POST_USERS_EMPTY_SSN(false, 2042, "학번을 입력해주세요"),
 
 
 

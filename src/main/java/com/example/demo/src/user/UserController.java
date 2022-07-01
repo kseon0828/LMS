@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import static com.example.demo.config.BaseResponseStatus.*;
 import static com.example.demo.utils.ValidationRegex.isRegexEmail;
+import static com.example.demo.utils.ValidationRegex.isRegexUniv;
 
 @RestController
 @RequestMapping("/users")
@@ -47,10 +48,20 @@ public class UserController {
         if(postUserReq.getName() == null){
             return new BaseResponse<>(POST_USERS_EMPTY_NAME);
         }
+        if(postUserReq.getUniv() == null){
+            return new BaseResponse<>(POST_USERS_EMPTY_UNIVERSITY);
+        }
+        if(postUserReq.getSsn() == null){
+            return new BaseResponse<>(POST_USERS_EMPTY_SSN);
+        }
+
 
         // 정규 표현
         if(!isRegexEmail(postUserReq.getEmail())){
             return new BaseResponse<>(POST_USERS_INVALID_EMAIL);
+        }
+        if(!isRegexUniv(postUserReq.getUniv())){
+            return new BaseResponse<>(POST_USERS_INVALID_UNIVERSITY);
         }
 
         try{

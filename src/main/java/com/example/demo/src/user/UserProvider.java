@@ -28,49 +28,6 @@ public class UserProvider {
         this.jwtService = jwtService;
     }
 
-
-    public GetUserFeedRes retrieveUserFeed(int userIdxByJwt, int userIdx) throws BaseException{
-        Boolean isMyFeed = true;
-
-        if(checkUserExist(userIdx) == 0){
-            throw new BaseException(USERS_EMPTY_USER_ID);
-        }
-
-        try{
-            if(userIdxByJwt != userIdx)
-                isMyFeed = false;
-
-            GetUserInfoRes getUserInfo = userDao.selectUserInfo(userIdx);
-            List<GetUserPostsRes> getUserPosts = userDao.selectUserPosts(userIdx);
-            GetUserFeedRes getUserFeed =new GetUserFeedRes(isMyFeed,getUserInfo,getUserPosts);
-            return getUserFeed;
-        }
-        catch (Exception exception) {
-            throw new BaseException(DATABASE_ERROR);
-        }
-    }
-
-    /*
-    public GetUserFeedRes getUsersByIdx(int userIdx) throws BaseException{
-        try{
-            GetUserFeedRes getUsersRes = userDao.getUsersByIdx(userIdx);
-            return getUsersRes;
-        }
-        catch (Exception exception) {
-            throw new BaseException(DATABASE_ERROR);
-        }
-    }
-    */
-
-
-    public int checkUserExist(int userIdx) throws BaseException{
-        try{
-            return userDao.checkUserExist(userIdx);
-        } catch (Exception exception){
-            throw new BaseException(DATABASE_ERROR);
-        }
-    }
-
     // 이메일 확인
     public int checkEmailExist(String email) throws BaseException{
         try{
