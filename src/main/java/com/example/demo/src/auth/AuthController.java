@@ -61,7 +61,26 @@ public class AuthController {
         }
     }
 
-
+ /* @ResponseBody
+    @GetMapping("/jwt")
+    public BaseResponse<GetAutoLoginRes> autologin() throws BaseException{
+        try{
+            if(jwtService.getJwt()==null){
+                return new BaseResponse<>(EMPTY_JWT);
+            }
+            else if(authProvider.checkJwt(jwtService.getJwt())==1){
+                return new BaseResponse<>(INVALID_JWT);
+            }
+            else{
+                String jwt=jwtService.getJwt();
+                int userIdx=jwtService.getUserIdx();
+                GetAutoLoginRes getAutoRes = userProvider.getAuto(jwt,userIdx);
+                return new BaseResponse<>(getAutoRes);
+            }
+        }catch(BaseException exception){
+            return new BaseResponse<>((exception.getStatus()));
+        }
+    }*/
 
 
 }

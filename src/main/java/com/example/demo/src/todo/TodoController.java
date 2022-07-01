@@ -64,7 +64,6 @@ public class TodoController {
     @PostMapping("/{date}")
     //public BaseResponse<PostTodoRes> getUserByIdx(@PathVariable("date") String date, @RequestBody PostTodoReq postTodoReq) {
     public BaseResponse<PostTodoRes> getUserByIdx(@PathVariable("date") String date, @RequestParam("todoName") String postTodoReq) {
-        System.out.println("here");
 
         try{
             SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
@@ -73,7 +72,6 @@ public class TodoController {
 
             int userIdxByJwt = jwtService.getUserIdx();
 
-            System.out.println(userIdxByJwt);
 
             PostTodoRes postTodoRes = todoService.createTodo(userIdxByJwt, formatDate, postTodoReq);
             return new BaseResponse<>(postTodoRes);
