@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Date;
 
 import static com.example.demo.config.BaseResponseStatus.DATABASE_ERROR;
 import static com.example.demo.config.BaseResponseStatus.USERS_EMPTY_USER_ID;
@@ -27,17 +28,24 @@ public class TodoProvider {
         this.jwtService = jwtService;
     }
 
-
-    public List<GetTodoRes> retrieveTodo(int day) throws BaseException {
+    //todo리스트 조회하기
+    public GetTodoListRes retrieveTodo(int userIdx, Date day) throws BaseException {
 
         try{
-            List<GetTodoRes> getTodoRes = todoDao.selectTodo(day);
-            return getTodoRes;
+            List<GetTodoRes> getTodoRes = todoDao.selectTodo(userIdx, day);
+            GetTodoListRes getTodoListRes =new GetTodoListRes(getTodoRes);
+            return getTodoListRes;
         }
         catch (Exception exception) {
             throw new BaseException(DATABASE_ERROR);
         }
     }
+
+
+
+
+
+
     public int checkUserExist(int userIdx) throws BaseException{
         try{
             return userDao.checkUserExist(userIdx);

@@ -7,6 +7,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class PostTodoReq {
-    private String todoName;
+public class PostTodoRes {
+    private int addedTodoNum;
 }
