@@ -28,12 +28,6 @@ public enum BaseResponseStatus {
     // [POST] /users
     POST_USERS_EMPTY_EMAIL(false, 2015, "이메일을 입력해주세요."),
     POST_USERS_INVALID_EMAIL(false, 2016, "이메일 형식을 확인해주세요."),
-    POST_USERS_EXISTS_EMAIL(false,2017,"중복된 이메일입니다."),
-
-
-    POST_POSTS_INVALID_CONTENTS(false, 2018, "내용의 글자수를 확인해주세요"),
-    POST_POSTS_EMPTY_IMGURL(false, 2019, "게시물의 이미지를 입력해주세요"),
-    POSTS_EMPTY_POST_ID(false, 2020, "게시물 아이디 값을 확인해주세요."),
 
     POST_USERS_EMPTY_PASSWORD(false, 2030, "비밀번호를 입력해주세요."),
     POST_USERS_INVALID_PASSWORD(false, 2031, "비밀번호 형식을 확인해주세요."),
