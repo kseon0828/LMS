@@ -63,7 +63,7 @@ public class TodoService {
     public void deleteTodo(int todoIdx) throws BaseException{
         try{
             //todoDao가 잘 실행되면 1, 아니면 0을 전달 받아 error 코드 표시
-            int result = todoDao.deletePost(todoIdx);
+            int result = todoDao.deleteTodo(todoIdx);
 
             if(result == 0){
                 throw new BaseException(DELETE_FAIL_POST);

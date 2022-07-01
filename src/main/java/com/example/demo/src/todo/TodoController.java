@@ -4,8 +4,8 @@ import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
 import com.example.demo.src.todo.model.GetTodoListRes;
 import com.example.demo.src.todo.model.GetTodoRes;
-import com.example.demo.src.todo.model.PostTodoReq;
-import com.example.demo.src.todo.model.PostTodoRes;
+import com.example.demo.src.todo.model.*;
+import com.example.demo.src.todo.*;
 import com.example.demo.utils.JwtService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +34,6 @@ public class TodoController {
         this.jwtService = jwtService;
     }
 
-
     //날짜 todo리스트 조회하기
     @ResponseBody
     @GetMapping("/{date}")
@@ -49,7 +48,6 @@ public class TodoController {
             return new BaseResponse<>((exception.getStatus()));
         }
     }
-
 
     //todo리스트 생성하기
     @ResponseBody
@@ -92,6 +90,5 @@ public class TodoController {
             return new BaseResponse<>((exception.getStatus()));
         }
     }
-
 
 }

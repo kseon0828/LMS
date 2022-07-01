@@ -29,10 +29,10 @@ public class TodoProvider {
     }
 
     //todo리스트 조회하기
-    public GetTodoListRes retrieveTodo(int userIdx, Date day) throws BaseException {
+    public GetTodoListRes retrieveTodo(int userIdx, Date date) throws BaseException {
 
         try{
-            List<GetTodoRes> getTodoRes = todoDao.selectTodo(userIdx, day);
+            List<GetTodoRes> getTodoRes = todoDao.selectTodo(userIdx, date);
             GetTodoListRes getTodoListRes =new GetTodoListRes(getTodoRes);
             return getTodoListRes;
         }
