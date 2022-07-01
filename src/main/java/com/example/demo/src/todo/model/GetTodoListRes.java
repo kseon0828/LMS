@@ -4,10 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
-public class GetTodoRes {
-    private int complete;
-    private String todoName;
+public class GetTodoListRes {
+    private List<GetTodoRes> getTodoRes;
+
+
 }

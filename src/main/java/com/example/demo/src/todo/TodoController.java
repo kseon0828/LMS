@@ -2,12 +2,18 @@ package com.example.demo.src.todo;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
+import com.example.demo.src.todo.model.GetTodoListRes;
 import com.example.demo.src.todo.model.GetTodoRes;
+import com.example.demo.src.todo.model.PostTodoReq;
+import com.example.demo.src.todo.model.PostTodoRes;
 import com.example.demo.utils.JwtService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+import java.util.List;
 
 import static com.example.demo.config.BaseResponseStatus.*;
 
@@ -31,13 +37,13 @@ public class TodoController {
 
     //날짜 todo리스트 조회하기
     @ResponseBody
-    @GetMapping("/{day}")
-    public BaseResponse<GetTodoRes> getTodoList(@PathVariable("day")int day) {
+    @GetMapping("/{date}")
+    public BaseResponse<GetTodoListRes> getTodoList(@PathVariable("date") Date date) {
 
         try{
             int userIdxByJwt = jwtService.getUserIdx();
 
-            GetTodoReq getTodoRes = todoProvider.retrieveTodo(day);
+            GetTodoListRes getTodoRes = todoProvider.retrieveTodo(userIdxByJwt, date);
             return new BaseResponse<>(getTodoRes);
         } catch(BaseException exception){
             return new BaseResponse<>((exception.getStatus()));
@@ -45,50 +51,47 @@ public class TodoController {
     }
 
 
+    //todo리스트 생성하기
     @ResponseBody
-    @GetMapping("/{userIdx}/X") // (GET) 127.0.0.1:9000/users/:userIdx
-    public BaseResponse<GetUserFeedRes> getUserByIdx(@PathVariable("userIdx")int userIdx) {
+    @PostMapping("/{date}") // (GET) 127.0.0.1:9000/users/:userIdx
+    public BaseResponse<PostTodoRes> getUserByIdx(@PathVariable("date") Date date, @RequestBody PostTodoReq postTodoReq) {
         try{
+            int userIdxByJwt = jwtService.getUserIdx();
 
-            GetUserFeedRes getUsersRes = userProvider.retrieveUserFeed(userIdx, userIdx);
-            return new BaseResponse<>(getUsersRes);
+            PostTodoRes postTodoRes = todoService.createTodo(userIdxByJwt, date, postTodoReq);
+            return new BaseResponse<>(postTodoRes);
         } catch(BaseException exception){
             return new BaseResponse<>((exception.getStatus()));
         }
     }
 
-    // 회원 가입
+    //todo리스트 수정하기
     @ResponseBody
-    @PostMapping("")
-    public BaseResponse<PostUserRes> createUser(@RequestBody PostUserReq postUserReq) {
-        if(postUserReq.getEmail() == null){
-            return new BaseResponse<>(POST_USERS_EMPTY_EMAIL);
-        }
-        if(postUserReq.getPwd() == null){
-            return new BaseResponse<>(POST_USERS_EMPTY_PASSWORD);
-        }
-        if(postUserReq.getName() == null){
-            return new BaseResponse<>(POST_USERS_EMPTY_NAME);
-        }
-
-        if(postUserReq.getBirth() == null){
-            return new BaseResponse<>(POST_USERS_EMPTY_BIRTHDAY);
-        }
-        if(postUserReq.getNickName() == null){
-            return new BaseResponse<>(POST_USERS_EMPTY_NICKNAME);
-        }
-
-        // 정규 표현
-        if(!isRegexEmail(postUserReq.getEmail())){
-            return new BaseResponse<>(POST_USERS_INVALID_EMAIL);
-        }
-
+    @PatchMapping("/{todoIdx}")
+    public BaseResponse<String> modifyTodo(@PathVariable ("todoIdx") int todoIdx, @RequestBody PostTodoReq postTodoReq) {
         try{
-            PostUserRes postUserRes = userService.createUser(postUserReq);
-            return new BaseResponse<>(postUserRes);
+            int userIdxByJwt = jwtService.getUserIdx();
+
+            todoService.modifyTodo(userIdxByJwt, todoIdx, postTodoReq);
+            String result = " To Do List 수정을 완료하였습니다.";
+            return new BaseResponse<>(result);
         } catch(BaseException exception){
             return new BaseResponse<>((exception.getStatus()));
         }
     }
+
+    //todo리스트 삭제
+    @ResponseBody
+    @PatchMapping("/{todoIdx}/status")
+    public BaseResponse<String> deleteTodo(@PathVariable ("todoIdx") int todoIdx) {
+        try{
+            todoService.deleteTodo(todoIdx);
+            String result = "To Do List 삭제를 성공했습니다.";
+            return new BaseResponse<>(result);
+        } catch(BaseException exception){
+            return new BaseResponse<>((exception.getStatus()));
+        }
+    }
+
 
 }
