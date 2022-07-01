@@ -48,6 +48,7 @@ public class TodoController {
             Date formatDate = dtFormat.parse(date);
 
             int userIdxByJwt = jwtService.getUserIdx();
+            System.out.println();
 
             GetTodoListRes getTodoRes = todoProvider.retrieveTodo(userIdxByJwt, formatDate);
             return new BaseResponse<>(getTodoRes);
@@ -60,15 +61,19 @@ public class TodoController {
 
     //todo리스트 생성하기
     @ResponseBody
-    @PostMapping("/{date}") // (GET) 127.0.0.1:9000/users/:userIdx
-    public BaseResponse<PostTodoRes> getUserByIdx(@PathVariable("date") String date, @RequestBody PostTodoReq postTodoReq) {
+    @PostMapping("/{date}")
+    //public BaseResponse<PostTodoRes> getUserByIdx(@PathVariable("date") String date, @RequestBody PostTodoReq postTodoReq) {
+    public BaseResponse<PostTodoRes> getUserByIdx(@PathVariable("date") String date, @RequestParam("todoName") String postTodoReq) {
+        System.out.println("here");
+
         try{
             SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
-            SimpleDateFormat newDtFormat = new SimpleDateFormat("yyyy-MM-dd");
             // String 타입을 Date 타입으로 변환
             Date formatDate = dtFormat.parse(date);
 
             int userIdxByJwt = jwtService.getUserIdx();
+
+            System.out.println(userIdxByJwt);
 
             PostTodoRes postTodoRes = todoService.createTodo(userIdxByJwt, formatDate, postTodoReq);
             return new BaseResponse<>(postTodoRes);

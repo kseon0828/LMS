@@ -54,7 +54,8 @@ public class UserService {
             //jwt 발급.
             String jwt = jwtService.createJwt(userIdx);
             return new PostUserRes(jwt,userIdx);
-        } catch (Exception exception) {
+        }
+        catch (Exception exception) {
             //throw new BaseException(DATABASE_ERROR);
             throw new BaseException(jwt_ERROR);
         }
