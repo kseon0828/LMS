@@ -34,31 +34,6 @@ public class UserController {
     }
 
 
-
-    @ResponseBody
-    @GetMapping("/{userIdx}")
-    public BaseResponse<GetUserFeedRes> getUserFeed(@PathVariable("userIdx")int userIdx) {
-        try{
-            GetUserFeedRes getUserFeedRes = userProvider.retrieveUserFeed(userIdx, userIdx);
-            return new BaseResponse<>(getUserFeedRes);
-        } catch(BaseException exception){
-            return new BaseResponse<>((exception.getStatus()));
-        }
-    }
-
-
-    @ResponseBody
-    @GetMapping("/{userIdx}/X") // (GET) 127.0.0.1:9000/users/:userIdx
-    public BaseResponse<GetUserFeedRes> getUserByIdx(@PathVariable("userIdx")int userIdx) {
-        try{
-
-            GetUserFeedRes getUsersRes = userProvider.retrieveUserFeed(userIdx, userIdx);
-            return new BaseResponse<>(getUsersRes);
-        } catch(BaseException exception){
-            return new BaseResponse<>((exception.getStatus()));
-        }
-    }
-
     // 회원 가입
     @ResponseBody
     @PostMapping("")
@@ -71,13 +46,6 @@ public class UserController {
         }
         if(postUserReq.getName() == null){
             return new BaseResponse<>(POST_USERS_EMPTY_NAME);
-        }
-
-        if(postUserReq.getBirth() == null){
-            return new BaseResponse<>(POST_USERS_EMPTY_BIRTHDAY);
-        }
-        if(postUserReq.getNickName() == null){
-            return new BaseResponse<>(POST_USERS_EMPTY_NICKNAME);
         }
 
         // 정규 표현

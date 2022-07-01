@@ -33,11 +33,12 @@ public class TodoController {
     @ResponseBody
     @GetMapping("/{day}")
     public BaseResponse<GetTodoRes> getTodoList(@PathVariable("day")int day) {
-        int userIdxByJwt = jwtService.getUserIdx();
 
         try{
-            GetTodoReq getTodoReq = todoProvider.retrieveUserFeed(day);
-            return new BaseResponse<>(getTodoReq);
+            int userIdxByJwt = jwtService.getUserIdx();
+
+            GetTodoReq getTodoRes = todoProvider.retrieveTodo(day);
+            return new BaseResponse<>(getTodoRes);
         } catch(BaseException exception){
             return new BaseResponse<>((exception.getStatus()));
         }

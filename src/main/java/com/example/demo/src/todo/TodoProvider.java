@@ -28,16 +28,11 @@ public class TodoProvider {
     }
 
 
-    public GetTodoRes retrieveUserFeed(int day) throws BaseException {
+    public List<GetTodoRes> retrieveTodo(int day) throws BaseException {
 
         try{
-            if(userIdxByJwt != userIdx)
-                isMyFeed = false;
-
-            GetUserInfoRes getUserInfo = userDao.selectUserInfo(userIdx);
-            List<GetUserPostsRes> getUserPosts = userDao.selectUserPosts(userIdx);
-            GetUserFeedRes getUserFeed =new GetUserFeedRes(isMyFeed,getUserInfo,getUserPosts);
-            return getUserFeed;
+            List<GetTodoRes> getTodoRes = todoDao.selectTodo(day);
+            return getTodoRes;
         }
         catch (Exception exception) {
             throw new BaseException(DATABASE_ERROR);
