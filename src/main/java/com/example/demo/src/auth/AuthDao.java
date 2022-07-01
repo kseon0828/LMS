@@ -3,14 +3,11 @@ package com.example.demo.src.auth;
 
 import com.example.demo.src.auth.model.PostLoginReq;
 import com.example.demo.src.auth.model.User;
-import com.example.demo.src.user.model.GetUserInfoRes;
-import com.example.demo.src.user.model.GetUserPostsRes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
-import java.util.List;
 
 @Repository
 public class AuthDao {

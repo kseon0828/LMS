@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class GetTodoRes {
+public class PatchTodoReq {
     private boolean complete;
     private String todoName;
 }

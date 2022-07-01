@@ -2,10 +2,8 @@ package com.example.demo.src.todo;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
-import com.example.demo.src.todo.model.GetTodoReq;
 import com.example.demo.src.todo.model.GetTodoRes;
 import com.example.demo.utils.JwtService;
-import com.example.demo.src.todo.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
