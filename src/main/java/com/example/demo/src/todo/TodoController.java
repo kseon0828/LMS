@@ -10,8 +10,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static com.example.demo.config.BaseResponseStatus.*;
 
@@ -35,29 +39,43 @@ public class TodoController {
     //날짜 todo리스트 조회하기
     @ResponseBody
     @GetMapping("/{date}")
-    public BaseResponse<GetTodoListRes> getTodoList(@PathVariable("date") Date date) {
+    public BaseResponse<GetTodoListRes> getTodoList(@PathVariable("date") String date) {
 
         try{
+            SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
+            SimpleDateFormat newDtFormat = new SimpleDateFormat("yyyy-MM-dd");
+            // String 타입을 Date 타입으로 변환
+            Date formatDate = dtFormat.parse(date);
+
             int userIdxByJwt = jwtService.getUserIdx();
 
-            GetTodoListRes getTodoRes = todoProvider.retrieveTodo(userIdxByJwt, date);
+            GetTodoListRes getTodoRes = todoProvider.retrieveTodo(userIdxByJwt, formatDate);
             return new BaseResponse<>(getTodoRes);
         } catch(BaseException exception){
             return new BaseResponse<>((exception.getStatus()));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
         }
     }
 
     //todo리스트 생성하기
     @ResponseBody
     @PostMapping("/{date}") // (GET) 127.0.0.1:9000/users/:userIdx
-    public BaseResponse<PostTodoRes> getUserByIdx(@PathVariable("date") Date date, @RequestBody PostTodoReq postTodoReq) {
+    public BaseResponse<PostTodoRes> getUserByIdx(@PathVariable("date") String date, @RequestBody PostTodoReq postTodoReq) {
         try{
+            SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
+            SimpleDateFormat newDtFormat = new SimpleDateFormat("yyyy-MM-dd");
+            // String 타입을 Date 타입으로 변환
+            Date formatDate = dtFormat.parse(date);
+
             int userIdxByJwt = jwtService.getUserIdx();
 
-            PostTodoRes postTodoRes = todoService.createTodo(userIdxByJwt, date, postTodoReq);
+            PostTodoRes postTodoRes = todoService.createTodo(userIdxByJwt, formatDate, postTodoReq);
             return new BaseResponse<>(postTodoRes);
         } catch(BaseException exception){
             return new BaseResponse<>((exception.getStatus()));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
         }
     }
 
