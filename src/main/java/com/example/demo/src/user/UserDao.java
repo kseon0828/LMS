@@ -48,7 +48,7 @@ public class UserDao {
 
     // 이메일 확인
     public int checkEmailExist(String email){
-        String checkEmailQuery = "select exists(select email from User where email = ?)";
+        String checkEmailQuery = "select exists(select userEmail from User where userEmail = ?)";
         String checkEmailParams = email;
         return this.jdbcTemplate.queryForObject(checkEmailQuery,
                 int.class,
