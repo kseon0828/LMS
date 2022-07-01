@@ -36,7 +36,7 @@ public class UserDao {
         String selectUserUnivParams=postUserReq.getUniv();
         int univIdx = this.jdbcTemplate.queryForObject(selectUserUnivQuery, Integer.class, selectUserUnivParams);
 
-        String insertUserQuery = "insert into User (univIdx, userSsn, userName, userEmail, password) VALUES (?,?,?,?,?)";
+        String insertUserQuery = "insert into user (univIdx, userSsn, userName, userEmail, password) VALUES (?,?,?,?,?)";
         Object[] insertUserParams = new Object[]{univIdx, postUserReq.getSsn(), postUserReq.getName(), postUserReq.getEmail(),postUserReq.getPwd()};
         this.jdbcTemplate.update(insertUserQuery, insertUserParams);
 
@@ -48,11 +48,9 @@ public class UserDao {
 
     // 이메일 확인
     public int checkEmailExist(String email){
-        String checkEmailQuery = "select exists(select userEmail from User where userEmail = ?)";
+        String checkEmailQuery = "select exists(select userEmail from user where userEmail = ?)";
         String checkEmailParams = email;
-        return this.jdbcTemplate.queryForObject(checkEmailQuery,
-                int.class,
-                checkEmailParams);
+        return this.jdbcTemplate.queryForObject(checkEmailQuery, int.class, checkEmailParams);
 
     }
 
