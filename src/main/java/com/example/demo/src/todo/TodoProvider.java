@@ -41,29 +41,5 @@ public class TodoProvider {
         }
     }
 
-
-
-
-
-
-    public int checkUserExist(int userIdx) throws BaseException{
-        try{
-            return userDao.checkUserExist(userIdx);
-        } catch (Exception exception){
-            throw new BaseException(DATABASE_ERROR);
-        }
-    }
-
-    // 이메일 확인
-    public int checkEmailExist(String email) throws BaseException{
-        try{
-            return userDao.checkEmailExist(email);
-        } catch (Exception exception){
-            throw new BaseException(DATABASE_ERROR);
-        }
-    }
-
-
-
 }
 

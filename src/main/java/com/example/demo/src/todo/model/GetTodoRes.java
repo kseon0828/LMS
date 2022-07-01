@@ -8,6 +8,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class GetTodoRes {
-    private boolean complete;
+    private int complete;
     private String todoName;
 }

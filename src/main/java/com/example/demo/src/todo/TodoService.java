@@ -44,4 +44,34 @@ public class TodoService {
         }
     }
 
+    // todo리스트 수정
+    public void modifyTodo(int userIdx, int todoIdx, PostTodoReq postTodoReq) throws BaseException {
+
+        try{
+            //todoDao가 잘 실행되면 1, 아니면 0을 전달 받아 error 코드 표시
+            int result = todoDao.updateTodo(userIdx, todoIdx, postTodoReq.getTodoName());
+
+            if(result == 0){
+                throw new BaseException(MODIFY_FAIL_POST);
+            }
+        } catch (Exception exception) {
+            throw new BaseException(DATABASE_ERROR);
+        }
+    }
+
+    //todo리스트 삭제
+    public void deleteTodo(int todoIdx) throws BaseException{
+        try{
+            //todoDao가 잘 실행되면 1, 아니면 0을 전달 받아 error 코드 표시
+            int result = todoDao.deletePost(todoIdx);
+
+            if(result == 0){
+                throw new BaseException(DELETE_FAIL_POST);
+            }
+        }
+        catch (Exception exception) {
+            throw new BaseException(DATABASE_ERROR);
+        }
+    }
+
 }

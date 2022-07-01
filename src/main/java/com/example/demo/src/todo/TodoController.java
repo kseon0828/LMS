@@ -65,6 +65,33 @@ public class TodoController {
         }
     }
 
-    //
+    //todo리스트 수정하기
+    @ResponseBody
+    @PatchMapping("/{todoIdx}")
+    public BaseResponse<String> modifyTodo(@PathVariable ("todoIdx") int todoIdx, @RequestBody PostTodoReq postTodoReq) {
+        try{
+            int userIdxByJwt = jwtService.getUserIdx();
+
+            todoService.modifyTodo(userIdxByJwt, todoIdx, postTodoReq);
+            String result = " To Do List 수정을 완료하였습니다.";
+            return new BaseResponse<>(result);
+        } catch(BaseException exception){
+            return new BaseResponse<>((exception.getStatus()));
+        }
+    }
+
+    //todo리스트 삭제
+    @ResponseBody
+    @PatchMapping("/{todoIdx}/status")
+    public BaseResponse<String> deleteTodo(@PathVariable ("todoIdx") int todoIdx) {
+        try{
+            todoService.deleteTodo(todoIdx);
+            String result = "To Do List 삭제를 성공했습니다.";
+            return new BaseResponse<>(result);
+        } catch(BaseException exception){
+            return new BaseResponse<>((exception.getStatus()));
+        }
+    }
+
 
 }
