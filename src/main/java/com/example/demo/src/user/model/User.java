@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class User {
     private int userIdx;
-    private int univ;
+    private String univ;
     private String name;
     private String ssn;
     private String email;
