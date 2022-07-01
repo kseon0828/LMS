@@ -2,8 +2,6 @@ package com.example.demo.src.todo;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
-import com.example.demo.src.todo.model.GetTodoListRes;
-import com.example.demo.src.todo.model.GetTodoRes;
 import com.example.demo.src.todo.model.*;
 import com.example.demo.src.todo.*;
 import com.example.demo.utils.JwtService;
