@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="42597fe0-11f1-4a50-9095-8ddb5276398b" name="Changes" comment="Add Android project" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="28pTucyXcfM4GdUcnUNja0WqWV7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/seongyeongkim/gitProjects/LMS_hackathon",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "spring.configuration.checksum": "9de0862494cc3aa211be7c76dc6b547b"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\seongyeongkim\gitProjects\LMS_hackarton\src\main\java\com\example\demo\src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.demo.src.todo.model" />
+      <recent name="com.example.demo.src.auth.model" />
+      <recent name="com.example.demo.src.auth" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="LMS_hackathon" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="LMS_hackathon" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="demo.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.demo.DemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="42597fe0-11f1-4a50-9095-8ddb5276398b" name="Changes" comment="" />
+      <created>1651912750506</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1651912750506</updated>
+      <workItem from="1651912751807" duration="602000" />
+      <workItem from="1651913388396" duration="26000" />
+      <workItem from="1651932770656" duration="412000" />
+      <workItem from="1651933298096" duration="3489000" />
+      <workItem from="1652063873459" duration="17474000" />
+      <workItem from="1652155014804" duration="15000" />
+      <workItem from="1652486239889" duration="14000" />
+      <workItem from="1652663367488" duration="22142000" />
+      <workItem from="1652765654148" duration="1753000" />
+      <workItem from="1652800312443" duration="1234000" />
+      <workItem from="1653362365229" duration="170000" />
+      <workItem from="1653718985631" duration="48000" />
+      <workItem from="1653786300147" duration="599000" />
+      <workItem from="1655773816820" duration="860000" />
+      <workItem from="1656487073573" duration="801000" />
+      <workItem from="1656553812799" duration="1188000" />
+      <workItem from="1656576563888" duration="948000" />
+      <workItem from="1656647459333" duration="661000" />
+      <workItem from="1656648686211" duration="27662000" />
+      <workItem from="1656731786533" duration="1031000" />
+      <workItem from="1656734280232" duration="155000" />
+      <workItem from="1656734454948" duration="35000" />
+      <workItem from="1656734563182" duration="327000" />
+    </task>
+    <task id="LOCAL-00001" summary="todo controller, provider, service, dao, model&#10;first add">
+      <created>1656655802592</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1656655802592</updated>
+    </task>
+    <task id="LOCAL-00002" summary="User 도메인 수정 필요">
+      <created>1656658464867</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656658464867</updated>
+    </task>
+    <task id="LOCAL-00003" summary="&lt;todo&gt; get, post method // controller, provider, service 진행완료">
+      <created>1656663245645</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1656663245645</updated>
+    </task>
+    <task id="LOCAL-00004" summary="&lt;todo&gt; patch(수정, 삭제) method // controller, provider, service 진행완료">
+      <created>1656665416341</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1656665416341</updated>
+    </task>
+    <task id="LOCAL-00005" summary="&lt;todo&gt; all 진행완료">
+      <created>1656668421255</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1656668421256</updated>
+    </task>
+    <task id="LOCAL-00006" summary="&lt;todo&gt; 에러수정1">
+      <created>1656673228445</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1656673228445</updated>
+    </task>
+    <task id="LOCAL-00007" summary="&lt;todo&gt; 에러수정2">
+      <created>1656674227922</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1656674227922</updated>
+    </task>
+    <task id="LOCAL-00008" summary="&lt;todo&gt; 로컬 배포 성공">
+      <created>1656679373117</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1656679373117</updated>
+    </task>
+    <task id="LOCAL-00009" summary="&lt;todo&gt; 로컬 배포 성공 수정본">
+      <created>1656680795341</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1656680795341</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add Android project">
+      <created>1656734617697</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1656734617697</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="todo controller, provider, service, dao, model&#10;first add" />
+    <MESSAGE value="User 도메인 수정 필요" />
+    <MESSAGE value="&lt;todo&gt; get, post method // controller, provider, service 진행완료" />
+    <MESSAGE value="&lt;todo&gt; patch(수정, 삭제) method // controller, provider, service 진행완료" />
+    <MESSAGE value="&lt;todo&gt; all 진행완료" />
+    <MESSAGE value="&lt;todo&gt; 에러수정1" />
+    <MESSAGE value="&lt;todo&gt; 에러수정2" />
+    <MESSAGE value="&lt;todo&gt; 로컬 배포 성공" />
+    <MESSAGE value="&lt;todo&gt; 로컬 배포 성공 수정본" />
+    <MESSAGE value="Add Android project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Android project" />
+  </component>
+</project>
