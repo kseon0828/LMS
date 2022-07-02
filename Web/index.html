@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset = "UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+  <link rel = "stylesheet" href="style.css">
+  <title>Calendar</title>
+</head>
+<body>
+  <div class = "calendar">
+    <div class = "header">
+      <div class = "year-month"></div>
+      <div class = "nav">
+        <button class = "nav-btn go-prev" onclick="prevMonth()">&lt;</button>
+        <button class = "nav-btn go-today" onclick="goToday()">Today</button>
+        <button class = "nav-btn go-next" onclick="nextMonth()">&gt;</button>
+      </div>
+    </div>
+    <div class = "main">
+      <div class = "days">
+        <div class = "day">일</div>
+        <div class = "day">월</div>
+        <div class = "day">화</div>
+        <div class = "day">수</div>
+        <div class = "day">목</div>
+        <div class = "day">금</div>
+        <div class = "day">토</div>
+      </div>
+      <div class = "dates"></div>  
+    </div>
+  </div>
+  <div class="schedules">
+    <div class="report-wrapper">
+      <div class="report-title">과제</div>
+      <div class="report-box">
+        <div class="report-input-box">
+          <input type="text" class="report-input" placeholder="과제를 입력하세요.">
+        </div>
+        <ul class="report-list">과제가 없습니다 :)</ul> <!-- 과제를 받아서 여기에 추가--> 
+      </div>
+    </div>
+    <div class="todo-wrapper">
+      <div class="todo-title">Todo List</div>
+      <div class="todo-box">
+        <div class="todo-input-box">
+          <button class="complete-all-btn">✔</button>
+          <input type="text" class="todo-input" placeholder="해야 할 일을 입력해주세요.">
+        </div>
+        <ul class="todo-list">
+        </ul>
+        <div class="todo-bottom">
+          <div class="left-items">3 items left</div>
+          <div class="button-group">
+            <button class="show-all-btn selected" data-type="all">All</button>
+            <button class="show-active-btn" data-type="active">Active</button>
+            <button class="show-completed-btn" data-type="completed">Completed</button>
+          </div>
+          <button class="clear-completed-btn">Clear Completed</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src = "index.js"></script>
+</body>
+</html>
