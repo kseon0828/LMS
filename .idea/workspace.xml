@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42597fe0-11f1-4a50-9095-8ddb5276398b" name="Changes" comment="&lt;todo&gt; 로컬 배포 성공 수정본">
-      <change beforePath="$PROJECT_DIR$/android/LMS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_spring/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server_spring/.idea/vcs.xml" afterDir="false" />
-    </list>
+    <list default="true" id="42597fe0-11f1-4a50-9095-8ddb5276398b" name="Changes" comment="Add Android project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,21 +33,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/seongyeongkim/gitProjects&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;9de0862494cc3aa211be7c76dc6b547b&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/seongyeongkim/gitProjects/LMS_hackathon",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "spring.configuration.checksum": "9de0862494cc3aa211be7c76dc6b547b"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\seongyeongkim\gitProjects\LMS_hackarton\src\main\java\com\example\demo\src" />
@@ -113,6 +110,7 @@
       <workItem from="1656731786533" duration="1031000" />
       <workItem from="1656734280232" duration="155000" />
       <workItem from="1656734454948" duration="35000" />
+      <workItem from="1656734563182" duration="327000" />
     </task>
     <task id="LOCAL-00001" summary="todo controller, provider, service, dao, model&#10;first add">
       <created>1656655802592</created>
@@ -177,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656680795341</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add Android project">
+      <created>1656734617697</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1656734617697</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +209,7 @@
     <MESSAGE value="&lt;todo&gt; 에러수정2" />
     <MESSAGE value="&lt;todo&gt; 로컬 배포 성공" />
     <MESSAGE value="&lt;todo&gt; 로컬 배포 성공 수정본" />
-    <option name="LAST_COMMIT_MESSAGE" value="&lt;todo&gt; 로컬 배포 성공 수정본" />
+    <MESSAGE value="Add Android project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Android project" />
   </component>
 </project>
