@@ -85,7 +85,8 @@ public class TodoController {
     //todo리스트 수정하기
     @ResponseBody
     @PatchMapping("/{todoIdx}")
-    public BaseResponse<String> modifyTodo(@PathVariable ("todoIdx") int todoIdx, @RequestBody PostTodoReq postTodoReq) {
+    public BaseResponse<String> modifyTodo(@PathVariable("todoIdx") int todoIdx, @RequestParam("todoName") PostTodoReq postTodoReq) {
+    //public BaseResponse<String> modifyTodo(@PathVariable ("todoIdx") int todoIdx, @RequestBody PostTodoReq postTodoReq) {
         try{
             int userIdxByJwt = jwtService.getUserIdx();
 
