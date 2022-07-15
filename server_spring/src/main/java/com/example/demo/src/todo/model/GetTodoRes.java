@@ -10,4 +10,5 @@ import lombok.Setter;
 public class GetTodoRes {
     private int complete;
     private String todoName;
+    private String date;
 }
