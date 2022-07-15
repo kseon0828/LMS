@@ -34,6 +34,7 @@ public class TodoDao {
     }
 
 
+
     //생성
     public int insertTodo(int userIdx, Date date, String todoName){
         String insertTodoQuery = "INSERT into todoList(userIdx, date, complete, todoName) VALUES(?, ?, 0, ?)";
