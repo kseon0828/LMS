@@ -9,5 +9,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class GetTaskRes {
     private int complete;
-    private String todoName;
+    private String taskName;
 }

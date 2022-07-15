@@ -9,5 +9,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class PatchTaskReq {
     private boolean complete;
-    private String todoName;
+    private String taskName;
 }

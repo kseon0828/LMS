@@ -8,5 +8,5 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class PostTaskReq {
-    private String todoName;
+    private String taskName;
 }

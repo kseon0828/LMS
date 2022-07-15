@@ -15,18 +15,18 @@ import static com.example.demo.config.BaseResponseStatus.*;
 
 // Service Create, Update, Delete 의 로직 처리
 @Service
-public class TodoService {
+public class TaskService {
     final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private final TodoDao todoDao;
-    private final TodoProvider todoProvider;
+    private final TaskDao todoDao;
+    private final TaskProvider taskProvider;
     private final JwtService jwtService;
 
 
     @Autowired
-    public TodoService(TodoDao todoDao, TodoProvider todoProvider, JwtService jwtService) {
+    public TaskService(TaskDao todoDao, TaskProvider taskProvider, JwtService jwtService) {
         this.todoDao = todoDao;
-        this.todoProvider = todoProvider;
+        this.taskProvider = taskProvider;
         this.jwtService = jwtService;
 
     }

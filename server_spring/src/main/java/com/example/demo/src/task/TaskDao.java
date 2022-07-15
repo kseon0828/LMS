@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 @Repository
-public class TodoDao {
+public class TaskDao {
 
     private JdbcTemplate jdbcTemplate;
 

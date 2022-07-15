@@ -16,19 +16,19 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @RestController
-@RequestMapping("/todo")
-public class TodoController {
-    private final TodoProvider todoProvider;
-    private final TodoService todoService;
+@RequestMapping("/task")
+public class TaskController {
+    private final TaskProvider taskProvider;
+    private final TaskService taskService;
     private final JwtService jwtService;
 
 
     final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    public TodoController(TodoProvider todoProvider, TodoService todoService, JwtService jwtService) {
-        this.todoProvider = todoProvider;
-        this.todoService = todoService;
+    public TaskController(TaskProvider taskProvider, TaskService taskService, JwtService jwtService) {
+        this.taskProvider = taskProvider;
+        this.taskService = taskService;
         this.jwtService = jwtService;
     }
 

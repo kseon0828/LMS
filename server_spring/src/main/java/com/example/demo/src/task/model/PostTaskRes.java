@@ -8,5 +8,5 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class PostTaskRes {
-    private int addedTodoNum;
+    private int addedTaskNum;
 }

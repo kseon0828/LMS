@@ -11,6 +11,4 @@ import java.util.List;
 @AllArgsConstructor
 public class GetTaskListRes {
     private List<GetTaskRes> getTaskRes;
-
-
 }

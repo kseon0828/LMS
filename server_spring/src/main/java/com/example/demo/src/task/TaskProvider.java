@@ -15,15 +15,15 @@ import java.util.List;
 import static com.example.demo.config.BaseResponseStatus.DATABASE_ERROR;
 
 @Service
-public class TodoProvider {
-    private final TodoDao todoDao;
+public class TaskProvider {
+    private final TaskDao todoDao;
     private final JwtService jwtService;
 
 
     final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    public TodoProvider(TodoDao todoDao, JwtService jwtService) {
+    public TaskProvider(TaskDao todoDao, JwtService jwtService) {
         this.todoDao = todoDao;
         this.jwtService = jwtService;
     }
