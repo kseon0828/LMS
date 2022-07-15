@@ -72,7 +72,6 @@ public class TodoController {
 
             int userIdxByJwt = jwtService.getUserIdx();
 
-
             PostTodoRes postTodoRes = todoService.createTodo(userIdxByJwt, formatDate, postTodoReq);
             return new BaseResponse<>(postTodoRes);
         } catch(BaseException exception){
