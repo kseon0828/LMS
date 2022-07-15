@@ -1,5 +1,6 @@
 package com.example.demo.src.task;
 
+import com.example.demo.src.task.model.GetTaskRes;
 import com.example.demo.src.todo.model.GetTodoRes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,23 +21,46 @@ public class TaskDao {
     }
 
     //조회
-    public List<GetTodoRes> selectTodo(int userIdx, Date date){
-        String selectTodoQuery = "SELECT complete, todoName \n" +
-                "FROM todoList \n" +
-                "WHERE todoList.userIdx = ? and todoList.date = ? ";
-        Object[] selectTodoParam = new Object[]{userIdx, date};
-        return this.jdbcTemplate.query(selectTodoQuery,
-                (rs, rowNum) -> new GetTodoRes(
+    public List<GetTaskRes> selectTask(int userIdx, Date date){
+        String selectTaskQuery = "SELECT complete, taskName \n" +
+                "FROM task \n" +
+                "WHERE task.userIdx = ? and ? between task.startDate ands task.endDate";
+        Object[] selectTaskParam = new Object[]{userIdx, date};
+        return this.jdbcTemplate.query(selectTaskQuery,
+                (rs, rowNum) -> new GetTaskRes(
                         rs.getInt("complete"),
                         rs.getString("todoName")
-                ), selectTodoParam);
+                ), selectTaskParam);
     }
 
     //생성
-    public int insertTodo(int userIdx, Date date, String todoName){
-        String insertTodoQuery = "INSERT into todoList(userIdx, date, complete, todoName) VALUES(?, ?, 0, ?)";
-        Object[] insertTodoParams = new Object[]{userIdx, date, todoName};
-        this.jdbcTemplate.update(insertTodoQuery, insertTodoParams);
+    public int insertTask(int userIdx, String className, Date sDate, Date eDate, Date eTime, String taskName){
+
+        String checkClassQuery = "select exists(select className from class where className = ?)";
+        String checkClassParams = className;
+        int check =  this.jdbcTemplate.queryForObject(checkClassQuery, int.class, checkClassParams);
+
+
+        if(check == 0) {
+            String selectUnivIdQuery = "select univIdx from user where userIdx = ?";
+            int selectUnivIdParams= userIdx;
+            int univIdx = this.jdbcTemplate.queryForObject(selectUnivIdQuery, Integer.class, selectUnivIdParams);
+
+
+            String insertClassQuery = "insert into class (univIdx, className) VALUES (?, ?)";
+            Object[] insertClassParams = new Object[]{univIdx, checkClassParams};
+            this.jdbcTemplate.update(insertClassQuery, insertClassParams);
+        }
+
+        String selectClassQuery = "select classIdx from class where className = ?";
+        String selectClassParams= className;
+        int classIdx = this.jdbcTemplate.queryForObject(selectClassQuery, Integer.class, selectClassParams);
+
+
+        String insertTaskQuery = "INSERT into task(userIdx, classIdx, startDate, endDate, endTime, complete, taskName) \n" +
+                " VALUES(?, ?, ?, ?, ?, 0, ?)";
+        Object[] insertTaskParams = new Object[]{userIdx, classIdx, sDate, eDate, eTime, taskName};
+        this.jdbcTemplate.update(insertTaskQuery, insertTaskParams);
 
         String lastInsertIdQuery = "select last_insert_id()";
 
@@ -44,17 +68,18 @@ public class TaskDao {
     }
 
     //수정
-    public int updateTodo(int userIdx, int todoIdx, String todoName){
-        String updateQuery = "UPDATE todoList SET todoName = ? WHERE userIdx = ? and todoIdx = ?" ;
-        Object[] updateParams = new Object[]{todoName, userIdx, todoIdx};
+    public int updateTask(int userIdx, int taskIdx, Date sDate, Date eDate, Date eTime, String taskName){
+        String updateQuery = "UPDATE task SET taskName = ?, startDate = ?, endDate = ?, endTime = ? \n" +
+                " WHERE userIdx = ? and taskIdx = ?";
+        Object[] updateParams = new Object[]{taskName, sDate, eDate, eTime, userIdx, taskIdx};
 
         return this.jdbcTemplate.update(updateQuery,updateParams);
     }
 
     //삭제
-    public int deleteTodo (int todoIdx){
-        String deleteQuery = "UPDATE todoList SET status = 'INACTIVE' WHERE todoIdx = ?";
-        Object[] deleteParams = new Object[] {todoIdx};
+    public int deleteTask (int taskIdx){
+        String deleteQuery = "UPDATE task SET status = 'INACTIVE' WHERE taskIdx = ?";
+        Object[] deleteParams = new Object[] {taskIdx};
 
         return this.jdbcTemplate.update(deleteQuery,deleteParams);
     }

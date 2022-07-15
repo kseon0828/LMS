@@ -1,6 +1,8 @@
 package com.example.demo.src.task;
 
 import com.example.demo.config.BaseException;
+import com.example.demo.src.task.model.GetTaskListRes;
+import com.example.demo.src.task.model.GetTaskRes;
 import com.example.demo.src.todo.model.GetTodoListRes;
 import com.example.demo.src.todo.model.GetTodoRes;
 import com.example.demo.utils.JwtService;
@@ -16,25 +18,25 @@ import static com.example.demo.config.BaseResponseStatus.DATABASE_ERROR;
 
 @Service
 public class TaskProvider {
-    private final TaskDao todoDao;
+    private final TaskDao taskDao;
     private final JwtService jwtService;
 
 
     final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    public TaskProvider(TaskDao todoDao, JwtService jwtService) {
-        this.todoDao = todoDao;
+    public TaskProvider(TaskDao taskDao, JwtService jwtService) {
+        this.taskDao = taskDao;
         this.jwtService = jwtService;
     }
 
-    //todo리스트 조회하기
-    public GetTodoListRes retrieveTodo(int userIdx, Date date) throws BaseException {
+    //task리스트 조회하기
+    public GetTaskListRes retrieveTask(int userIdx, Date date) throws BaseException {
 
         try{
-            List<GetTodoRes> getTodoRes = todoDao.selectTodo(userIdx, date);
-            GetTodoListRes getTodoListRes =new GetTodoListRes(getTodoRes);
-            return getTodoListRes;
+            List<GetTaskRes> getTaskRes = taskDao.selectTask(userIdx, date);
+            GetTaskListRes getTaskListRes =new GetTaskListRes(getTaskRes);
+            return getTaskListRes;
         }
         catch (Exception exception) {
             throw new BaseException(DATABASE_ERROR);
