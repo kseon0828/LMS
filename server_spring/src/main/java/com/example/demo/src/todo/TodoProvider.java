@@ -31,11 +31,12 @@ public class TodoProvider {
     }
 
     //todo리스트 조회하기
-    public GetTodoRes retrieveTodo(int userIdx, Date date) throws BaseException {
+    public GetTodoListRes retrieveTodo(int userIdx, Date date) throws BaseException {
 
         try{
-            GetTodoRes getTodoRes = todoDao.selectTodo(userIdx, date);
-            return getTodoRes;
+            List<GetTodoRes> getTodoRes = todoDao.selectTodo(userIdx, date);
+            GetTodoListRes getTodoListRes = new GetTodoListRes(getTodoRes);
+            return getTodoListRes;
         }
         catch (Exception exception) {
             throw new BaseException(DATABASE_ERROR);
