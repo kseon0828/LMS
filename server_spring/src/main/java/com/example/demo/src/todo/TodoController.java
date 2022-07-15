@@ -39,7 +39,7 @@ public class TodoController {
     //날짜 todo리스트 조회하기
     @ResponseBody
     @GetMapping("/{date}")
-    public BaseResponse<GetTodoListRes> getTodoList(@PathVariable("date") String date) {
+    public BaseResponse<GetTodoRes> getTodoList(@PathVariable("date") String date) {
 
         try{
             SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
@@ -50,7 +50,7 @@ public class TodoController {
             int userIdxByJwt = jwtService.getUserIdx();
             System.out.println();
 
-            GetTodoListRes getTodoRes = todoProvider.retrieveTodo(userIdxByJwt, formatDate);
+            GetTodoRes getTodoRes = todoProvider.retrieveTodo(userIdxByJwt, formatDate);
             return new BaseResponse<>(getTodoRes);
         } catch(BaseException exception){
             return new BaseResponse<>((exception.getStatus()));

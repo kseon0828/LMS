@@ -21,12 +21,12 @@ public class TodoDao {
     }
 
     //조회
-    public List<GetTodoRes> selectTodo(int userIdx, Date date){
+    public GetTodoRes selectTodo(int userIdx, Date date) {
         String selectTodoQuery = "SELECT complete, todoName \n" +
                 "FROM todoList \n" +
                 "WHERE todoList.userIdx = ? and todoList.date = ? ";
         Object[] selectTodoParam = new Object[]{userIdx, date};
-        return this.jdbcTemplate.query(selectTodoQuery,
+        return this.jdbcTemplate.queryForObject(selectTodoQuery,
                 (rs, rowNum) -> new GetTodoRes(
                         rs.getInt("complete"),
                         rs.getString("todoName")
