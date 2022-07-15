@@ -10,4 +10,6 @@ import lombok.Setter;
 public class GetTaskRes {
     private int complete;
     private String taskName;
+    private String endDate;
+    private String endTime;
 }

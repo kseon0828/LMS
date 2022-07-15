@@ -1,8 +1,8 @@
 package com.example.demo.src.task;
 
 import com.example.demo.config.BaseException;
-import com.example.demo.src.todo.model.PostTodoReq;
-import com.example.demo.src.todo.model.PostTodoRes;
+import com.example.demo.src.task.model.PostTaskReq;
+import com.example.demo.src.task.model.PostTaskRes;
 import com.example.demo.utils.JwtService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,38 +18,36 @@ import static com.example.demo.config.BaseResponseStatus.*;
 public class TaskService {
     final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private final TaskDao todoDao;
+    private final TaskDao taskDao;
     private final TaskProvider taskProvider;
     private final JwtService jwtService;
 
 
     @Autowired
-    public TaskService(TaskDao todoDao, TaskProvider taskProvider, JwtService jwtService) {
-        this.todoDao = todoDao;
+    public TaskService(TaskDao taskDao, TaskProvider taskProvider, JwtService jwtService) {
+        this.taskDao = taskDao;
         this.taskProvider = taskProvider;
         this.jwtService = jwtService;
 
     }
 
-    // todo리스트 생성
-    //public PostTodoRes createTodo(int userIdx, Date date, PostTodoReq postTodoReq) throws BaseException {
-    public PostTodoRes createTodo(int userIdx, Date date, String postTodoReq) throws BaseException {
+    // 과제 생성
+    public PostTaskRes createTask(int userIdx, String className, Date sDate, Date eDate, Date eTime, String postTaskReq) throws BaseException {
 
         try{
-            //int todoIdx = todoDao.insertTodo(userIdx, date, postTodoReq.getTodoName());
-            int todoIdx = todoDao.insertTodo(userIdx, date, postTodoReq);
-            return new PostTodoRes(todoIdx);
+            int taskIdx = taskDao.insertTask(userIdx, className, sDate, eDate, eTime, postTaskReq);
+            return new PostTaskRes(taskIdx);
         } catch (Exception exception) {
             throw new BaseException(DATABASE_ERROR);
         }
     }
 
-    // todo리스트 수정
-    public void modifyTodo(int userIdx, int todoIdx, PostTodoReq postTodoReq) throws BaseException {
+    // 과제 수정
+    public void modifyTask(int userIdx, int taskIdx, Date sDate, Date eDate, Date eTime, PostTaskReq postTaskReq) throws BaseException {
 
         try{
-            //todoDao가 잘 실행되면 1, 아니면 0을 전달 받아 error 코드 표시
-            int result = todoDao.updateTodo(userIdx, todoIdx, postTodoReq.getTodoName());
+            //taskDao가 잘 실행되면 1, 아니면 0을 전달 받아 error 코드 표시
+            int result = taskDao.updateTask(userIdx, taskIdx, sDate, eDate, eTime, postTaskReq.getTaskName());
 
             if(result == 0){
                 throw new BaseException(MODIFY_FAIL_POST);
@@ -59,11 +57,11 @@ public class TaskService {
         }
     }
 
-    //todo리스트 삭제
-    public void deleteTodo(int todoIdx) throws BaseException{
+    //과제 삭제
+    public void deleteTask(int taskIdx) throws BaseException{
         try{
-            //todoDao가 잘 실행되면 1, 아니면 0을 전달 받아 error 코드 표시
-            int result = todoDao.deleteTodo(todoIdx);
+            //taskDao가 잘 실행되면 1, 아니면 0을 전달 받아 error 코드 표시
+            int result = taskDao.deleteTask(taskIdx);
 
             if(result == 0){
                 throw new BaseException(DELETE_FAIL_POST);

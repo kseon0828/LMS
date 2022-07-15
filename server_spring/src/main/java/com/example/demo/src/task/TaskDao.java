@@ -22,14 +22,16 @@ public class TaskDao {
 
     //조회
     public List<GetTaskRes> selectTask(int userIdx, Date date){
-        String selectTaskQuery = "SELECT complete, taskName \n" +
+        String selectTaskQuery = "SELECT complete, taskName, endDate, endTime \n" +
                 "FROM task \n" +
                 "WHERE task.userIdx = ? and ? between task.startDate ands task.endDate";
         Object[] selectTaskParam = new Object[]{userIdx, date};
         return this.jdbcTemplate.query(selectTaskQuery,
                 (rs, rowNum) -> new GetTaskRes(
                         rs.getInt("complete"),
-                        rs.getString("todoName")
+                        rs.getString("taskName"),
+                        rs.getString("endDate"),
+                        rs.getString("endTime")
                 ), selectTaskParam);
     }
 

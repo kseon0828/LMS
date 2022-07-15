@@ -2,9 +2,9 @@ package com.example.demo.src.task;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
-import com.example.demo.src.todo.model.GetTodoListRes;
-import com.example.demo.src.todo.model.PostTodoReq;
-import com.example.demo.src.todo.model.PostTodoRes;
+import com.example.demo.src.task.model.GetTaskListRes;
+import com.example.demo.src.task.model.PostTaskReq;
+import com.example.demo.src.task.model.PostTaskRes;
 import com.example.demo.utils.JwtService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,10 +32,10 @@ public class TaskController {
         this.jwtService = jwtService;
     }
 
-    //날짜 todo리스트 조회하기
+    //날짜 과제 조회하기
     @ResponseBody
     @GetMapping("/{date}")
-    public BaseResponse<GetTodoListRes> getTodoList(@PathVariable("date") String date) {
+    public BaseResponse<GetTaskListRes> getTaskList(@PathVariable("date") String date) {
 
         try{
             SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
@@ -46,8 +46,8 @@ public class TaskController {
             int userIdxByJwt = jwtService.getUserIdx();
             System.out.println();
 
-            GetTodoListRes getTodoRes = todoProvider.retrieveTodo(userIdxByJwt, formatDate);
-            return new BaseResponse<>(getTodoRes);
+            GetTaskListRes getTaskRes = taskProvider.retrieveTask(userIdxByJwt, formatDate);
+            return new BaseResponse<>(getTaskRes);
         } catch(BaseException exception){
             return new BaseResponse<>((exception.getStatus()));
         } catch (ParseException e) {
@@ -55,22 +55,25 @@ public class TaskController {
         }
     }
 
-    //todo리스트 생성하기
+    //과제 생성하기
     @ResponseBody
     @PostMapping("/{date}")
-    //public BaseResponse<PostTodoRes> getUserByIdx(@PathVariable("date") String date, @RequestBody PostTodoReq postTodoReq) {
-    public BaseResponse<PostTodoRes> getUserByIdx(@PathVariable("date") String date, @RequestParam("todoName") String postTodoReq) {
+    public BaseResponse<PostTaskRes> getUserByIdx(@PathVariable("startDate") String startDate, @RequestParam("taskName") String postTaskReq, @RequestParam("className") String className, @RequestParam("endDate") String endDate, @RequestParam("endTime") String endTime) {
 
         try{
             SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
             // String 타입을 Date 타입으로 변환
-            Date formatDate = dtFormat.parse(date);
+            Date sDate = dtFormat.parse(startDate);
+            Date eDate = dtFormat.parse(endDate);
+
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+            Date eTime = timeFormat.parse(endTime);
 
             int userIdxByJwt = jwtService.getUserIdx();
 
 
-            PostTodoRes postTodoRes = todoService.createTodo(userIdxByJwt, formatDate, postTodoReq);
-            return new BaseResponse<>(postTodoRes);
+            PostTaskRes postTaskRes = taskService.createTask(userIdxByJwt, className, sDate, eDate, eTime, postTaskReq);
+            return new BaseResponse<>(postTaskRes);
         } catch(BaseException exception){
             return new BaseResponse<>((exception.getStatus()));
         } catch (ParseException e) {
@@ -78,29 +81,38 @@ public class TaskController {
         }
     }
 
-    //todo리스트 수정하기
+    //과제 수정하기
     @ResponseBody
-    @PatchMapping("/{todoIdx}")
-    public BaseResponse<String> modifyTodo(@PathVariable("todoIdx") int todoIdx, @RequestParam("todoName") PostTodoReq postTodoReq) {
-    //public BaseResponse<String> modifyTodo(@PathVariable ("todoIdx") int todoIdx, @RequestBody PostTodoReq postTodoReq) {
+    @PatchMapping("/{taksIdx}")
+    public BaseResponse<String> modifyTask(@PathVariable("taskIdx") int taskIdx, @RequestParam("taskName") PostTaskReq postTaskReq, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, @RequestParam("endTime") String endTime) {
         try{
+            SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
+            // String 타입을 Date 타입으로 변환
+            Date sDate = dtFormat.parse(startDate);
+            Date eDate = dtFormat.parse(endDate);
+
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+            Date eTime = timeFormat.parse(endTime);
+
             int userIdxByJwt = jwtService.getUserIdx();
 
-            todoService.modifyTodo(userIdxByJwt, todoIdx, postTodoReq);
-            String result = " To Do List 수정을 완료하였습니다.";
+            taskService.modifyTask(userIdxByJwt, taskIdx, sDate, eDate, eTime, postTaskReq);
+            String result = " 과제 수정을 완료하였습니다.";
             return new BaseResponse<>(result);
         } catch(BaseException exception){
             return new BaseResponse<>((exception.getStatus()));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    //todo리스트 삭제
+    //과제 삭제
     @ResponseBody
-    @PatchMapping("/{todoIdx}/status")
-    public BaseResponse<String> deleteTodo(@PathVariable ("todoIdx") int todoIdx) {
+    @PatchMapping("/{taskIdx}/status")
+    public BaseResponse<String> deleteTask(@PathVariable ("taskIdx") int taskIdx) {
         try{
-            todoService.deleteTodo(todoIdx);
-            String result = "To Do List 삭제를 성공했습니다.";
+            taskService.deleteTask(taskIdx);
+            String result = "과제 삭제를 성공했습니다.";
             return new BaseResponse<>(result);
         } catch(BaseException exception){
             return new BaseResponse<>((exception.getStatus()));
