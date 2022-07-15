@@ -57,7 +57,7 @@ public class TaskController {
 
     //과제 생성하기
     @ResponseBody
-    @PostMapping("/{date}")
+    @PostMapping("/{startDate}")
     public BaseResponse<PostTaskRes> getUserByIdx(@PathVariable("startDate") String startDate, @RequestParam("taskName") String postTaskReq, @RequestParam("className") String className, @RequestParam("endDate") String endDate, @RequestParam("endTime") String endTime) {
 
         try{
@@ -83,7 +83,7 @@ public class TaskController {
 
     //과제 수정하기
     @ResponseBody
-    @PatchMapping("/{taksIdx}")
+    @PatchMapping("/{taskIdx}")
     public BaseResponse<String> modifyTask(@PathVariable("taskIdx") int taskIdx, @RequestParam("taskName") PostTaskReq postTaskReq, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, @RequestParam("endTime") String endTime) {
         try{
             SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
