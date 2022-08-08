@@ -33,7 +33,9 @@ class TodoAdapter(private val memoViewModel: MemoViewModel) : RecyclerView.Adapt
                 if (check) {
                     memo = Memo(currentMemo.id, true, currentMemo.content,
                         currentMemo.year, currentMemo.month, currentMemo.day)
-                    this.memoViewModel.updateMemo(memo)
+                    //this.memoViewModel.updateMemo(memo)
+                    this.memoViewModel.deleteMemo(memo)
+
                 }
                 else {
                     memo = Memo(currentMemo.id, false, currentMemo.content,

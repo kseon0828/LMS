@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LMS">
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.lms.MainActivity"/>
+        <activity android:name="com.example.lms.LoginActivity"/>
         <activity android:name="com.example.lms.SignUpActivity"/>
     </application>
 
