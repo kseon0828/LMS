@@ -31,19 +31,19 @@
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/updateButton" />
+                app:layout_constraintEnd_toStartOf="@+id/homeworkUpdateButton" />
 
             <Button
-                android:id="@+id/updateButton"
+                android:id="@+id/homeworkUpdateButton"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:background="@drawable/ic_baseline_edit_24"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+                app:layout_constraintEnd_toStartOf="@+id/homeworkDeleteButton"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/deleteButton"
+                android:id="@+id/homeworkDeleteButton"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:background="@drawable/ic_baseline_delete_24"

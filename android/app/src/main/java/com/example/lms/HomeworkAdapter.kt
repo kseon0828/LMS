@@ -3,12 +3,9 @@ package com.example.lms
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.lms.databinding.TodoItemBinding
 
-import com.example.lms.Memo
 import com.example.lms.databinding.HomeworkItemBinding
 import com.example.lms.dialog.MyCustomDialog2
-import com.example.lms.dialog.UpdateDialog
 import com.example.lms.dialog.UpdateDialog2
 import com.example.lms.dialog.UpdateDialogInterface
 
@@ -43,15 +40,15 @@ class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : Recycl
             }
 
             // 삭제 버튼 클릭 시 메모 삭제
-            binding.deleteButton.setOnClickListener {
+            binding.homeworkDeleteButton.setOnClickListener {
                 homeworkViewModel.deleteHomework(currentHomework)
             }
 
             // 수정 버튼 클릭 시 다이얼로그 띄움
-            binding.updateButton.setOnClickListener {
+            binding.homeworkUpdateButton.setOnClickListener {
                 homework = currentHomework
-                val myCustomDialog = UpdateDialog2(binding.updateButton.context,this)
-                myCustomDialog.show()
+                val myCustomDialog2 = UpdateDialog2(binding.homeworkUpdateButton.context,this)
+                myCustomDialog2.show()
             }
 
         }

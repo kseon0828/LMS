@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
 
         binding.loginSignInBtn.setOnClickListener {
-            login()
+            startMainActivity()
         }
 
     }

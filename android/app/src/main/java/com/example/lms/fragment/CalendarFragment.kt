@@ -39,11 +39,12 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
 
         // 아이템에 아이디를 설정해줌 (깜빡이는 현상방지)
         adapter.setHasStableIds(true)
+        adapter2.setHasStableIds(true)
 
         // 아이템을 가로로 하나씩 보여주고 어댑터 연결
         binding!!.calendarRecyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
         binding!!.calendarRecyclerview.adapter = adapter
-
+        binding!!.calendarRecyclerview.adapter = adapter2
 
         binding!!.calendarView.setOnDateChangeListener { _, year, month, day ->
             // 날짜 선택시 그 날의 정보 할당
@@ -77,7 +78,7 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
 
         homeworkViewModel.currentData.observe(viewLifecycleOwner, Observer {
             adapter2.setData(it)
-            Log.d("test5", "onCreateView: gg")
+            Log.d("test6", "onCreateView: ggg")
         })
 
 
@@ -131,15 +132,11 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
         memoViewModel.addMemo(memo)
         Toast.makeText(activity, "추가", Toast.LENGTH_SHORT).show()
 
-
-
-        // 선택된 날짜로 메모를 추가해줌
+        // 선택된 날짜로 과제를 추가해줌
         val homework = Homework(0,false, content, year, month, day)
         homeworkViewModel.addHomework(homework)
         Toast.makeText(activity, "추가", Toast.LENGTH_SHORT).show()
     }
-
-
 
 
 }

@@ -7,7 +7,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_height="500dp"
         android:background="@drawable/rounded_corner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/memoEditView"
+            android:id="@+id/homeworkEditView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
@@ -27,7 +27,197 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.225" />
+            app:layout_constraintVertical_bias="0.08" />
+
+        <EditText
+            android:id="@+id/subjectEditView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="과목명"
+            android:textSize="16sp"
+            android:layout_margin="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <TextView
+            android:id="@+id/start_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="시작 날짜"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.32" />
+
+        <EditText
+            android:id="@+id/start_month_EditView"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="16sp"
+            android:layout_margin="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.38" />
+
+        <TextView
+            android:id="@+id/start_month_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="월"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/start_month_EditView"
+            app:layout_constraintStart_toEndOf="@+id/start_month_EditView"
+            app:layout_constraintTop_toTopOf="@+id/start_month_EditView"
+            app:layout_constraintVertical_bias="0.38" />
+
+        <EditText
+            android:id="@+id/start_day_EditView"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="16sp"
+            android:layout_margin="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/start_month_tv"
+            app:layout_constraintStart_toEndOf="@+id/start_month_tv"
+            app:layout_constraintTop_toTopOf="@+id/start_month_tv"
+            app:layout_constraintVertical_bias="0.38" />
+
+        <TextView
+            android:id="@+id/start_day_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="일"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/start_day_EditView"
+            app:layout_constraintStart_toEndOf="@+id/start_day_EditView"
+            app:layout_constraintTop_toTopOf="@+id/start_day_EditView"
+            app:layout_constraintVertical_bias="0.38" />
+
+        <TextView
+            android:id="@+id/end_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="마감 날짜"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.48" />
+
+        <EditText
+            android:id="@+id/end_month_EditView"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="16sp"
+            android:layout_margin="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.56" />
+
+        <TextView
+            android:id="@+id/end_month_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="월"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/end_month_EditView"
+            app:layout_constraintStart_toEndOf="@+id/end_month_EditView"
+            app:layout_constraintTop_toTopOf="@+id/end_month_EditView"
+            app:layout_constraintVertical_bias="0.56" />
+
+        <EditText
+            android:id="@+id/end_day_EditView"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="16sp"
+            android:layout_margin="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/end_month_tv"
+            app:layout_constraintStart_toEndOf="@+id/end_month_tv"
+            app:layout_constraintTop_toTopOf="@+id/end_month_tv"
+            app:layout_constraintVertical_bias="0.56" />
+
+        <TextView
+            android:id="@+id/finish_day_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="일"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/end_day_EditView"
+            app:layout_constraintStart_toEndOf="@+id/end_day_EditView"
+            app:layout_constraintTop_toTopOf="@+id/end_day_EditView"
+            app:layout_constraintVertical_bias="0.56" />
+
+        <TextView
+            android:id="@+id/end_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="마감 시간"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.65" />
+
+        <EditText
+            android:id="@+id/end_hour_EditView"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="16sp"
+            android:layout_margin="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.75" />
+
+        <TextView
+            android:id="@+id/end_timebar_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text=":"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/end_hour_EditView"
+            app:layout_constraintStart_toEndOf="@+id/end_hour_EditView"
+            app:layout_constraintTop_toTopOf="@+id/end_hour_EditView"
+            app:layout_constraintVertical_bias="0.75" />
+
+        <EditText
+            android:id="@+id/end_minute_EditView"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="16sp"
+            android:layout_margin="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/end_timebar_tv"
+            app:layout_constraintStart_toEndOf="@+id/end_timebar_tv"
+            app:layout_constraintTop_toTopOf="@+id/end_timebar_tv"
+            app:layout_constraintVertical_bias="0.75" />
 
         <Button
             android:id="@+id/okButton"
