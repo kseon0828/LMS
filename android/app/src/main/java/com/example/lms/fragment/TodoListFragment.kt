@@ -8,9 +8,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.lms.Memo
-import com.example.lms.MemoViewModel
-import com.example.lms.TodoAdapter
+import com.example.lms.*
 import com.example.lms.databinding.FragmentTodoListBinding
 import com.example.lms.dialog.MyCustomDialog
 import com.example.lms.dialog.MyCustomDialogInterface
@@ -31,6 +29,7 @@ class TodoListFragment : Fragment(), MyCustomDialogInterface {
 //        setHasOptionsMenu(true)
         // 뷰바인딩
         binding = FragmentTodoListBinding.inflate(inflater,container,false)
+
 
         // 아이템에 아이디를 설정해줌 (깜빡이는 현상방지)
         adapter.setHasStableIds(true)

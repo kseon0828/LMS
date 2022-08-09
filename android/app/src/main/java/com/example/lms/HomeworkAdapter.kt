@@ -7,7 +7,9 @@ import com.example.lms.databinding.TodoItemBinding
 
 import com.example.lms.Memo
 import com.example.lms.databinding.HomeworkItemBinding
+import com.example.lms.dialog.MyCustomDialog2
 import com.example.lms.dialog.UpdateDialog
+import com.example.lms.dialog.UpdateDialog2
 import com.example.lms.dialog.UpdateDialogInterface
 
 class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : RecyclerView.Adapter<HomeworkAdapter.MyViewHolder>() {
@@ -48,9 +50,10 @@ class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : Recycl
             // 수정 버튼 클릭 시 다이얼로그 띄움
             binding.updateButton.setOnClickListener {
                 homework = currentHomework
-                val myCustomDialog = UpdateDialog(binding.updateButton.context,this)
+                val myCustomDialog = UpdateDialog2(binding.updateButton.context,this)
                 myCustomDialog.show()
             }
+
         }
 
         // 다이얼로그의 결과값으로 업데이트 해줌
