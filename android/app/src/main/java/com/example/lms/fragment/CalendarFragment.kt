@@ -42,9 +42,10 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
         adapter2.setHasStableIds(true)
 
         // 아이템을 가로로 하나씩 보여주고 어댑터 연결
-        binding!!.calendarRecyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
-        binding!!.calendarRecyclerview.adapter = adapter
-        binding!!.calendarRecyclerview.adapter = adapter2
+        binding!!.homeworkCalendarRecyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
+        binding!!.homeworkCalendarRecyclerview.adapter = adapter2
+        binding!!.memoCalendarRecyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
+        binding!!.memoCalendarRecyclerview.adapter = adapter
 
         binding!!.calendarView.setOnDateChangeListener { _, year, month, day ->
             // 날짜 선택시 그 날의 정보 할당
