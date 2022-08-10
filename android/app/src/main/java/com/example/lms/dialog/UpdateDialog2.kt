@@ -63,7 +63,7 @@ class UpdateDialog2(context : Context, updateDialogInterface : UpdateDialogInter
             // 입력 창이 비어 있지 않을 때
             if( content.isNotEmpty() && subject.isNotEmpty() && startMonth.isNotEmpty() && startDay.isNotEmpty() && endMonth.isNotEmpty() && endDay.isNotEmpty() && endHour.isNotEmpty() && endMinute.isNotEmpty()){
                 // 메모를 추가해줌
-                updateDialogInterface.onOkButtonClicked(content)
+                updateDialogInterface.onHomeworkOkButtonClicked(content)
                 dismiss()
             }
         }

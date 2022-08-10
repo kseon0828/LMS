@@ -54,9 +54,13 @@ class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : Recycl
         }
 
         // 다이얼로그의 결과값으로 업데이트 해줌
-        override fun onOkButtonClicked(content: String) {
+        override fun onHomeworkOkButtonClicked(content: String) {
             val updateHomework = Homework(homework.id,homework.check,content,homework.year,homework.month,homework.day)
             homeworkViewModel.updateHomework(updateHomework)
+        }
+
+        override fun onOkButtonClicked(content: String) {
+
         }
     }
 

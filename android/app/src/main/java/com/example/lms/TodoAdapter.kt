@@ -62,6 +62,10 @@ class TodoAdapter(private val memoViewModel: MemoViewModel) : RecyclerView.Adapt
             val updateMemo = Memo(memo.id,memo.check,content,memo.year,memo.month,memo.day)
             memoViewModel.updateMemo(updateMemo)
         }
+
+        override fun onHomeworkOkButtonClicked(content: String) {
+
+        }
     }
 
     // 어떤 xml 으로 뷰 홀더를 생성할지 지정

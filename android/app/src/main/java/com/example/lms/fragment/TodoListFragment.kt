@@ -87,4 +87,8 @@ class TodoListFragment : Fragment(), MyCustomDialogInterface {
         memoViewModel.addMemo(memo)
         Toast.makeText(activity,"추가", Toast.LENGTH_SHORT).show()
     }
+
+    override fun onHomeworkOkButtonClicked(content: String) {
+
+    }
 }

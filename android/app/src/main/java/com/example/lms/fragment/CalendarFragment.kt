@@ -133,11 +133,14 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
         memoViewModel.addMemo(memo)
         Toast.makeText(activity, "추가", Toast.LENGTH_SHORT).show()
 
+    }
+
+    override fun onHomeworkOkButtonClicked(content: String) {
+
         // 선택된 날짜로 과제를 추가해줌
         val homework = Homework(0,false, content, year, month, day)
         homeworkViewModel.addHomework(homework)
         Toast.makeText(activity, "추가", Toast.LENGTH_SHORT).show()
     }
-
 
 }
