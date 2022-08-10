@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lms.*
 import com.example.lms.databinding.FragmentTodoListBinding
 import com.example.lms.dialog.MyCustomDialog
+import com.example.lms.dialog.MyCustomDialog2
 import com.example.lms.dialog.MyCustomDialogInterface
 
 import java.util.*
@@ -20,6 +21,9 @@ class TodoListFragment : Fragment(), MyCustomDialogInterface {
     private var binding : FragmentTodoListBinding? = null
     private val memoViewModel: MemoViewModel by viewModels() // 뷰모델 연결
     private val adapter : TodoAdapter by lazy { TodoAdapter(memoViewModel) } // 어댑터 선언
+
+    private val homeworkViewModel: HomeworkViewModel by viewModels() // 뷰모델 연결
+    private val adapter2 : HomeworkAdapter by lazy { HomeworkAdapter(homeworkViewModel) } // 어댑터 선언
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,14 +37,21 @@ class TodoListFragment : Fragment(), MyCustomDialogInterface {
 
         // 아이템에 아이디를 설정해줌 (깜빡이는 현상방지)
         adapter.setHasStableIds(true)
+        adapter2.setHasStableIds(true)
 
         // 아이템을 가로로 하나씩 보여주고 어댑터 연결
-        binding!!.todoRecyclerView.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
-        binding!!.todoRecyclerView.adapter = adapter
+        binding!!.homeworkTodoRecyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
+        binding!!.homeworkTodoRecyclerView.adapter = adapter2
+        binding!!.memoTodoRecyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
+        binding!!.memoTodoRecyclerView.adapter = adapter
 
         // 리스트 관찰하여 변경시 어댑터에 전달해줌
         memoViewModel.readAllData.observe(viewLifecycleOwner, Observer {
             adapter.setData(it)
+        })
+
+        homeworkViewModel.readAllData.observe(viewLifecycleOwner, Observer {
+            adapter2.setData(it)
         })
 
         // Fab 클릭시 다이얼로그 띄움
@@ -53,7 +64,7 @@ class TodoListFragment : Fragment(), MyCustomDialogInterface {
 
     // Fab 클릭시 사용되는 함수
     private fun onFabClicked(){
-        val myCustomDialog = MyCustomDialog(activity!!,this)
+        val myCustomDialog = MyCustomDialog(requireActivity(),this)
         myCustomDialog.show()
     }
 
@@ -89,6 +100,15 @@ class TodoListFragment : Fragment(), MyCustomDialogInterface {
     }
 
     override fun onHomeworkOkButtonClicked(content: String) {
+        // 현재의 날짜를 불러옴
+        val cal = Calendar.getInstance()
+        val year = cal.get(Calendar.YEAR)
+        val month = cal.get(Calendar.MONTH) + 1
+        val day = cal.get(Calendar.DATE)
 
+        // 선택된 날짜로 과제를 추가해줌
+        val homework = Homework(0,false, content, year, month, day)
+        homeworkViewModel.addHomework(homework)
+        Toast.makeText(activity, "추가", Toast.LENGTH_SHORT).show()
     }
 }
