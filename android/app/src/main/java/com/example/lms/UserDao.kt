@@ -15,4 +15,6 @@ interface UserDao {
     @Query("SELECT * FROM UserTable WHERE email = :email AND pwd = :pwd")
     fun getUser(email: String, pwd: String): User?
 
+
+
 }

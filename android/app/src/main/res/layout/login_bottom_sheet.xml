@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomSheetDashBoardLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:behavior_hideable="true"
+    app:behavior_draggable="true"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <TextView
+        android:id="@+id/notify_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_bold"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:lineSpacingExtra="6sp"
+        android:text="로그인에 어려움이 있나요?"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="35dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="35dp"/>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/btn_x"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="34dp"/>
+
+    <TextView
+        android:id="@+id/notify_subtitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans"
+        android:textStyle="normal"
+        android:textSize="12sp"
+        android:textColor="#000000"
+        android:lineSpacingExtra="6sp"
+        android:text="분명 이 소셜서비스로 로그인했었는제 지금은 안돼요."
+        app:layout_constraintTop_toBottomOf="@+id/notify_title"
+        android:layout_marginTop="31dp"
+        app:layout_constraintStart_toStartOf="@+id/notify_title"/>
+
+    <TextView
+        android:layout_width="281dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans"
+        android:textStyle="normal"
+        android:textSize="12sp"
+        android:textColor="#a2a2a2"
+        android:lineSpacingExtra="6sp"
+        app:layout_constraintTop_toBottomOf="@+id/notify_subtitle1"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="@+id/notify_subtitle1"
+        android:text="- 혹시 로그인헀던 소셜서비스의 계정을 아예 삭제했거나, 비밀번호를 변경했나요? 이경우, 해당 소셜 서비스에서 직접 확인한 후 텍스처에 로그인이 가능합니다."/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

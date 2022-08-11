@@ -23,6 +23,13 @@
 
         <activity android:name="com.example.lms.MainActivity"/>
         <activity android:name="com.example.lms.SignUpActivity"/>
+        <activity android:name="com.example.lms.LoginSuccessActivity"/>
+        <activity android:name="com.example.lms.LoginEmailActivity"/>
+        <activity android:name="com.example.lms.LoginPasswordActivity"/>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
