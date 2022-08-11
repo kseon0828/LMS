@@ -1,5 +1,8 @@
 package com.example.lms.fragment
 
+import android.animation.ObjectAnimator
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -24,6 +27,8 @@ class TodoListFragment : Fragment(), MyCustomDialogInterface {
 
     private val homeworkViewModel: HomeworkViewModel by viewModels() // 뷰모델 연결
     private val adapter2 : HomeworkAdapter by lazy { HomeworkAdapter(homeworkViewModel) } // 어댑터 선언
+
+    private var isFabOpen = false // Fab 버튼 default는 닫혀있음
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,18 +59,62 @@ class TodoListFragment : Fragment(), MyCustomDialogInterface {
             adapter2.setData(it)
         })
 
+//        // Fab 클릭시 다이얼로그 띄움
+//        binding!!.dialogButton.setOnClickListener {
+//            onFabClicked()
+//        }
+
+        return binding!!.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setFABClickEvent()
+    }
+
+    private fun setFABClickEvent() {
+        // 플로팅 버튼 클릭시 애니메이션 동작 기능
+        binding!!.listAdd.setOnClickListener {
+            toggleFab()
+        }
+
         // Fab 클릭시 다이얼로그 띄움
-        binding!!.dialogButton.setOnClickListener {
+        binding!!.listTodo.setOnClickListener {
             onFabClicked()
         }
 
-        return binding!!.root
+        // Fab 클릭시 다이얼로그 띄움
+        binding!!.listHomework.setOnClickListener {
+            onFabClicked2()
+        }
+    }
+
+    private fun toggleFab() {
+        Toast.makeText(this.context, "메인 버튼 클릭!", Toast.LENGTH_SHORT).show()
+        // 플로팅 액션 버튼 닫기 - 열려있는 플로팅 버튼 집어넣는 애니메이션
+        if (isFabOpen) {
+            ObjectAnimator.ofFloat(binding!!.listHomework, "translationY", 0f).apply { start() }
+            ObjectAnimator.ofFloat(binding!!.listTodo, "translationY", 0f).apply { start() }
+            ObjectAnimator.ofFloat(binding!!.listAdd, View.ROTATION, 45f, 0f).apply { start() }
+        } else { // 플로팅 액션 버튼 열기 - 닫혀있는 플로팅 버튼 꺼내는 애니메이션
+            ObjectAnimator.ofFloat(binding!!.listHomework, "translationY", -360f).apply { start() }
+            ObjectAnimator.ofFloat(binding!!.listTodo, "translationY", -180f).apply { start() }
+            ObjectAnimator.ofFloat(binding!!.listAdd, View.ROTATION, 0f, 45f).apply { start() }
+        }
+
+        isFabOpen = !isFabOpen
+
     }
 
     // Fab 클릭시 사용되는 함수
     private fun onFabClicked(){
         val myCustomDialog = MyCustomDialog(requireActivity(),this)
         myCustomDialog.show()
+    }
+
+    // Fab 클릭시 사용되는 함수
+    private fun onFabClicked2(){
+        val myCustomDialog2 = MyCustomDialog2(requireActivity(),this)
+        myCustomDialog2.show()
     }
 
 //    // 서치바 추가

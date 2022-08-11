@@ -1,5 +1,8 @@
 package com.example.lms.fragment
 
+import android.animation.ObjectAnimator
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -29,6 +32,8 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
     private var year : Int = 0
     private var month : Int = 0
     private var day : Int = 0
+
+    private var isFabOpen = false // Fab 버튼 default는 닫혀있음
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -85,8 +90,42 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
 
 
 
+//        // Fab 클릭시 다이얼로그 띄움
+//        binding!!.calendarDialogButton.setOnClickListener {
+//            if(year == 0) {
+//                Toast.makeText(activity, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show()
+//            }
+//            else {
+//                onFabClicked()
+//            }
+//        }
+//
+//
+//        // Fab 클릭시 다이얼로그 띄움
+//        binding!!.calendarDialogButton2.setOnClickListener {
+//            if(year == 0) {
+//                Toast.makeText(activity, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show()
+//            }
+//            else {
+//                onFabClicked2()
+//            }
+//        }
+
+        return binding!!.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setFABClickEvent()
+    }
+
+    private fun setFABClickEvent() {
+        // 플로팅 버튼 클릭시 애니메이션 동작 기능
+        binding!!.calendarAdd.setOnClickListener {
+            toggleFab()
+        }
+
         // Fab 클릭시 다이얼로그 띄움
-        binding!!.calendarDialogButton.setOnClickListener {
+        binding!!.calendarTodo.setOnClickListener {
             if(year == 0) {
                 Toast.makeText(activity, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show()
             }
@@ -95,9 +134,8 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
             }
         }
 
-
         // Fab 클릭시 다이얼로그 띄움
-        binding!!.calendarDialogButton2.setOnClickListener {
+        binding!!.calendarHomework.setOnClickListener {
             if(year == 0) {
                 Toast.makeText(activity, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show()
             }
@@ -105,8 +143,23 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
                 onFabClicked2()
             }
         }
+    }
 
-        return binding!!.root
+    private fun toggleFab() {
+        Toast.makeText(this.context, "메인 버튼 클릭!", Toast.LENGTH_SHORT).show()
+        // 플로팅 액션 버튼 닫기 - 열려있는 플로팅 버튼 집어넣는 애니메이션
+        if (isFabOpen) {
+            ObjectAnimator.ofFloat(binding!!.calendarHomework, "translationY", 0f).apply { start() }
+            ObjectAnimator.ofFloat(binding!!.calendarTodo, "translationY", 0f).apply { start() }
+            ObjectAnimator.ofFloat(binding!!.calendarAdd, View.ROTATION, 45f, 0f).apply { start() }
+        } else { // 플로팅 액션 버튼 열기 - 닫혀있는 플로팅 버튼 꺼내는 애니메이션
+            ObjectAnimator.ofFloat(binding!!.calendarHomework, "translationY", -360f).apply { start() }
+            ObjectAnimator.ofFloat(binding!!.calendarTodo, "translationY", -180f).apply { start() }
+            ObjectAnimator.ofFloat(binding!!.calendarAdd, View.ROTATION, 0f, 45f).apply { start() }
+        }
+
+        isFabOpen = !isFabOpen
+
     }
 
     // Fab 클릭시 사용되는 함수

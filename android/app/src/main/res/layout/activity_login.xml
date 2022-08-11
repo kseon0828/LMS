@@ -9,7 +9,7 @@
         android:id="@+id/login_appname_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="140dp"
         android:fontFamily="@font/noto_sans_bold"
         android:lineSpacingExtra="18sp"
         android:text="모두리"
@@ -24,7 +24,7 @@
         android:id="@+id/login_subtitle_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="209dp"
+        android:layout_marginTop="6dp"
         android:fontFamily="@font/noto_sans"
         android:lineSpacingExtra="7sp"
         android:text="모두의 학교생활 매니저"
@@ -33,7 +33,7 @@
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/login_appname_tv" />
 
     <View
         android:id="@+id/login_logo"
@@ -42,8 +42,8 @@
         android:background="@drawable/login_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="280dp">
+        app:layout_constraintTop_toBottomOf="@+id/login_subtitle_tv"
+        android:layout_marginTop="40dp">
     </View>
 
 
@@ -51,11 +51,11 @@
         android:id="@+id/login_social_login_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="501dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_logo"
         >
 
         <ImageView
@@ -100,8 +100,8 @@
         android:text="이메일로 계속하기"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="570dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/login_social_login_layout"
+        android:layout_marginTop="20dp"/>
 
     <ImageButton
         android:id="@+id/login_notify"
@@ -109,7 +109,7 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/login_notify"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="49dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -119,8 +119,8 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

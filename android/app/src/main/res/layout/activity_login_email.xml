@@ -82,7 +82,7 @@
         android:id="@+id/ok_btn"
         android:layout_width="313dp"
         android:layout_height="55dp"
-        android:background="#4b89dc"
+        android:background="@color/main"
         android:text="확인"
         android:textStyle="normal"
         android:textSize="18sp"

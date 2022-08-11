@@ -19,12 +19,17 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1455" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1455" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/activity_login_email.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/activity_login_password.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/activity_login_success.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/activity_signup.xml" value="0.12335359675785208" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/fragment_calendar.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/fragment_todo_list.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/homework_item.xml" value="0.264" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/layout_dialog.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/layout_dialog2.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/login_bottom_sheet.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/todo_item.xml" value="0.25364583333333335" />
       </map>
     </option>
