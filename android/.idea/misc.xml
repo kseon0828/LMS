@@ -10,6 +10,7 @@
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/activity_login_email.xml" value="0.14130434782608695" />
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/activity_login_password.xml" value="0.1381340579710145" />
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/activity_login_success.xml" value="0.14130434782608695" />
+        <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/activity_signup.xml" value="0.1381340579710145" />
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/activity_signup_email.xml" value="0.1381340579710145" />
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/activity_signup_name.xml" value="0.1381340579710145" />
@@ -18,8 +19,10 @@
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/activity_signup_ssn.xml" value="0.1381340579710145" />
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/activity_signup_success.xml" value="0.17255434782608695" />
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/activity_signup_univ.xml" value="0.1381340579710145" />
+        <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/fragment_calendar.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/fragment_login_email.xml" value="0.14130434782608695" />
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/fragment_login_password.xml" value="0.14130434782608695" />
+        <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/fragment_todo_list.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/layout_dialog.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/layout_dialog2.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/login_bottom_sheet.xml" value="0.1381340579710145" />

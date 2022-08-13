@@ -1,8 +1,6 @@
 package com.example.lms.fragment
 
 import android.animation.ObjectAnimator
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,10 +19,9 @@ import com.example.lms.dialog.MyCustomDialogInterface
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.CalendarMode
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
-import com.prolificinteractive.materialcalendarview.OnDateSelectedListener
-import java.util.*
 import com.prolificinteractive.materialcalendarview.format.ArrayWeekDayFormatter
 import com.prolificinteractive.materialcalendarview.format.MonthArrayTitleFormatter
+import java.util.*
 
 
 class CalendarFragment : Fragment(), MyCustomDialogInterface {
@@ -55,6 +52,10 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
     ): View? {
         // 뷰바인딩
         binding = FragmentCalendarBinding.inflate(inflater,container,false)
+
+        binding!!.allListBtn.setOnClickListener {
+            (activity as MainActivity?)!!.change_to_Menu()
+        }
 
         // 아이템에 아이디를 설정해줌 (깜빡이는 현상방지)
         adapter.setHasStableIds(true)
