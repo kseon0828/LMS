@@ -6,10 +6,14 @@ com/example/demo/src/todo/model/GetTodoListRes.java
  com.example.demo.src.todo.model.GetTodoListRes
 com/example/demo/src/todo/model/PostTodoRes.java
  com.example.demo.src.todo.model.PostTodoRes
+com/example/demo/src/inquire/InquireService.java
+ com.example.demo.src.inquire.InquireService
 com/example/demo/src/task/model/PostTaskRes.java
  com.example.demo.src.task.model.PostTaskRes
 com/example/demo/utils/ValidationRegex.java
  com.example.demo.utils.ValidationRegex
+com/example/demo/src/inquire/InquireProvider.java
+ com.example.demo.src.inquire.InquireProvider
 com/example/demo/config/BaseResponseStatus.java
  com.example.demo.config.BaseResponseStatus
 com/example/demo/src/todoList/model/GetTodoListListRes.java
@@ -20,6 +24,8 @@ com/example/demo/src/todoList/model/PostTodoListReq.java
  com.example.demo.src.todoList.model.PostTodoListReq
 com/example/demo/src/task/model/PostTaskReq.java
  com.example.demo.src.task.model.PostTaskReq
+com/example/demo/src/inquire/InquireDao.java
+ com.example.demo.src.inquire.InquireDao
 com/example/demo/src/todoList/model/GetTodoListRes.java
  com.example.demo.src.todoList.model.GetTodoListRes
 com/example/demo/src/auth/AuthService.java
@@ -64,6 +70,8 @@ com/example/demo/src/todo/TodoController.java
  com.example.demo.src.todo.TodoController
 com/example/demo/src/user/UserDao.java
  com.example.demo.src.user.UserDao
+com/example/demo/src/inquire/model/PostInquireReq.java
+ com.example.demo.src.inquire.model.PostInquireReq
 com/example/demo/src/todo/model/PostTodoReq.java
  com.example.demo.src.todo.model.PostTodoReq
 com/example/demo/src/todoList/TodoListDao.java
@@ -74,12 +82,16 @@ com/example/demo/src/task/TaskService.java
  com.example.demo.src.task.TaskService
 com/example/demo/src/auth/AuthDao.java
  com.example.demo.src.auth.AuthDao
+com/example/demo/src/inquire/InquireController.java
+ com.example.demo.src.inquire.InquireController
 com/example/demo/src/task/model/PatchTaskReq.java
  com.example.demo.src.task.model.PatchTaskReq
 com/example/demo/src/auth/model/PostLoginReq.java
  com.example.demo.src.auth.model.PostLoginReq
 com/example/demo/src/user/UserController.java
  com.example.demo.src.user.UserController
+com/example/demo/src/inquire/model/PostInquireRes.java
+ com.example.demo.src.inquire.model.PostInquireRes
 com/example/demo/src/auth/AuthController.java
  com.example.demo.src.auth.AuthController
 com/example/demo/src/user/model/User.java

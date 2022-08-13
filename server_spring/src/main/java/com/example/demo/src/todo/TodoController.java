@@ -80,7 +80,6 @@ public class TodoController {
     }
     */
 
-    /*
     //todo리스트 생성하기
     @ResponseBody
     @PostMapping("/{todoDate}")
@@ -132,6 +131,5 @@ public class TodoController {
         }
     }
 
-     */
 
 }

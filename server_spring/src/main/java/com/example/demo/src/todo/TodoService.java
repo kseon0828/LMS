@@ -33,7 +33,6 @@ public class TodoService {
 
     }
 
-    /*
     // todo리스트 생성
     //public PostTodoRes createTodo(int userIdx, Date date, PostTodoReq postTodoReq) throws BaseException {
     public PostTodoRes createTodo(int userIdx, Date date, String postTodoReq) throws BaseException {
@@ -76,7 +75,5 @@ public class TodoService {
             throw new BaseException(DATABASE_ERROR);
         }
     }
-
-     */
 
 }

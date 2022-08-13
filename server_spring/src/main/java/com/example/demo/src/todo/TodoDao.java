@@ -34,8 +34,6 @@ public class TodoDao {
                 ), selectTodoParam);
     }
 
-
-    /*
     //생성
     public int insertTodo(int userIdx, Date date, String todoName){
         String insertTodoQuery = "INSERT into todoList(userIdx, date, complete, todoName) VALUES(?, ?, 0, ?)";
@@ -62,6 +60,4 @@ public class TodoDao {
 
         return this.jdbcTemplate.update(deleteQuery,deleteParams);
     }
-
-     */
 }
