@@ -29,7 +29,7 @@ public class TodoDao {
                 (rs, rowNum) -> new GetTodoRes(
                         rs.getInt("complete"),
                         rs.getString("todoName"),
-                        rs.getString("todoDate")
+                        rs.getString("todoList.date")
                 ), selectTodoParam);
     }
 
