@@ -52,7 +52,6 @@
         android:hint="Modori0820@naver.com"
         android:inputType="text"
         android:lineSpacingExtra="8sp"
-        android:textColor="#d0d5db"
         android:textSize="18sp"
         android:textStyle="normal"
         android:layout_marginLeft="32dp"

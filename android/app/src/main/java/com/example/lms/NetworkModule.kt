@@ -3,7 +3,7 @@ package com.example.lms
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val BASE_URL = "https://kseon-server.shop"
+const val BASE_URL = "https://umcserver.shop"
 
 fun getRetrofit(): Retrofit {
 

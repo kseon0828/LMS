@@ -26,6 +26,13 @@
         <activity android:name="com.example.lms.LoginSuccessActivity"/>
         <activity android:name="com.example.lms.LoginEmailActivity"/>
         <activity android:name="com.example.lms.LoginPasswordActivity"/>
+        <activity android:name="com.example.lms.SignUpEmailActivity"/>
+        <activity android:name="com.example.lms.SignUpNameActivity"/>
+        <activity android:name="com.example.lms.SignUpUnivActivity"/>
+        <activity android:name="com.example.lms.SignUpSsnActivity"/>
+        <activity android:name="com.example.lms.SignUpPasswordActivity"/>
+        <activity android:name="com.example.lms.SignUpSaveActivity"/>
+        <activity android:name="com.example.lms.SignUpSuccessActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"

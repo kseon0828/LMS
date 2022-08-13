@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/success_top_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="324dp"
+        android:fontFamily="@font/noto_sans"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="5sp"
+        android:text="회원가입 완료!"
+        android:textColor="#707070"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/success_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_bold"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:textColor="#000000"
+        android:lineSpacingExtra="11sp"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/success_top_tv"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_bold"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:text="환영합니다!"
+        android:textColor="#000000"
+        android:lineSpacingExtra="11sp"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/success_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
