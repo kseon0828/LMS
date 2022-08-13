@@ -1,3 +1,5 @@
+com/example/demo/src/task/TaskProvider.java
+ com.example.demo.src.task.TaskProvider
 com/example/demo/utils/SHA256.java
  com.example.demo.utils.SHA256
 com/example/demo/src/user/model/PostUserReq.java
@@ -8,6 +10,8 @@ com/example/demo/src/todo/model/GetTodoListRes.java
  com.example.demo.src.todo.model.GetTodoListRes
 com/example/demo/src/todo/model/PostTodoRes.java
  com.example.demo.src.todo.model.PostTodoRes
+com/example/demo/src/task/model/PostTaskRes.java
+ com.example.demo.src.task.model.PostTaskRes
 com/example/demo/utils/ValidationRegex.java
  com.example.demo.utils.ValidationRegex
 com/example/demo/src/todo/TodoProvider.java
@@ -22,12 +26,20 @@ com/example/demo/src/todo/model/PostTodoReq.java
  com.example.demo.src.todo.model.PostTodoReq
 com/example/demo/src/WebSecurityConfig.java
  com.example.demo.src.WebSecurityConfig
+com/example/demo/src/task/TaskService.java
+ com.example.demo.src.task.TaskService
 com/example/demo/src/auth/AuthDao.java
  com.example.demo.src.auth.AuthDao
+com/example/demo/src/task/model/PostTaskReq.java
+ com.example.demo.src.task.model.PostTaskReq
 com/example/demo/src/auth/AuthService.java
  com.example.demo.src.auth.AuthService
+com/example/demo/src/task/model/PatchTaskReq.java
+ com.example.demo.src.task.model.PatchTaskReq
 com/example/demo/config/secret/Secret.java
  com.example.demo.config.secret.Secret
+com/example/demo/src/task/model/GetTaskRes.java
+ com.example.demo.src.task.model.GetTaskRes
 com/example/demo/src/todo/TodoService.java
  com.example.demo.src.todo.TodoService
 com/example/demo/src/auth/model/PostLoginReq.java
@@ -38,6 +50,8 @@ com/example/demo/src/user/UserController.java
  com.example.demo.src.user.UserController
 com/example/demo/config/BaseResponse.java
  com.example.demo.config.BaseResponse
+com/example/demo/src/task/TaskController.java
+ com.example.demo.src.task.TaskController
 com/example/demo/src/todo/model/GetTodoRes.java
  com.example.demo.src.todo.model.GetTodoRes
 com/example/demo/src/auth/AuthController.java
@@ -48,8 +62,18 @@ com/example/demo/src/todo/TodoDao.java
  com.example.demo.src.todo.TodoDao
 com/example/demo/src/user/UserService.java
  com.example.demo.src.user.UserService
+com/example/demo/src/inquriy/InquriyController.java
+ com.example.demo.src.inquriy.InquriyController
+com/example/demo/src/inquriy/InquriyService.java
+ com.example.demo.src.inquriy.InquriyService
 com/example/demo/src/auth/model/PostLoginRes.java
  com.example.demo.src.auth.model.PostLoginRes
+com/example/demo/src/task/model/GetTaskListRes.java
+ com.example.demo.src.task.model.GetTaskListRes
+com/example/demo/src/task/TaskDao.java
+ com.example.demo.src.task.TaskDao
+com/example/demo/src/inquriy/InquriyDao.java
+ com.example.demo.src.inquriy.InquriyDao
 com/example/demo/config/BaseException.java
  com.example.demo.config.BaseException
 com/example/demo/DemoApplication.java
