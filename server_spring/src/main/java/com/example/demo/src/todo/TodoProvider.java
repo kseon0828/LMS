@@ -1,10 +1,8 @@
 package com.example.demo.src.todo;
 
 import com.example.demo.config.BaseException;
-import com.example.demo.src.task.model.GetTaskListRes;
-import com.example.demo.src.task.model.GetTaskRes;
-import com.example.demo.src.todo.*;
-import com.example.demo.src.todo.model.*;
+import com.example.demo.src.todo.model.GetTodoListRes;
+import com.example.demo.src.todo.model.GetTodoRes;
 import com.example.demo.utils.JwtService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,7 +1,6 @@
 package com.example.demo.src.todo;
 
 import com.example.demo.src.todo.model.GetTodoRes;
-import com.example.demo.src.user.model.PostUserReq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
