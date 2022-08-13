@@ -2,8 +2,8 @@ package com.example.demo.src.todo;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
+import com.example.demo.src.task.model.GetTaskListRes;
 import com.example.demo.src.todo.model.*;
-import com.example.demo.src.todo.*;
 import com.example.demo.utils.JwtService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,12 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import static com.example.demo.config.BaseResponseStatus.*;
 
 @RestController
 @RequestMapping("/todo")
@@ -36,6 +31,29 @@ public class TodoController {
         this.jwtService = jwtService;
     }
 
+    @ResponseBody
+    @GetMapping("/{date}")
+    public BaseResponse<GetTodoListRes> getTodoList(@PathVariable("date") String date) {
+
+        try{
+            SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
+            SimpleDateFormat newDtFormat = new SimpleDateFormat("yyyy-MM-dd");
+            // String 타입을 Date 타입으로 변환
+            Date formatDate = dtFormat.parse(date);
+
+            int userIdxByJwt = jwtService.getUserIdx();
+            System.out.println();
+
+            GetTodoListRes getTodoRes = todoProvider.retrieveTodo(userIdxByJwt, formatDate);
+            return new BaseResponse<>(getTodoRes);
+        } catch(BaseException exception){
+            return new BaseResponse<>((exception.getStatus()));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /*
     //날짜 todo리스트 조회하기
     @ResponseBody
     @GetMapping("/{date}")
@@ -58,6 +76,7 @@ public class TodoController {
             throw new RuntimeException(e);
         }
     }
+    */
 
     //todo리스트 생성하기
     @ResponseBody
