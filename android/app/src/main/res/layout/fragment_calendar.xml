@@ -6,14 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".fragment.CalendarFragment">>
 
-    <CalendarView
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
         android:id="@+id/calendarView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        app:mcv_selectionColor="@color/main"
+        app:mcv_showOtherDates="all"
+        app:mcv_tileSize="56dp"
+        app:mcv_tileHeight="45dp"
+        app:mcv_calendarMode="month"
+        tools:ignore="MissingConstraints"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!--    <CalendarView-->
+    <!--        android:id="@+id/calendarView"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.5"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"
+
+                app:mcv_dateTextAppearance="@style/CustomDateTextAppearance"
+                app:mcv_weekDayTextAppearance="@style/CustomWeekDayAppearance"
+                app:mcv_headerTextAppearance="@style/CustomHeaderTextAppearance"/>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homeworkCalendarRecyclerview"
