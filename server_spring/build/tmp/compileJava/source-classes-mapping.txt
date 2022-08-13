@@ -1,9 +1,5 @@
 com/example/demo/src/task/TaskProvider.java
  com.example.demo.src.task.TaskProvider
-com/example/demo/utils/SHA256.java
- com.example.demo.utils.SHA256
-com/example/demo/src/user/model/PostUserReq.java
- com.example.demo.src.user.model.PostUserReq
 com/example/demo/config/Constant.java
  com.example.demo.config.Constant
 com/example/demo/src/todo/model/GetTodoListRes.java
@@ -14,72 +10,86 @@ com/example/demo/src/task/model/PostTaskRes.java
  com.example.demo.src.task.model.PostTaskRes
 com/example/demo/utils/ValidationRegex.java
  com.example.demo.utils.ValidationRegex
-com/example/demo/src/todo/TodoProvider.java
- com.example.demo.src.todo.TodoProvider
-com/example/demo/src/todo/TodoController.java
- com.example.demo.src.todo.TodoController
-com/example/demo/src/user/UserDao.java
- com.example.demo.src.user.UserDao
 com/example/demo/config/BaseResponseStatus.java
  com.example.demo.config.BaseResponseStatus
-com/example/demo/src/todo/model/PostTodoReq.java
- com.example.demo.src.todo.model.PostTodoReq
-com/example/demo/src/WebSecurityConfig.java
- com.example.demo.src.WebSecurityConfig
-com/example/demo/src/task/TaskService.java
- com.example.demo.src.task.TaskService
-com/example/demo/src/auth/AuthDao.java
- com.example.demo.src.auth.AuthDao
+com/example/demo/src/todoList/model/GetTodoListListRes.java
+ com.example.demo.src.todoList.model.GetTodoListListRes
+com/example/demo/src/todoList/TodoListService.java
+ com.example.demo.src.todoList.TodoListService
+com/example/demo/src/todoList/model/PostTodoListReq.java
+ com.example.demo.src.todoList.model.PostTodoListReq
 com/example/demo/src/task/model/PostTaskReq.java
  com.example.demo.src.task.model.PostTaskReq
+com/example/demo/src/todoList/model/GetTodoListRes.java
+ com.example.demo.src.todoList.model.GetTodoListRes
 com/example/demo/src/auth/AuthService.java
  com.example.demo.src.auth.AuthService
-com/example/demo/src/task/model/PatchTaskReq.java
- com.example.demo.src.task.model.PatchTaskReq
 com/example/demo/config/secret/Secret.java
  com.example.demo.config.secret.Secret
 com/example/demo/src/task/model/GetTaskRes.java
  com.example.demo.src.task.model.GetTaskRes
 com/example/demo/src/todo/TodoService.java
  com.example.demo.src.todo.TodoService
-com/example/demo/src/auth/model/PostLoginReq.java
- com.example.demo.src.auth.model.PostLoginReq
 com/example/demo/src/user/model/PostUserRes.java
  com.example.demo.src.user.model.PostUserRes
-com/example/demo/src/user/UserController.java
- com.example.demo.src.user.UserController
 com/example/demo/config/BaseResponse.java
  com.example.demo.config.BaseResponse
 com/example/demo/src/task/TaskController.java
  com.example.demo.src.task.TaskController
 com/example/demo/src/todo/model/GetTodoRes.java
  com.example.demo.src.todo.model.GetTodoRes
+com/example/demo/src/user/UserService.java
+ com.example.demo.src.user.UserService
+com/example/demo/src/todoList/TodoListProvider.java
+ com.example.demo.src.todoList.TodoListProvider
+com/example/demo/src/auth/model/PostLoginRes.java
+ com.example.demo.src.auth.model.PostLoginRes
+com/example/demo/src/task/model/GetTaskListRes.java
+ com.example.demo.src.task.model.GetTaskListRes
+com/example/demo/config/BaseException.java
+ com.example.demo.config.BaseException
+com/example/demo/src/todo/model/PatchTodoReq.java
+ com.example.demo.src.todo.model.PatchTodoReq
+com/example/demo/utils/SHA256.java
+ com.example.demo.utils.SHA256
+com/example/demo/src/todoList/model/PostTodoListRes.java
+ com.example.demo.src.todoList.model.PostTodoListRes
+com/example/demo/src/user/model/PostUserReq.java
+ com.example.demo.src.user.model.PostUserReq
+com/example/demo/src/todoList/TodoListController.java
+ com.example.demo.src.todoList.TodoListController
+com/example/demo/src/todo/TodoProvider.java
+ com.example.demo.src.todo.TodoProvider
+com/example/demo/src/todo/TodoController.java
+ com.example.demo.src.todo.TodoController
+com/example/demo/src/user/UserDao.java
+ com.example.demo.src.user.UserDao
+com/example/demo/src/todo/model/PostTodoReq.java
+ com.example.demo.src.todo.model.PostTodoReq
+com/example/demo/src/todoList/TodoListDao.java
+ com.example.demo.src.todoList.TodoListDao
+com/example/demo/src/WebSecurityConfig.java
+ com.example.demo.src.WebSecurityConfig
+com/example/demo/src/task/TaskService.java
+ com.example.demo.src.task.TaskService
+com/example/demo/src/auth/AuthDao.java
+ com.example.demo.src.auth.AuthDao
+com/example/demo/src/task/model/PatchTaskReq.java
+ com.example.demo.src.task.model.PatchTaskReq
+com/example/demo/src/auth/model/PostLoginReq.java
+ com.example.demo.src.auth.model.PostLoginReq
+com/example/demo/src/user/UserController.java
+ com.example.demo.src.user.UserController
 com/example/demo/src/auth/AuthController.java
  com.example.demo.src.auth.AuthController
 com/example/demo/src/user/model/User.java
  com.example.demo.src.user.model.User
 com/example/demo/src/todo/TodoDao.java
  com.example.demo.src.todo.TodoDao
-com/example/demo/src/user/UserService.java
- com.example.demo.src.user.UserService
-com/example/demo/src/inquriy/InquriyController.java
- com.example.demo.src.inquriy.InquriyController
-com/example/demo/src/inquriy/InquriyService.java
- com.example.demo.src.inquriy.InquriyService
-com/example/demo/src/auth/model/PostLoginRes.java
- com.example.demo.src.auth.model.PostLoginRes
-com/example/demo/src/task/model/GetTaskListRes.java
- com.example.demo.src.task.model.GetTaskListRes
 com/example/demo/src/task/TaskDao.java
  com.example.demo.src.task.TaskDao
-com/example/demo/src/inquriy/InquriyDao.java
- com.example.demo.src.inquriy.InquriyDao
-com/example/demo/config/BaseException.java
- com.example.demo.config.BaseException
 com/example/demo/DemoApplication.java
  com.example.demo.DemoApplication
-com/example/demo/src/todo/model/PatchTodoReq.java
- com.example.demo.src.todo.model.PatchTodoReq
 com/example/demo/utils/JwtService.java
  com.example.demo.utils.JwtService
 com/example/demo/src/auth/model/User.java
@@ -88,3 +98,5 @@ com/example/demo/src/user/UserProvider.java
  com.example.demo.src.user.UserProvider
 com/example/demo/src/auth/AuthProvider.java
  com.example.demo.src.auth.AuthProvider
+com/example/demo/src/todoList/model/PatchTodoListReq.java
+ com.example.demo.src.todoList.model.PatchTodoListReq
