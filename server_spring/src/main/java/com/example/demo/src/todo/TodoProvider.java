@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Date;
 
-import static com.example.demo.config.BaseResponseStatus.DATABASE_ERROR;
-
 @Service
 public class TodoProvider {
     private final TodoDao todoDao;

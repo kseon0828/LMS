@@ -11,9 +11,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.text.ParseException;
+
 
 @RestController
 @RequestMapping("/todo")
@@ -79,6 +80,7 @@ public class TodoController {
     }
     */
 
+    /*
     //todo리스트 생성하기
     @ResponseBody
     @PostMapping("/{todoDate}")
@@ -129,5 +131,7 @@ public class TodoController {
             return new BaseResponse<>((exception.getStatus()));
         }
     }
+
+     */
 
 }
