@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="itemList">
+        <item>온라인강의</item>
+        <item>과제</item>
+        <item>팀프로젝트</item>
+        <item>토론</item>
+        <item>설문</item>
+        <item>투표</item>
+        <item>시험</item>
+        <item>실시간강의</item>
+    </string-array>
+
+</resources>

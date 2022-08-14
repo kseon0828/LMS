@@ -3,7 +3,6 @@ package com.example.lms
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-
 import com.example.lms.databinding.HomeworkItemBinding
 import com.example.lms.dialog.MyCustomDialog2
 import com.example.lms.dialog.UpdateDialog2
@@ -26,6 +25,7 @@ class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : Recycl
         fun bind(currentHomework : Homework, homeworkViewModel: HomeworkViewModel){
             binding.homework = currentHomework
             this.homeworkViewModel = homeworkViewModel
+
 
             // 체크 리스너 초기화 해줘 중복 오류 방지
             binding.homeworkCheckBox.setOnCheckedChangeListener(null)

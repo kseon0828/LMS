@@ -54,6 +54,7 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
         // 뷰바인딩
         binding = FragmentCalendarBinding.inflate(inflater,container,false)
 
+
         binding!!.allListBtn.setOnClickListener {
             (activity as MainActivity?)!!.change_to_Menu()
         }
@@ -222,10 +223,14 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
         myCustomDialog.show()
     }
 
+
     // Fab 클릭시 사용되는 함수
     private fun onFabClicked2(){
         val myCustomDialog2 = MyCustomDialog2(requireActivity(),this)
         myCustomDialog2.show()
+
+
+
     }
 
     // 프래그먼트는 뷰보다 오래 지속 . 프래그먼트의 onDestroyView() 메서드에서 결합 클래스 인스턴스 참조를 정리

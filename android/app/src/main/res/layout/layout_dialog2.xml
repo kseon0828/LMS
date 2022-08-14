@@ -5,240 +5,469 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="300dp"
-        android:layout_height="500dp"
+        android:layout_width="360dp"
+        android:layout_height="597dp"
         android:background="@drawable/rounded_corner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
 
-        <EditText
-            android:id="@+id/homeworkEditView"
-            android:layout_width="match_parent"
+        app:behavior_hideable="true"
+        app:behavior_draggable="true"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <TextView
+            android:id="@+id/option_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="과제"
-            android:textSize="16sp"
-            android:layout_margin="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="12sp"
+            android:textColor="#a2a2a2"
+            android:lineSpacingExtra="6sp"
+            android:text="종류"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.08" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="42.5dp"
+            android:layout_marginLeft="36.5dp"/>
+
+
+        <TextView
+            android:id="@+id/optionEditView"
+            android:layout_width="170dp"
+            android:layout_height="22dp"
+            android:background="@null"
+            android:inputType="text"
+            android:lineSpacingExtra="7sp"
+            android:hint="과제 종류를 골라주세요."
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/option_title"
+            android:layout_marginTop="9dp"
+            app:layout_constraintTop_toBottomOf="@+id/option_title"/>
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="100dp"
+            android:layout_height="22dp"
+            android:paddingVertical="10dp"
+            app:layout_constraintStart_toEndOf="@+id/optionEditView"
+            app:layout_constraintTop_toTopOf="@+id/optionEditView"/>
+
+        <View
+            android:id="@+id/option_underscore_view"
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_marginTop="15dp"
+            android:background="#4b89dc"
+            app:layout_constraintEnd_toEndOf="@+id/spinner"
+            app:layout_constraintStart_toStartOf="@+id/optionEditView"
+            app:layout_constraintTop_toBottomOf="@+id/spinner"/>
+
+
+        <TextView
+            android:id="@+id/subject_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="12sp"
+            android:textColor="#a2a2a2"
+            android:lineSpacingExtra="6sp"
+            android:text="과목명"
+            app:layout_constraintTop_toBottomOf="@+id/option_underscore_view"
+            android:layout_marginTop="21.5dp"
+            app:layout_constraintStart_toStartOf="@+id/option_title"/>
 
         <EditText
             android:id="@+id/subjectEditView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="272dp"
+            android:layout_height="22dp"
+            android:background="@null"
             android:inputType="text"
-            android:hint="과목명"
-            android:textSize="16sp"
-            android:layout_margin="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.2" />
+            android:lineSpacingExtra="7sp"
+            android:hint="과목명을 입력해주세요."
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/subject_title"
+            android:layout_marginTop="9dp"
+            app:layout_constraintTop_toBottomOf="@+id/subject_title"/>
+
+        <View
+            android:id="@+id/subject_underscore_view"
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_marginTop="15dp"
+            android:background="#4b89dc"
+            app:layout_constraintEnd_toEndOf="@+id/subjectEditView"
+            app:layout_constraintStart_toStartOf="@+id/subjectEditView"
+            app:layout_constraintTop_toBottomOf="@+id/subjectEditView"/>
+
 
         <TextView
-            android:id="@+id/start_date_tv"
+            android:id="@+id/homework_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="시작 날짜"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.32" />
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="12sp"
+            android:textColor="#a2a2a2"
+            android:lineSpacingExtra="6sp"
+            android:text="내용"
+            app:layout_constraintTop_toBottomOf="@+id/subject_underscore_view"
+            android:layout_marginTop="21.5dp"
+            app:layout_constraintStart_toStartOf="@+id/option_title"/>
 
         <EditText
-            android:id="@+id/start_month_EditView"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/homeworkEditView"
+            android:layout_width="272dp"
+            android:layout_height="22dp"
+            android:background="@null"
+            android:lineSpacingExtra="7sp"
             android:inputType="text"
-            android:textSize="16sp"
-            android:layout_margin="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.38" />
+            android:hint="ex) 3주 2차시 온라인 강의 마감"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/homework_title"
+            android:layout_marginTop="9dp"
+            app:layout_constraintTop_toBottomOf="@+id/homework_title"/>
+
+        <View
+            android:id="@+id/homework_underscore_view"
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_marginTop="15dp"
+            android:background="#4b89dc"
+            app:layout_constraintEnd_toEndOf="@+id/homeworkEditView"
+            app:layout_constraintStart_toStartOf="@+id/homeworkEditView"
+            app:layout_constraintTop_toBottomOf="@+id/homeworkEditView"/>
+
 
         <TextView
-            android:id="@+id/start_month_tv"
+            android:id="@+id/date_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="월"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/start_month_EditView"
-            app:layout_constraintStart_toEndOf="@+id/start_month_EditView"
-            app:layout_constraintTop_toTopOf="@+id/start_month_EditView"
-            app:layout_constraintVertical_bias="0.38" />
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="12sp"
+            android:textColor="#a2a2a2"
+            android:lineSpacingExtra="6sp"
+            android:text="기한"
+            app:layout_constraintTop_toBottomOf="@+id/homework_underscore_view"
+            android:layout_marginTop="42.5dp"
+            app:layout_constraintStart_toStartOf="@+id/option_title"/>
 
+        <TextView
+            android:id="@+id/dateEditView"
+            android:layout_width="130dp"
+            android:layout_height="22dp"
+            android:lineSpacingExtra="7sp"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="15sp"
+            android:hint="  년  월  일"
+            app:layout_constraintStart_toStartOf="@+id/date_title"
+            android:layout_marginTop="9dp"
+            app:layout_constraintTop_toBottomOf="@+id/date_title"/>
+
+        <ImageButton
+            android:id="@+id/date_btn"
+            android:layout_width="17dp"
+            android:layout_height="15dp"
+            app:srcCompat="@drawable/date_btn"
+            app:layout_constraintStart_toEndOf="@+id/dateEditView"
+            app:layout_constraintTop_toTopOf="@+id/dateEditView"
+            />
         <EditText
-            android:id="@+id/start_day_EditView"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/timeEditView"
+            android:layout_width="140dp"
+            android:layout_height="22dp"
+            android:background="@null"
+            android:lineSpacingExtra="7sp"
             android:inputType="text"
-            android:textSize="16sp"
-            android:layout_margin="5dp"
-            app:layout_constraintBottom_toBottomOf="@+id/start_month_tv"
-            app:layout_constraintStart_toEndOf="@+id/start_month_tv"
-            app:layout_constraintTop_toTopOf="@+id/start_month_tv"
-            app:layout_constraintVertical_bias="0.38" />
+            android:hint="  오전 10:00"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/date_btn"
+            app:layout_constraintTop_toTopOf="@+id/date_btn"
+            android:layout_marginStart="22dp"/>
+
+        <View
+            android:id="@+id/time_underscore_view"
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_marginTop="15dp"
+            android:background="#4b89dc"
+            app:layout_constraintEnd_toEndOf="@+id/timeEditView"
+            app:layout_constraintStart_toStartOf="@+id/timeEditView"
+            app:layout_constraintTop_toBottomOf="@+id/timeEditView"/>
+
+
+
+
+        <View
+            android:id="@+id/date_underscore_view"
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_marginTop="15dp"
+            android:background="#4b89dc"
+            app:layout_constraintEnd_toEndOf="@+id/dateEditView"
+            app:layout_constraintStart_toStartOf="@+id/dateEditView"
+            app:layout_constraintTop_toBottomOf="@+id/dateEditView"/>
 
         <TextView
-            android:id="@+id/start_day_tv"
+            android:id="@+id/alarm_title"
+            android:layout_width="45dp"
+            android:layout_height="18dp"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="12sp"
+            android:textColor="#a2a2a2"
+            android:lineSpacingExtra="6sp"
+            android:text="알림"
+            app:layout_constraintTop_toBottomOf="@+id/date_underscore_view"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/option_title"/>
+
+
+        <Switch
+            android:id="@+id/switch1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="일"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/start_day_EditView"
-            app:layout_constraintStart_toEndOf="@+id/start_day_EditView"
-            app:layout_constraintTop_toTopOf="@+id/start_day_EditView"
-            app:layout_constraintVertical_bias="0.38" />
+            app:layout_constraintStart_toEndOf="@+id/alarm_title"
+            android:layout_marginStart="210dp"
+            app:layout_constraintTop_toTopOf="@+id/alarm_title"/>
 
-        <TextView
-            android:id="@+id/end_date_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="마감 날짜"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.48" />
 
-        <EditText
-            android:id="@+id/end_month_EditView"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textSize="16sp"
-            android:layout_margin="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.56" />
-
-        <TextView
-            android:id="@+id/end_month_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="월"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/end_month_EditView"
-            app:layout_constraintStart_toEndOf="@+id/end_month_EditView"
-            app:layout_constraintTop_toTopOf="@+id/end_month_EditView"
-            app:layout_constraintVertical_bias="0.56" />
-
-        <EditText
-            android:id="@+id/end_day_EditView"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textSize="16sp"
-            android:layout_margin="5dp"
-            app:layout_constraintBottom_toBottomOf="@+id/end_month_tv"
-            app:layout_constraintStart_toEndOf="@+id/end_month_tv"
-            app:layout_constraintTop_toTopOf="@+id/end_month_tv"
-            app:layout_constraintVertical_bias="0.56" />
-
-        <TextView
-            android:id="@+id/finish_day_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="일"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/end_day_EditView"
-            app:layout_constraintStart_toEndOf="@+id/end_day_EditView"
-            app:layout_constraintTop_toTopOf="@+id/end_day_EditView"
-            app:layout_constraintVertical_bias="0.56" />
-
-        <TextView
-            android:id="@+id/end_time_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="마감 시간"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.65" />
-
-        <EditText
-            android:id="@+id/end_hour_EditView"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textSize="16sp"
-            android:layout_margin="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.75" />
-
-        <TextView
-            android:id="@+id/end_timebar_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text=":"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/end_hour_EditView"
-            app:layout_constraintStart_toEndOf="@+id/end_hour_EditView"
-            app:layout_constraintTop_toTopOf="@+id/end_hour_EditView"
-            app:layout_constraintVertical_bias="0.75" />
-
-        <EditText
-            android:id="@+id/end_minute_EditView"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textSize="16sp"
-            android:layout_margin="5dp"
-            app:layout_constraintBottom_toBottomOf="@+id/end_timebar_tv"
-            app:layout_constraintStart_toEndOf="@+id/end_timebar_tv"
-            app:layout_constraintTop_toTopOf="@+id/end_timebar_tv"
-            app:layout_constraintVertical_bias="0.75" />
-
-        <Button
-            android:id="@+id/okButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="32dp"
-            android:text="확인"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cancelButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
+            android:layout_width="97dp"
+            android:layout_height="47dp"
+            android:background="#f2f2f2"
             android:text="취소"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="15sp"
+            android:textColor="#808080"
+            android:lineSpacingExtra="7sp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="23dp"
+            android:layout_marginBottom="65dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/okButton"
+            android:layout_width="211dp"
+            android:layout_height="47dp"
+            android:background="#4b89dc"
+            android:text="확인"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="15sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="7sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="23dp"
+            android:layout_marginBottom="65dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/start_date_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:text="시작 날짜"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="16sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.32" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/start_month_EditView"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:inputType="text"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_margin="5dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.38" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/start_month_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:text="월"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="16sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/start_month_EditView"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/start_month_EditView"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/start_month_EditView"-->
+<!--            app:layout_constraintVertical_bias="0.38" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/start_day_EditView"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:inputType="text"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_margin="5dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/start_month_tv"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/start_month_tv"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/start_month_tv"-->
+<!--            app:layout_constraintVertical_bias="0.38" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/start_day_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:text="일"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="16sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/start_day_EditView"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/start_day_EditView"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/start_day_EditView"-->
+<!--            app:layout_constraintVertical_bias="0.38" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/end_date_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:text="마감 날짜"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="16sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.48" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/end_month_EditView"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:inputType="text"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_margin="5dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.56" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/end_month_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:text="월"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="16sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/end_month_EditView"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/end_month_EditView"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/end_month_EditView"-->
+<!--            app:layout_constraintVertical_bias="0.56" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/end_day_EditView"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:inputType="text"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_margin="5dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/end_month_tv"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/end_month_tv"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/end_month_tv"-->
+<!--            app:layout_constraintVertical_bias="0.56" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/finish_day_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:text="일"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="16sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/end_day_EditView"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/end_day_EditView"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/end_day_EditView"-->
+<!--            app:layout_constraintVertical_bias="0.56" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/end_time_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:text="마감 시간"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="16sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.65" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/end_hour_EditView"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:inputType="text"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_margin="5dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.75" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/end_timebar_tv"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:text=":"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="16sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/end_hour_EditView"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/end_hour_EditView"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/end_hour_EditView"-->
+<!--            app:layout_constraintVertical_bias="0.75" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/end_minute_EditView"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:inputType="text"-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_margin="5dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/end_timebar_tv"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/end_timebar_tv"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/end_timebar_tv"-->
+<!--            app:layout_constraintVertical_bias="0.75" />-->
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
