@@ -37,12 +37,12 @@ public class InquireService {
     //public PostTodoRes createInquire(String userEmail, String title, String content) throws BaseException {
     public PostInquireRes createInquire(PostInquireReq postInquireReq) throws BaseException {
 
-        try{
+        //try{
             int inquireIdx = inquireDao.insertInquire(postInquireReq);
             return new PostInquireRes(inquireIdx);
-        } catch (Exception exception) {
-            throw new BaseException(DATABASE_ERROR);
-        }
+        //} catch (Exception exception) {
+        //    throw new BaseException(DATABASE_ERROR);
+        //}
     }
 
 }

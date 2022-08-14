@@ -9,7 +9,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class PostInquireReq {
+    private String userName;
     private String userEmail;
-    private String title;
+    private String intro;
     private String content;
 }
