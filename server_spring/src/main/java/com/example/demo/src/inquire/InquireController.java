@@ -14,6 +14,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -44,10 +54,27 @@ public class InquireController {
 
         try{
             PostInquireRes postInquireRes = inquireService.createInquire(postInquireReq);
+
+
+            RestTemplate restTemplate = new RestTemplate();
+
+            Map<String,Object> request = new HashMap<String,Object>();
+            request.put("username", " 문의자 : "+postInquireReq.getUserName());
+
+            String content = postInquireReq.getUserName()+'\n'+postInquireReq.getUserEmail()+'\n'+postInquireReq.getIntro()+'\n'+postInquireReq.getContent();
+
+            request.put("text", content);
+
+            HttpEntity<Map<String,Object>> entity = new HttpEntity<Map<String,Object>>(request);
+
+            String url = "https://hooks.slack.com/services/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"; // 사용할 슬랙의 Webhook URL 넣기
+
+            restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
+
+
             return new BaseResponse<>(postInquireRes);
         } catch(BaseException exception){
             return new BaseResponse<>((exception.getStatus()));
         }
     }
-
 }
