@@ -67,7 +67,7 @@ public class InquireController {
 
             HttpEntity<Map<String,Object>> entity = new HttpEntity<Map<String,Object>>(request);
 
-            String url = "https://hooks.slack.com/services/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"; // 사용할 슬랙의 Webhook URL 넣기
+            String url = "..."; // 사용할 슬랙의 Webhook URL 넣기
 
             restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 
