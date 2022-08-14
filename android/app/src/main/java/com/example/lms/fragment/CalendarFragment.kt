@@ -16,6 +16,7 @@ import com.example.lms.databinding.FragmentCalendarBinding
 import com.example.lms.dialog.MyCustomDialog
 import com.example.lms.dialog.MyCustomDialog2
 import com.example.lms.dialog.MyCustomDialogInterface
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.CalendarMode
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
@@ -239,6 +240,7 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
         memoViewModel.addMemo(memo)
         Toast.makeText(activity, "추가", Toast.LENGTH_SHORT).show()
 
+        //calendar.removeDecorators()
         calendar.addDecorator(EventDecorator(Collections.singleton(selectedDate)))
     }
 
