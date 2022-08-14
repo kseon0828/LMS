@@ -18,8 +18,8 @@ class LoginPasswordActivity : AppCompatActivity(), LoginView{
         setContentView(binding.root)
 
         val intent = intent //전달할 데이터를 받을 Intent
-        //text 키값으로 데이터를 받는다. String을 받아야 하므로 getStringExtra()를 사용함
-        val text = intent.getStringExtra("text")
+        val email = intent.getStringExtra("email")
+        binding.loginIdEt.setText(email)
 
 
         binding!!.backBtn.setOnClickListener{
@@ -31,10 +31,6 @@ class LoginPasswordActivity : AppCompatActivity(), LoginView{
             login()
         }
 
-    }
-
-    private fun startMainActivity() {
-        startActivity(Intent(this,LoginSuccessActivity::class.java))
     }
 
     private fun login() {
@@ -51,10 +47,16 @@ class LoginPasswordActivity : AppCompatActivity(), LoginView{
     }
 
     private fun getUser(): User {
+        val email = binding.loginIdEt.text.toString()
         val pwd = binding.loginPwdEt.text.toString()
 
-        return User(email = "", pwd = pwd,name ="", univ ="",ssn="")
+        return User(email = email, pwd = pwd,name ="", univ ="",ssn="")
     }
+
+    private fun startMainActivity() {
+        startActivity(Intent(this,LoginSuccessActivity::class.java))
+    }
+
 
     private fun saveJwt2(jwt: String) {
         val spf = getSharedPreferences("auth2" , MODE_PRIVATE)
@@ -78,6 +80,5 @@ class LoginPasswordActivity : AppCompatActivity(), LoginView{
     override fun onLoginFailure() {
 
     }
-
 
 }

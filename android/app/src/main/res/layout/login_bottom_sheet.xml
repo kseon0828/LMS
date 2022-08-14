@@ -48,8 +48,9 @@
         app:layout_constraintStart_toStartOf="@+id/notify_title"/>
 
     <TextView
+        android:id="@+id/notify_content1"
         android:layout_width="281dp"
-        android:layout_height="wrap_content"
+        android:layout_height="62dp"
         android:fontFamily="@font/noto_sans"
         android:textStyle="normal"
         android:textSize="12sp"
@@ -59,5 +60,58 @@
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="@+id/notify_subtitle1"
         android:text="- 혹시 로그인헀던 소셜서비스의 계정을 아예 삭제했거나, 비밀번호를 변경했나요? 이경우, 해당 소셜 서비스에서 직접 확인한 후 텍스처에 로그인이 가능합니다."/>
+
+    <TextView
+        android:id="@+id/notify_subtitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans"
+        android:textStyle="normal"
+        android:textSize="12sp"
+        android:textColor="#000000"
+        android:lineSpacingExtra="6sp"
+        android:text="구글 계정으로 로그인 하려는데 절차가 복잡해요."
+        app:layout_constraintTop_toBottomOf="@+id/notify_content1"
+        android:layout_marginTop="31dp"
+        app:layout_constraintStart_toStartOf="@+id/notify_content1"
+        />
+    <TextView
+        android:id="@+id/notify_content2"
+        android:layout_width="281dp"
+        android:layout_height="62dp"
+        android:fontFamily="@font/noto_sans"
+        android:textStyle="normal"
+        android:textSize="12sp"
+        android:textColor="#a2a2a2"
+        android:lineSpacingExtra="6sp"
+        app:layout_constraintTop_toBottomOf="@+id/notify_subtitle2"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="@+id/notify_subtitle2"
+        android:text="- 혹시 Google Workspace 계정으로 로그인을 시도하셨나요? 이 경우, Google Device Policy 맴 다운로드 및 해당 앱 로그인 후 모두리 이용이 가능합니다."/>
+
+    <TextView
+        android:id="@+id/notify_subtitle3"
+        android:layout_width="292dp"
+        android:layout_height="36dp"
+        android:fontFamily="@font/noto_sans"
+        android:textStyle="normal"
+        android:textSize="12sp"
+        android:textColor="#000000"
+        android:lineSpacingExtra="6sp"
+        app:layout_constraintTop_toBottomOf="@+id/notify_content2"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="@+id/notify_content2"
+        android:text="그래도 문제가 해결되지 않는다면 고객센터로 이메일을 보내주세요. 편리한 이용을 위한 모두리가 되겠습니다."/>
+
+    <ImageButton
+        android:id="@+id/send_btn"
+        android:layout_width="313dp"
+        android:layout_height="55dp"
+        app:srcCompat="@drawable/send_email"
+        app:layout_constraintTop_toBottomOf="@id/notify_subtitle3"
+        android:layout_marginTop="41dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

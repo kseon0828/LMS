@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LMS">
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,11 +21,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.lms.MainActivity"/>
+        <activity android:name="com.example.lms.LoginActivity"/>
         <activity android:name="com.example.lms.SignUpActivity"/>
         <activity android:name="com.example.lms.LoginSuccessActivity"/>
         <activity android:name="com.example.lms.LoginEmailActivity"/>
         <activity android:name="com.example.lms.LoginPasswordActivity"/>
+        <activity android:name="com.example.lms.SignUpEmailActivity"/>
+        <activity android:name="com.example.lms.SignUpNameActivity"/>
+        <activity android:name="com.example.lms.SignUpUnivActivity"/>
+        <activity android:name="com.example.lms.SignUpSsnActivity"/>
+        <activity android:name="com.example.lms.SignUpPasswordActivity"/>
+        <activity android:name="com.example.lms.SignUpSaveActivity"/>
+        <activity android:name="com.example.lms.SignUpSuccessActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <ImageButton
+        android:id="@+id/back_btn"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:srcCompat="@drawable/back_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="53dp"/>
+
+    <TextView
+        android:id="@+id/email_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_bold"
+        android:lineSpacingExtra="11sp"
+        android:text="학번을 입력해주세요"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="106dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/title_ssn"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:fontFamily="@font/noto_sans"
+        android:lineSpacingExtra="6sp"
+        android:text="학번"
+        android:textColor="#a2a2a2"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="@+id/email_title"
+        android:layout_marginTop="163dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/signup_ssn_et"
+        android:layout_width="272dp"
+        android:layout_height="26dp"
+        android:background="@null"
+        android:fontFamily="@font/noto_sans"
+        android:hint="20221234"
+        android:inputType="text"
+        android:lineSpacingExtra="8sp"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        android:layout_marginLeft="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="185dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <View
+        android:id="@+id/signup_ssn_underscore_view"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="15dp"
+        android:background="#4b89dc"
+        app:layout_constraintEnd_toEndOf="@+id/signup_ssn_et"
+        app:layout_constraintStart_toStartOf="@+id/signup_ssn_et"
+        app:layout_constraintTop_toBottomOf="@+id/signup_ssn_et"/>
+
+
+    <ImageView
+        android:id="@+id/login_x_iv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginLeft="17dp"
+        android:src="@drawable/btn_xcircle"
+        app:layout_constraintTop_toTopOf="@+id/signup_ssn_et"
+        app:layout_constraintStart_toEndOf="@+id/signup_ssn_et"/>
+
+    <TextView
+        android:id="@+id/title_univ"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:fontFamily="@font/noto_sans"
+        android:lineSpacingExtra="6sp"
+        android:text="학교명"
+        android:textColor="#a2a2a2"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="@+id/title_ssn"
+        android:layout_marginTop="238.5dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/signup_univ_et"
+        android:layout_width="272dp"
+        android:layout_height="26dp"
+        android:background="@null"
+        android:fontFamily="@font/noto_sans"
+        android:inputType="text"
+        android:lineSpacingExtra="8sp"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        android:layout_marginLeft="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="260.5dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <View
+        android:id="@+id/signup_univ_underscore_view"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="15dp"
+        android:background="#4b89dc"
+        app:layout_constraintEnd_toEndOf="@+id/signup_univ_et"
+        app:layout_constraintStart_toStartOf="@+id/signup_univ_et"
+        app:layout_constraintTop_toBottomOf="@+id/signup_univ_et"/>
+
+
+    <TextView
+        android:id="@+id/title_name"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:fontFamily="@font/noto_sans"
+        android:lineSpacingExtra="6sp"
+        android:text="이름"
+        android:textColor="#a2a2a2"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="@+id/title_ssn"
+        android:layout_marginTop="314dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/signup_name_et"
+        android:layout_width="272dp"
+        android:layout_height="26dp"
+        android:background="@null"
+        android:fontFamily="@font/noto_sans"
+        android:inputType="text"
+        android:lineSpacingExtra="8sp"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        android:layout_marginLeft="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="336dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <View
+        android:id="@+id/signup_name_underscore_view"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="15dp"
+        android:background="#4b89dc"
+        app:layout_constraintEnd_toEndOf="@+id/signup_name_et"
+        app:layout_constraintStart_toStartOf="@+id/signup_name_et"
+        app:layout_constraintTop_toBottomOf="@+id/signup_name_et"/>
+
+    <EditText
+        android:id="@+id/signup_email_et"
+        android:layout_width="272dp"
+        android:layout_height="26dp"
+        android:background="@null"
+        app:layout_constraintTop_toBottomOf="@+id/login_x_iv"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"
+        />
+
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ok_btn"
+        android:layout_width="313dp"
+        android:layout_height="55dp"
+        android:background="@color/main"
+        android:text="다음"
+        android:textStyle="normal"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:lineSpacingExtra="9sp"
+        android:fontFamily="@font/noto_sans"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="62dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

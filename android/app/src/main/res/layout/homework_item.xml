@@ -16,21 +16,73 @@
         android:background="@drawable/item_background"
         android:layout_margin="5dp">
 
+        <LinearLayout
+            android:id="@+id/homework_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/circle_blue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/homeworkTextView"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#a2a2a2"
+                android:text="Homework"
+                android:layout_margin="4dp" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/line_view"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginTop="2dp"
+            android:background="#f2f2f2"
+            app:layout_constraintEnd_toEndOf="@+id/homework"
+            app:layout_constraintStart_toStartOf="@+id/homework"
+            app:layout_constraintTop_toBottomOf="@+id/homework"/>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
+            <TextView
+                android:id="@+id/homeworkContentTextView"
+                android:gravity="left"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                android:text="@{homework.content}"
+                android:fontFamily="@font/noto_sans"
+                android:textStyle="normal"
+                android:textColor="#000000"
+                android:lineSpacingExtra="8sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/homeworkCheckBox" />
 
             <CheckBox
                 android:id="@+id/homeworkCheckBox"
-                android:layout_width="0dp"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:checked="@{homework.check}"
-                android:text="@{homework.content}"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/homeworkUpdateButton" />
 
             <Button
@@ -54,21 +106,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:id="@+id/dateTextView"
-                android:gravity="right"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:text="@{@string/date_format(homework.year,homework.month,homework.day)}"
-                android:layout_margin="4dp" />
-        </LinearLayout>
     </LinearLayout>
 </layout>

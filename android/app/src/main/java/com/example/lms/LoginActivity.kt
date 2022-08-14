@@ -23,6 +23,11 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this,LoginEmailActivity::class.java))
         }
 
+        binding.signupTv.setOnClickListener {
+            startActivity(Intent(this,SignUpEmailActivity::class.java))
+        }
+
+
         val bottomSheetView = layoutInflater.inflate(R.layout.login_bottom_sheet, null)
         val bottomSheetDialog = BottomSheetDialog(this)
         bottomSheetDialog.setContentView(bottomSheetView)

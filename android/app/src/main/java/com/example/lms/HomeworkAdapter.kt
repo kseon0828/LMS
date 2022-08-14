@@ -8,6 +8,9 @@ import com.example.lms.databinding.HomeworkItemBinding
 import com.example.lms.dialog.MyCustomDialog2
 import com.example.lms.dialog.UpdateDialog2
 import com.example.lms.dialog.UpdateDialogInterface
+import com.prolificinteractive.materialcalendarview.CalendarDay
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView
+import java.util.*
 
 class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : RecyclerView.Adapter<HomeworkAdapter.MyViewHolder>() {
     private var homeworkList = emptyList<Homework>()
@@ -16,7 +19,9 @@ class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : Recycl
     class MyViewHolder(private val binding: HomeworkItemBinding) : RecyclerView.ViewHolder(binding.root),
         UpdateDialogInterface{
         lateinit var homework : Homework
-        lateinit var homeworkViewModel: HomeworkViewModel
+        private lateinit var homeworkViewModel: HomeworkViewModel
+//        private lateinit var eventDecorator: EventDecorator
+//        lateinit var calendar: MaterialCalendarView
 
         fun bind(currentHomework : Homework, homeworkViewModel: HomeworkViewModel){
             binding.homework = currentHomework
@@ -41,6 +46,13 @@ class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : Recycl
 
             // 삭제 버튼 클릭 시 메모 삭제
             binding.homeworkDeleteButton.setOnClickListener {
+//                var date = Calendar.getInstance()
+//                date.set(currentHomework.year, currentHomework.month, currentHomework.day)
+//                var day = CalendarDay.from(date) // Calendar 자료형을 넣어주면 됨
+//                eventDecorator.dates.remove(day)
+//                calendar.removeDecorators()
+//                calendar.invalidateDecorators()
+
                 homeworkViewModel.deleteHomework(currentHomework)
             }
 
@@ -91,3 +103,4 @@ class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : Recycl
         return position.toLong()
     }
 }
+

@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.lms.databinding.ActivityLoginEmailBinding
 
 
-class LoginEmailActivity: AppCompatActivity(), LoginView {
+class LoginEmailActivity: AppCompatActivity(){
     lateinit var binding: ActivityLoginEmailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,54 +21,18 @@ class LoginEmailActivity: AppCompatActivity(), LoginView {
         }
 
         binding.okBtn.setOnClickListener {
-            login()
+            val email: String = binding.loginIdEt.getText().toString()
+            //인텐트 선언 및 정의
+            val intent = Intent(this@LoginEmailActivity, LoginPasswordActivity::class.java)
+            //입력한 input값을 intent로 전달한다.
+            intent.putExtra("email", email)
+            //액티비티 이동
+            startActivity(intent)
         }
 
 
     }
 
-    private fun login() {
-        if (binding.loginIdEt.text.toString().isEmpty()) {
-            Toast.makeText(this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show()
-            return
-        }
 
-        val authService = AuthService()
-        authService.setLoginView(this)
-
-        authService.login(getUser())
-        Log.d("Login-ACT/ASYNC", "Hello, LMS")
-
-        startActivity(Intent(this,LoginPasswordActivity::class.java))
-    }
-
-
-    private fun getUser(): User {
-        val email = binding.loginIdEt.text.toString()
-
-        return User(email = email, pwd = "",name ="", univ ="",ssn="")
-    }
-
-    private fun saveJwt2(jwt: String) {
-        val spf = getSharedPreferences("auth2" , MODE_PRIVATE)
-        val editor = spf.edit()
-
-        editor.putString("jwt", jwt)
-        editor.apply()
-    }
-
-    override fun onLoginSuccess(code : Int , result: Result) {
-        when(code) {
-            1000 -> {
-                saveJwt2(result.jwt)
-                Log.d("Logintest", "로그인 성공")
-
-            }
-        }
-    }
-
-    override fun onLoginFailure() {
-
-    }
 
 }

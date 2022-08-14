@@ -7,12 +7,13 @@ import com.example.lms.fragment.CalendarFragment
 import com.example.lms.fragment.TodoListFragment
 
 class ViewPagerAdapter (fragment : FragmentActivity) : FragmentStateAdapter(fragment){
-    override fun getItemCount(): Int = 2
+    override fun getItemCount(): Int = 1
 
     override fun createFragment(position: Int): Fragment {
-        return when (position) {
-            0 -> TodoListFragment()
-            else -> CalendarFragment()
-        }
+        return CalendarFragment()
+//        return when (position) {
+//            0 -> CalendarFragment()
+//            else ->TodoListFragment()
+//        }
     }
 }
