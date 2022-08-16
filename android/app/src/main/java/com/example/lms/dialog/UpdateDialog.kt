@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import com.example.lms.R
 
@@ -20,8 +21,8 @@ class UpdateDialog(context : Context, updateDialogInterface : UpdateDialogInterf
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_dialog)
 
-        var okButton : Button = findViewById(R.id.okButton)
-        var cancelButton : Button = findViewById(R.id.cancelButton)
+        var okButton : ImageButton = findViewById(R.id.okButton)
+        //var cancelButton : Button = findViewById(R.id.cancelButton)
         var memoEditView : EditText = findViewById(R.id.memoEditView)
 
         // 배경 투명하게 바꿔줌
@@ -44,6 +45,6 @@ class UpdateDialog(context : Context, updateDialogInterface : UpdateDialogInterf
         }
 
         // 취소 버튼 클릭 시 종료
-        cancelButton.setOnClickListener { dismiss()}
+        //cancelButton.setOnClickListener { dismiss()}
     }
 }

@@ -33,6 +33,7 @@
         <activity android:name="com.example.lms.SignUpPasswordActivity"/>
         <activity android:name="com.example.lms.SignUpSaveActivity"/>
         <activity android:name="com.example.lms.SignUpSuccessActivity"/>
+        <activity android:name="com.example.lms.MainAgreeActivity"/>
         <activity android:name="com.example.lms.MainActivity"/>
 
         <meta-data

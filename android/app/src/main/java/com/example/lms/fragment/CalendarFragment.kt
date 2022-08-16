@@ -91,9 +91,9 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
         calendar.isDynamicHeightEnabled=true
         calendar.setTitleFormatter(MonthArrayTitleFormatter(resources.getTextArray(R.array.custom_months)))
         calendar.setWeekDayFormatter(ArrayWeekDayFormatter(resources.getTextArray(R.array.custom_weekdays)))
-//        calendar.setDateTextAppearance(R.style.CustomDateTextAppearance)
-//        calendar.setWeekDayTextAppearance(R.style.CustomWeekDayAppearance)
-//        calendar.setHeaderTextAppearance(R.style.CustomHeaderTextAppearance)
+        calendar.setDateTextAppearance(R.style.CustomDateTextAppearance)
+        calendar.setWeekDayTextAppearance(R.style.CustomWeekDayAppearance)
+        calendar.setHeaderTextAppearance(R.style.CustomHeaderTextAppearance)
 
 
         binding!!.calendarView.setOnDateChangedListener { _, CalendarDay, _ ->

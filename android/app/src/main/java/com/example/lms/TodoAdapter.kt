@@ -1,7 +1,14 @@
 package com.example.lms
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lms.databinding.TodoItemBinding
 
@@ -9,6 +16,7 @@ import com.example.lms.Memo
 import com.example.lms.dialog.UpdateDialog
 import com.example.lms.dialog.UpdateDialogInterface
 import com.example.lms.MemoViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 
 class TodoAdapter(private val memoViewModel: MemoViewModel) : RecyclerView.Adapter<TodoAdapter.MyViewHolder>() {
@@ -33,8 +41,8 @@ class TodoAdapter(private val memoViewModel: MemoViewModel) : RecyclerView.Adapt
                 if (check) {
                     memo = Memo(currentMemo.id, true, currentMemo.content,
                         currentMemo.year, currentMemo.month, currentMemo.day)
-                    //this.memoViewModel.updateMemo(memo)
-                    this.memoViewModel.deleteMemo(memo)
+                    this.memoViewModel.updateMemo(memo)
+                    //this.memoViewModel.deleteMemo(memo)
 
                 }
                 else {
@@ -45,15 +53,42 @@ class TodoAdapter(private val memoViewModel: MemoViewModel) : RecyclerView.Adapt
             }
 
             // 삭제 버튼 클릭 시 메모 삭제
-            binding.deleteButton.setOnClickListener {
-                memoViewModel.deleteMemo(currentMemo)
-            }
+//            binding.deleteButton.setOnClickListener {
+//                memoViewModel.deleteMemo(currentMemo)
+//            }
+
+
 
             // 수정 버튼 클릭 시 다이얼로그 띄움
-            binding.updateButton.setOnClickListener {
-                memo = currentMemo
-                val myCustomDialog = UpdateDialog(binding.updateButton.context,this)
-                myCustomDialog.show()
+            binding.todoLayout.setOnClickListener {
+//                memo = currentMemo
+//                val myCustomDialog = UpdateDialog(binding.updateButton.context,this)
+//                myCustomDialog.show()
+
+                val detailDialog = BottomSheetDialog(binding.todoLayout.context, R.style.AppBottomSheetDialogTheme)
+                detailDialog.setContentView(R.layout.todo_detail)
+                val todoText = detailDialog.findViewById<TextView>(R.id.todo_detail_View)
+                val deleteButton = detailDialog.findViewById<AppCompatButton>(R.id.todoDeleteButton)
+                val closeButton = detailDialog.findViewById<AppCompatButton>(R.id.todoCloseButton)
+                todoText?.text = currentMemo.content
+                //수정
+                todoText?.setOnClickListener{
+                    memo = currentMemo
+                    val myCustomDialog = UpdateDialog(todoText?.context,this)
+                    detailDialog.dismiss()
+                    myCustomDialog.show()
+                }
+                //삭제
+                deleteButton?.setOnClickListener{
+                    detailDialog.dismiss()
+                    memoViewModel.deleteMemo(currentMemo)
+                }
+                //닫기
+                closeButton?.setOnClickListener{
+                    detailDialog.dismiss()
+                }
+
+                detailDialog.show()
             }
         }
 

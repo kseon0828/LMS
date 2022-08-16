@@ -32,9 +32,12 @@
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/layout_dialog.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/layout_dialog2.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/UMC/LMS_Hackathon/android/app/src/main/res/layout/login_bottom_sheet.xml" value="0.1381340579710145" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/drawable/bg_bottomdialog.xml" value="0.1455" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/drawable/bottom_sheet.xml" value="0.1455" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/drawable/button_background_black_color.xml" value="0.1455" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/drawable/button_background_flo_color.xml" value="0.1455" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/drawable/check_circle.xml" value="0.1455" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/drawable/check_list.xml" value="0.1455" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/drawable/circle_blue.xml" value="0.1455" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/drawable/circle_orange.xml" value="0.1455" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1455" />
@@ -55,12 +58,14 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/activity_main_terms.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/activity_main_terms1.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/activity_signup.xml" value="0.12335359675785208" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/activity_splash.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/fragment_calendar.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/fragment_todo_list.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/homework_item.xml" value="0.264" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/layout_dialog.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/layout_dialog2.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/login_bottom_sheet.xml" value="0.12335359675785208" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/todo_detail.xml" value="0.12335359675785208" />
         <entry key="..\:/Users/user/AndroidStudioProjects/android/app/src/main/res/layout/todo_item.xml" value="0.25364583333333335" />
       </map>
     </option>

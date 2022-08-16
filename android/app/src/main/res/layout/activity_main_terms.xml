@@ -19,11 +19,15 @@
         app:layout_constraintTop_toTopOf="parent">
     </View>
 
-    <ImageButton
+    <CheckBox
         android:id="@+id/check_circle_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_main_check_circle"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@drawable/check_circle"
+        android:button="@null"
+        android:checked="false"
+        android:enabled="true"
+        android:gravity="center_horizontal"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="49dp"
         android:layout_marginLeft="14dp"
@@ -44,11 +48,15 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="50dp"/>
 
-    <ImageButton
+    <CheckBox
         android:id="@+id/terms_subtitle1_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_main_check_circle"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@drawable/check_circle"
+        android:button="@null"
+        android:checked="false"
+        android:enabled="true"
+        android:gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@+id/terms_background"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="60dp"
@@ -79,11 +87,15 @@
         android:layout_marginLeft="16dp"
         app:layout_constraintStart_toEndOf="@+id/terms_subtitle1" />
 
-    <ImageButton
+    <CheckBox
         android:id="@+id/terms_subtitle2_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_main_check_circle"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@drawable/check_circle"
+        android:button="@null"
+        android:checked="false"
+        android:enabled="true"
+        android:gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@+id/terms_subtitle1"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="60dp"
@@ -114,11 +126,15 @@
         android:layout_marginLeft="16dp"
         app:layout_constraintStart_toEndOf="@+id/terms_subtitle2" />
 
-    <ImageButton
+    <CheckBox
         android:id="@+id/terms_subtitle3_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_main_check_circle"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@drawable/check_circle"
+        android:button="@null"
+        android:checked="false"
+        android:enabled="true"
+        android:gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@+id/terms_subtitle2"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="60dp"

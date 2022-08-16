@@ -29,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         val bottomSheetView = layoutInflater.inflate(R.layout.login_bottom_sheet, null)
-        val bottomSheetDialog = BottomSheetDialog(this)
+        val bottomSheetDialog = BottomSheetDialog(this, R.style.AppBottomSheetDialogTheme)
         bottomSheetDialog.setContentView(bottomSheetView)
 
         binding.loginNotify.setOnClickListener {
