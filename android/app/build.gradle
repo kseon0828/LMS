@@ -85,4 +85,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     implementation 'com.prolificinteractive:material-calendarview:1.4.3'
+
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
 }
