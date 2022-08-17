@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomSheetDashBoardLayout"
+    app:behavior_hideable="true"
+    app:behavior_draggable="true"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+    <!--    <data>-->
+    <!--        <variable-->
+    <!--            name="memo"-->
+    <!--            type="com.example.lms.Memo" />-->
+
+    <!--    </data>-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="411dp">
+        <TextView
+            android:id="@+id/detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_bold"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:lineSpacingExtra="6sp"
+            android:layout_marginTop="43dp"
+            android:layout_marginStart="35dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/detail_date_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="12sp"
+            android:textColor="#a2a2a2"
+            android:lineSpacingExtra="6sp"
+            android:text="기한"
+            android:layout_marginTop="106dp"
+            android:layout_marginStart="35dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/detail_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:lineSpacingExtra="5sp"
+            android:layout_marginTop="128dp"
+            android:layout_marginStart="35dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+            android:id="@+id/date_right_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_main_right"
+            app:layout_constraintTop_toTopOf="@+id/detail_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="35.6dp"/>
+
+        <TextView
+            android:id="@+id/alarm_setting_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="12sp"
+            android:textColor="#a2a2a2"
+            android:lineSpacingExtra="6sp"
+            android:text="알림"
+            android:layout_marginTop="170dp"
+            android:layout_marginStart="35dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/alarm_setting_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="36dp"/>
+
+        <TextView
+            android:id="@+id/alarm_time_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="12sp"
+            android:textColor="#a2a2a2"
+            android:lineSpacingExtra="6sp"
+            android:text="알림 시간"
+            android:layout_marginTop="204dp"
+            android:layout_marginStart="35dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/alarm_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:lineSpacingExtra="5sp"
+            android:layout_marginTop="226dp"
+            android:layout_marginStart="35dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/time_right_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_main_right"
+            app:layout_constraintTop_toTopOf="@+id/alarm_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="35.6dp"
+            android:visibility="invisible" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/homeworkDeleteButton"
+            android:layout_width="97dp"
+            android:layout_height="47dp"
+            android:background="#f2f2f2"
+            android:text="삭제"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="15sp"
+            android:textColor="#808080"
+            android:lineSpacingExtra="7sp"
+            app:layout_constraintTop_toTopOf="@+id/alarm_time"
+            android:layout_marginTop="56dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="23dp"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/homeworkCloseButton"
+            android:layout_width="211dp"
+            android:layout_height="47dp"
+            android:background="#4b89dc"
+            android:text="닫기"
+            android:fontFamily="@font/noto_sans"
+            android:textStyle="normal"
+            android:textSize="15sp"
+            android:textColor="#ffffff"
+            android:lineSpacingExtra="7sp"
+            app:layout_constraintTop_toTopOf="@+id/alarm_time"
+            android:layout_marginTop="56dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="23dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

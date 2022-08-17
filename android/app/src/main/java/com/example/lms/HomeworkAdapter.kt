@@ -2,11 +2,15 @@ package com.example.lms
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lms.databinding.HomeworkItemBinding
 import com.example.lms.dialog.MyCustomDialog2
+import com.example.lms.dialog.UpdateDialog
 import com.example.lms.dialog.UpdateDialog2
 import com.example.lms.dialog.UpdateDialogInterface
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import java.util.*
@@ -18,14 +22,13 @@ class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : Recycl
     class MyViewHolder(private val binding: HomeworkItemBinding) : RecyclerView.ViewHolder(binding.root),
         UpdateDialogInterface{
         lateinit var homework : Homework
-        private lateinit var homeworkViewModel: HomeworkViewModel
+        lateinit var homeworkViewModel: HomeworkViewModel
 //        private lateinit var eventDecorator: EventDecorator
 //        lateinit var calendar: MaterialCalendarView
 
         fun bind(currentHomework : Homework, homeworkViewModel: HomeworkViewModel){
             binding.homework = currentHomework
             this.homeworkViewModel = homeworkViewModel
-
 
             // 체크 리스너 초기화 해줘 중복 오류 방지
             binding.homeworkCheckBox.setOnCheckedChangeListener(null)
@@ -44,25 +47,49 @@ class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : Recycl
                 }
             }
 
-            // 삭제 버튼 클릭 시 메모 삭제
-            binding.homeworkDeleteButton.setOnClickListener {
-//                var date = Calendar.getInstance()
-//                date.set(currentHomework.year, currentHomework.month, currentHomework.day)
-//                var day = CalendarDay.from(date) // Calendar 자료형을 넣어주면 됨
-//                eventDecorator.dates.remove(day)
-//                calendar.removeDecorators()
-//                calendar.invalidateDecorators()
-
-                homeworkViewModel.deleteHomework(currentHomework)
-            }
+//            // 삭제 버튼 클릭 시 메모 삭제
+//            binding.homeworkDeleteButton.setOnClickListener {
+////                var date = Calendar.getInstance()
+////                date.set(currentHomework.year, currentHomework.month, currentHomework.day)
+////                var day = CalendarDay.from(date) // Calendar 자료형을 넣어주면 됨
+////                eventDecorator.dates.remove(day)
+////                calendar.removeDecorators()
+////                calendar.invalidateDecorators()
+//
+//                homeworkViewModel.deleteHomework(currentHomework)
+//            }
 
             // 수정 버튼 클릭 시 다이얼로그 띄움
-            binding.homeworkUpdateButton.setOnClickListener {
-                homework = currentHomework
-                val myCustomDialog2 = UpdateDialog2(binding.homeworkUpdateButton.context,this)
-                myCustomDialog2.show()
-            }
+            binding.homeworkLayout.setOnClickListener {
+//                memo = currentMemo
+//                val myCustomDialog = UpdateDialog(binding.updateButton.context,this)
+//                myCustomDialog.show()
 
+                val detailDialog = BottomSheetDialog(binding.homeworkLayout.context, R.style.AppBottomSheetDialogTheme)
+                detailDialog.setContentView(R.layout.homework_detail)
+                val todoText = detailDialog.findViewById<TextView>(R.id.detail_title)
+                val deleteButton = detailDialog.findViewById<AppCompatButton>(R.id.homeworkDeleteButton)
+                val closeButton = detailDialog.findViewById<AppCompatButton>(R.id.homeworkCloseButton)
+                todoText?.text = currentHomework.content
+                //수정
+                todoText?.setOnClickListener{
+                    homework = currentHomework
+                    val myCustomDialog = UpdateDialog2(todoText?.context,this)
+                    detailDialog.dismiss()
+                    myCustomDialog.show()
+                }
+                //삭제
+                deleteButton?.setOnClickListener{
+                    detailDialog.dismiss()
+                    homeworkViewModel.deleteHomework(currentHomework)
+                }
+                //닫기
+                closeButton?.setOnClickListener{
+                    detailDialog.dismiss()
+                }
+
+                detailDialog.show()
+            }
         }
 
         // 다이얼로그의 결과값으로 업데이트 해줌

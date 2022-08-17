@@ -10,6 +10,7 @@
     </data>
 
     <LinearLayout
+        android:id="@+id/homework_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -17,10 +18,11 @@
         android:layout_margin="5dp">
 
         <LinearLayout
-            android:id="@+id/homework_layout"
+            android:id="@+id/homework"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <View
                 android:layout_width="10dp"
@@ -75,34 +77,43 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/homeworkCheckBox" />
 
+
             <CheckBox
                 android:id="@+id/homeworkCheckBox"
-                android:layout_width="40dp"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/check_list"
                 android:checked="@{homework.check}"
                 android:textSize="16sp"
+                android:button="@null"
+                android:enabled="true"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="35dp"
+                android:layout_marginTop="5dp"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/homeworkContentTextView"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/homeworkUpdateButton" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
-            <Button
-                android:id="@+id/homeworkUpdateButton"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/ic_baseline_edit_24"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/homeworkDeleteButton"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--            <Button-->
+<!--                android:id="@+id/homeworkUpdateButton"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:background="@drawable/ic_baseline_edit_24"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toStartOf="@+id/homeworkDeleteButton"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-            <Button
-                android:id="@+id/homeworkDeleteButton"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/ic_baseline_delete_24"
-                android:text="Button"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--            <Button-->
+<!--                android:id="@+id/homeworkDeleteButton"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:background="@drawable/ic_baseline_delete_24"-->
+<!--                android:text="Button"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
