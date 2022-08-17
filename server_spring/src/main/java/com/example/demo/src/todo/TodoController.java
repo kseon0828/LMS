@@ -33,9 +33,32 @@ public class TodoController {
         this.jwtService = jwtService;
     }
 
+    /*
     @ResponseBody
     @GetMapping("/{date}")
     public BaseResponse<GetTodoListRes> getTodoList(@PathVariable("date") String date) {
+
+        try{
+            SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
+            SimpleDateFormat newDtFormat = new SimpleDateFormat("yyyy-MM-dd");
+            // String 타입을 Date 타입으로 변환
+            Date formatDate = dtFormat.parse(date);
+
+            int userIdxByJwt = jwtService.getUserIdx();
+            System.out.println();
+
+            GetTodoListRes getTodoRes = todoProvider.retrieveTodo(userIdxByJwt, formatDate);
+            return new BaseResponse<>(getTodoRes);
+        } catch(BaseException exception){
+            return new BaseResponse<>((exception.getStatus()));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }*/
+
+    @ResponseBody
+    @GetMapping("")
+    public BaseResponse<GetTodoListRes> getTodoList(@RequestParam("date") String date) {
 
         try{
             SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
