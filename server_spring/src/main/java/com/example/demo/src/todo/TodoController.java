@@ -3,6 +3,7 @@ package com.example.demo.src.todo;
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
 import com.example.demo.src.todo.model.GetTodoListRes;
+import com.example.demo.src.todo.model.GetTodoRes;
 import com.example.demo.src.todo.model.PostTodoReq;
 import com.example.demo.src.todo.model.PostTodoRes;
 import com.example.demo.utils.JwtService;
@@ -58,7 +59,7 @@ public class TodoController {
 
     @ResponseBody
     @GetMapping("")
-    public BaseResponse<GetTodoListRes> getTodoList(@RequestParam("date") String date) {
+    public BaseResponse<GetTodoRes> getTodoList(@RequestParam("date") String date) {
 
         try{
             SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
@@ -69,7 +70,7 @@ public class TodoController {
             int userIdxByJwt = jwtService.getUserIdx();
             System.out.println();
 
-            GetTodoListRes getTodoRes = todoProvider.retrieveTodo(userIdxByJwt, formatDate);
+            GetTodoRes getTodoRes = todoProvider.retrieveTodo(userIdxByJwt, formatDate);
             return new BaseResponse<>(getTodoRes);
         } catch(BaseException exception){
             return new BaseResponse<>((exception.getStatus()));
