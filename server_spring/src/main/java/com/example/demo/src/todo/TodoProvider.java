@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import static com.example.demo.config.BaseResponseStatus.DATABASE_ERROR;
 
 import java.util.List;
 import java.util.Date;
@@ -28,7 +29,7 @@ public class TodoProvider {
 
     public GetTodoRes retrieveTodo(int userIdx, Date date) throws BaseException {
 
-        //try{
+        try{
             GetTodoRes getTodoRes = todoDao.selectTodo(userIdx, date);
             //GetTodoListRes getTodoListRes =new GetTodoListRes(getTodoRes);
             return getTodoRes;
@@ -39,10 +40,10 @@ public class TodoProvider {
             return getTodoListRes;
 
              */
-        //}
-        //catch (Exception exception) {
-        //    throw new BaseException(DATABASE_ERROR);
-        //}
+        }
+        catch (Exception exception) {
+            throw new BaseException(DATABASE_ERROR);
+        }
     }
 
     /*
