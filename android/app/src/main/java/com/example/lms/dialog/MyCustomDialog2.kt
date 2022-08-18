@@ -1,19 +1,25 @@
 package com.example.lms.dialog
 
-import android.app.DatePickerDialog
+import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.DisplayMetrics
+import android.util.TypedValue
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.AppCompatButton
 import com.example.lms.R
 import com.example.lms.databinding.LayoutDialog2Binding
-import android.widget.ArrayAdapter
-import android.widget.AdapterView
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView
+import com.prolificinteractive.materialcalendarview.format.MonthArrayTitleFormatter
 import java.util.*
 
 
@@ -23,6 +29,7 @@ class MyCustomDialog2(context : Context, myInterface: MyCustomDialogInterface) :
 
     lateinit var binding : LayoutDialog2Binding
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = LayoutDialog2Binding.inflate(layoutInflater)
@@ -84,18 +91,51 @@ class MyCustomDialog2(context : Context, myInterface: MyCustomDialogInterface) :
 
 
         binding.dateBtn.setOnClickListener {
-            val cal = Calendar.getInstance()    //캘린더뷰 만들기
-            val dateSetListener =
-                DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                    binding.dateEditView.text = year.toString()+"-"+(month + 1).toString()+"-"+dayOfMonth.toString()
-                }
-            DatePickerDialog(
-                context,
-                dateSetListener,
-                cal.get(Calendar.YEAR),
-                cal.get(Calendar.MONTH),
-                cal.get(Calendar.DAY_OF_MONTH)
-            ).show()
+//            val cal = Calendar.getInstance()    //캘린더뷰 만들기
+//            val dateSetListener =
+//                DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
+//                    binding.dateEditView.text = year.toString()+"-"+(month + 1).toString()+"-"+dayOfMonth.toString()
+//                }
+//            DatePickerDialog(
+//                context,
+//                dateSetListener,
+//                cal.get(Calendar.YEAR),
+//                cal.get(Calendar.MONTH),
+//                cal.get(Calendar.DAY_OF_MONTH)
+//            ).show()
+
+            val datePickerDialog = BottomSheetDialog(binding.dateBtn.context, R.style.AppBottomSheetDialogTheme)
+            datePickerDialog.setContentView(R.layout.homework_datepicker_dialog)
+            val dateView = datePickerDialog.findViewById<TextView>(R.id.datePickerView)
+            val timeView = datePickerDialog.findViewById<EditText>(R.id.timeEdit_tv)
+            val datePickOk = datePickerDialog.findViewById<AppCompatButton>(R.id.datePick_okButton)
+            val datePickCancel = datePickerDialog.findViewById<AppCompatButton>(R.id.datePick_cancelButton)
+            val pickerCalendar = datePickerDialog.findViewById<MaterialCalendarView>(R.id.date_picker_calendar)
+
+            datePickerDialog.behavior.state = BottomSheetBehavior.STATE_EXPANDED
+
+            pickerCalendar?.isDynamicHeightEnabled = true
+//            pickerCalendar?.setTitleFormatter(MonthArrayTitleFormatter(resources.getTextArray(R.array.custom_months)))
+//            pickerCalendar?.setWeekDayFormatter(ArrayWeekDayFormatter(resources.getTextArray(R.array.custom_weekdays)))
+            pickerCalendar?.setDateTextAppearance(R.style.CustomDateTextAppearance)
+            pickerCalendar?.setWeekDayTextAppearance(R.style.CustomWeekDayAppearance)
+            pickerCalendar?.setHeaderTextAppearance(R.style.CustomHeaderTextAppearance)
+
+            pickerCalendar?.setOnDateChangedListener { _, CalendarDay, _ ->
+                dateView?.text = CalendarDay.year.toString() +"-"+ (CalendarDay.month+1).toString() +"-"+ CalendarDay.day.toString()
+            }
+
+            //확인
+            datePickOk?.setOnClickListener{
+                binding.dateEditView.text = dateView?.text
+                binding.timeEditView.text = timeView?.text
+                datePickerDialog.dismiss()
+            }
+            //취소
+            datePickCancel?.setOnClickListener{
+                datePickerDialog.dismiss()
+            }
+            datePickerDialog.show()
 
         }
 
@@ -157,4 +197,7 @@ class MyCustomDialog2(context : Context, myInterface: MyCustomDialogInterface) :
         // 취소 버튼 클릭 시 종료
         cancelButton.setOnClickListener { dismiss()}
     }
+
+
+
 }

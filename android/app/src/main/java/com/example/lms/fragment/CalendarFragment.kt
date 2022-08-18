@@ -11,12 +11,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_SETTLING
 import com.example.lms.*
 import com.example.lms.databinding.FragmentCalendarBinding
 import com.example.lms.dialog.MyCustomDialog
 import com.example.lms.dialog.MyCustomDialog2
 import com.example.lms.dialog.MyCustomDialogInterface
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.CalendarMode
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
@@ -40,12 +41,11 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
 
     private var isFabOpen = false // Fab 버튼 default는 닫혀있음
 
-    var selectedDate: CalendarDay = CalendarDay.today()
+    private var selectedDate: CalendarDay = CalendarDay.today()
     private var selectedYear: Int = 0   //년도 그대로
     private var selectedMonth: Int  = 0 // 0부터 시작 (0 = 1월)
     private var selectedDay: Int  = 0  // 1부터 시작
     lateinit var calendar: MaterialCalendarView
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,8 +55,25 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
         binding = FragmentCalendarBinding.inflate(inflater,container,false)
 
 
+        //전체 버튼 클릭 시 미완료 버튼 보이게
         binding!!.allListBtn.setOnClickListener {
-            (activity as MainActivity?)!!.change_to_Menu()
+            binding!!.allListBtn.visibility = View.INVISIBLE
+            binding!!.uncheckListBtn.visibility = View.VISIBLE
+            binding!!.checkListBtn.visibility = View.INVISIBLE
+        }
+
+        //미완료 버튼 클릭 시 완료 버튼 보이게
+        binding!!.uncheckListBtn.setOnClickListener {
+            binding!!.allListBtn.visibility = View.INVISIBLE
+            binding!!.uncheckListBtn.visibility = View.INVISIBLE
+            binding!!.checkListBtn.visibility = View.VISIBLE
+        }
+
+        //완료 버튼 클릭 시 전체 버튼 보이게
+        binding!!.checkListBtn.setOnClickListener {
+            binding!!.allListBtn.visibility = View.VISIBLE
+            binding!!.uncheckListBtn.visibility = View.INVISIBLE
+            binding!!.checkListBtn.visibility = View.INVISIBLE
         }
 
         // 아이템에 아이디를 설정해줌 (깜빡이는 현상방지)
@@ -142,7 +159,37 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
             Log.d("test6", "onCreateView: ggg")
         })
 
-
+        //캘린더 축소, 확대
+//        val homeworkRecyclerView = binding!!.homeworkCalendarRecyclerview
+//        homeworkRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+//            var ViewState = 0
+//            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+//                super.onScrollStateChanged(recyclerView!!, newState)
+//                ViewState = newState
+//            }
+//
+//            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+//                super.onScrolled(recyclerView, dx, dy)
+//                //축소
+//                if (!recyclerView.canScrollVertically(1) && ViewState == 2) {
+//                    Log.d("SCROLL", "last Position...")
+//                    calendar.state().edit()
+////                        .setFirstDayOfWeek(Calendar.WEDNESDAY)
+////                        .setMinimumDate(CalendarDay.from(2016, 4, 3))
+////                        .setMaximumDate(CalendarDay.from(2016, 5, 12))
+//                        .setCalendarDisplayMode(CalendarMode.WEEKS)
+//                        .commit()
+//                }
+//                //확대
+//                if (!recyclerView.canScrollVertically(-1) && ViewState == 2) {
+//                    //if (!homeworkRecyclerView.canScrollVertically(-1)) {
+//                    Log.d("SCROLL", "up Position...")
+//                    calendar.state().edit()
+//                        .setCalendarDisplayMode(CalendarMode.MONTHS)
+//                        .commit()
+//                }
+//            }
+//        })
 
 
 //        // Fab 클릭시 다이얼로그 띄움
