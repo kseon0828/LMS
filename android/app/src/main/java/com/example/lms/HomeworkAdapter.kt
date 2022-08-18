@@ -1,19 +1,18 @@
 package com.example.lms
 
+
+
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lms.databinding.HomeworkItemBinding
-import com.example.lms.dialog.MyCustomDialog2
-import com.example.lms.dialog.UpdateDialog
 import com.example.lms.dialog.UpdateDialog2
 import com.example.lms.dialog.UpdateDialogInterface
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.prolificinteractive.materialcalendarview.CalendarDay
-import com.prolificinteractive.materialcalendarview.MaterialCalendarView
-import java.util.*
+
 
 class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : RecyclerView.Adapter<HomeworkAdapter.MyViewHolder>() {
     private var homeworkList = emptyList<Homework>()
@@ -29,6 +28,7 @@ class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : Recycl
         fun bind(currentHomework : Homework, homeworkViewModel: HomeworkViewModel){
             binding.homework = currentHomework
             this.homeworkViewModel = homeworkViewModel
+
 
             // 체크 리스너 초기화 해줘 중복 오류 방지
             binding.homeworkCheckBox.setOnCheckedChangeListener(null)
@@ -65,12 +65,19 @@ class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : Recycl
 //                val myCustomDialog = UpdateDialog(binding.updateButton.context,this)
 //                myCustomDialog.show()
 
+
                 val detailDialog = BottomSheetDialog(binding.homeworkLayout.context, R.style.AppBottomSheetDialogTheme)
                 detailDialog.setContentView(R.layout.homework_detail)
                 val todoText = detailDialog.findViewById<TextView>(R.id.detail_title)
                 val deleteButton = detailDialog.findViewById<AppCompatButton>(R.id.homeworkDeleteButton)
                 val closeButton = detailDialog.findViewById<AppCompatButton>(R.id.homeworkCloseButton)
+                val switch = detailDialog.findViewById<Switch>(R.id.switch1)
+                val alarmTitle = detailDialog.findViewById<TextView>(R.id.alarm_time_title)
+                val alarmTime = detailDialog.findViewById<TextView>(R.id.alarm_time)
+                val timeiv = detailDialog.findViewById<ImageView>(R.id.time_right_iv)
+
                 todoText?.text = currentHomework.content
+
                 //수정
                 todoText?.setOnClickListener{
                     homework = currentHomework
@@ -88,6 +95,47 @@ class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : Recycl
                     detailDialog.dismiss()
                 }
 
+                //  스위치를 클릭했을때
+                switch?.setOnCheckedChangeListener{CompoundButton, onSwitch ->
+
+                    //  스위치가 켜지면
+                    if (onSwitch){
+                        val homeworkalarm = BottomSheetDialog(binding.homeworkLayout.context, R.style.AppBottomSheetDialogTheme)
+                        homeworkalarm.setContentView(R.layout.homwork_alarm)
+                        val alaramcancelButton = homeworkalarm.findViewById<AppCompatButton>(R.id.alarm_cancleButton)
+                        val alarmButton = homeworkalarm.findViewById<AppCompatButton>(R.id.alarmButton)
+                        val timepicker = homeworkalarm.findViewById<TimePicker>(R.id.alarmTimePicker)
+                        alaramcancelButton?.setOnClickListener { homeworkalarm.dismiss() }
+                        timeiv?.setOnClickListener { homeworkalarm.show() }
+                        alarmButton?.setOnClickListener {
+                            homeworkalarm.dismiss()
+                            alarmTitle?.visibility= View.VISIBLE
+                            alarmTime?.visibility= View.VISIBLE
+                            timeiv?.visibility= View.VISIBLE
+
+                            var hour: Int
+                            var min: Int
+                            if(android.os.Build.VERSION.SDK_INT>=android.os.Build.VERSION_CODES.M){
+                                hour=timepicker!!.hour
+                                min=timepicker.minute
+                                alarmTime?.setText(hour.toString()+":"+min.toString())
+                            }
+                            else{
+                            }
+
+                            closeButton?.setText("수정 완료")
+
+                            }
+
+                        homeworkalarm.show()
+                    }
+
+                    //  스위치가 꺼지면
+                    else{
+
+                    }
+                }
+
                 detailDialog.show()
             }
         }
@@ -102,6 +150,7 @@ class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : Recycl
 
         }
     }
+
 
     // 어떤 xml 으로 뷰 홀더를 생성할지 지정
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -129,5 +178,7 @@ class HomeworkAdapter(private val homeworkViewModel: HomeworkViewModel) : Recycl
     override fun getItemId(position: Int): Long {
         return position.toLong()
     }
+
+
 }
 

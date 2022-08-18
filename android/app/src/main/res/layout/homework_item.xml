@@ -18,7 +18,7 @@
         android:layout_margin="5dp">
 
         <LinearLayout
-            android:id="@+id/homework"
+            android:id="@+id/homeworkView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

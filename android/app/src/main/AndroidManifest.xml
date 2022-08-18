@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LMS">
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +34,7 @@
         <activity android:name="com.example.lms.SignUpSaveActivity"/>
         <activity android:name="com.example.lms.SignUpSuccessActivity"/>
         <activity android:name="com.example.lms.MainAgreeActivity"/>
-        <activity android:name="com.example.lms.MainActivity"/>
+        <activity android:name="com.example.lms.SplashActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"
