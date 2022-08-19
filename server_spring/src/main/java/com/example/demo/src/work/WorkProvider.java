@@ -1,6 +1,8 @@
 package com.example.demo.src.work;
 
 import com.example.demo.config.BaseException;
+import com.example.demo.src.task.model.GetTaskListRes;
+import com.example.demo.src.task.model.GetTaskRes;
 import com.example.demo.src.work.model.GetWorkListRes;
 import com.example.demo.src.work.model.GetWorkRes;
 import com.example.demo.utils.JwtService;
@@ -29,11 +31,11 @@ public class WorkProvider {
     }
 
     //task리스트 조회하기
-    public GetWorkListRes retrieveWork(int userIdx, Date date) throws BaseException {
+    public GetTaskListRes retrieveWork(int userIdx, Date date) throws BaseException {
 
         try{
-            List<GetWorkRes> getWorkRes = workDao.selectWork(userIdx, date);
-            GetWorkListRes getWorkListRes =new GetWorkListRes(getWorkRes);
+            List<GetTaskRes> getWorkRes = workDao.selectWork(userIdx, date);
+            GetTaskListRes getWorkListRes =new GetTaskListRes(getWorkRes);
             return getWorkListRes;
         }
         catch (Exception exception) {
