@@ -27,12 +27,13 @@ public class TodoProvider {
         this.jwtService = jwtService;
     }
 
-    public GetTodoRes retrieveTodo(int userIdx, Date date) throws BaseException {
+    public GetTodoListRes retrieveTodo(int userIdx, Date date) throws BaseException {
 
         try{
-            GetTodoRes getTodoRes = todoDao.selectTodo(userIdx, date);
+            List<GetTodoRes> getTodoRes = todoDao.selectTodo(userIdx, date);
+            GetTodoListRes getTodoListRes =new GetTodoListRes(getTodoRes);
             //GetTodoListRes getTodoListRes =new GetTodoListRes(getTodoRes);
-            return getTodoRes;
+            return getTodoListRes;
 
             /*
             List<GetTodoRes> getTodoRes = todoDao.selectTodo(userIdx, date);
