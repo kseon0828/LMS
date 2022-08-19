@@ -159,37 +159,22 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
             Log.d("test6", "onCreateView: ggg")
         })
 
-        //캘린더 축소, 확대
-//        val homeworkRecyclerView = binding!!.homeworkCalendarRecyclerview
-//        homeworkRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-//            var ViewState = 0
-//            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-//                super.onScrollStateChanged(recyclerView!!, newState)
-//                ViewState = newState
-//            }
-//
-//            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-//                super.onScrolled(recyclerView, dx, dy)
-//                //축소
-//                if (!recyclerView.canScrollVertically(1) && ViewState == 2) {
-//                    Log.d("SCROLL", "last Position...")
-//                    calendar.state().edit()
-////                        .setFirstDayOfWeek(Calendar.WEDNESDAY)
-////                        .setMinimumDate(CalendarDay.from(2016, 4, 3))
-////                        .setMaximumDate(CalendarDay.from(2016, 5, 12))
-//                        .setCalendarDisplayMode(CalendarMode.WEEKS)
-//                        .commit()
-//                }
-//                //확대
-//                if (!recyclerView.canScrollVertically(-1) && ViewState == 2) {
-//                    //if (!homeworkRecyclerView.canScrollVertically(-1)) {
-//                    Log.d("SCROLL", "up Position...")
-//                    calendar.state().edit()
-//                        .setCalendarDisplayMode(CalendarMode.MONTHS)
-//                        .commit()
-//                }
-//            }
-//        })
+        //캘린더 축소
+        binding!!.calendarUpBtn.setOnClickListener {
+            binding!!.calendarUpBtn.visibility = View.INVISIBLE
+            binding!!.calendarDownBtn.visibility = View.VISIBLE
+            calendar.state().edit()
+                .setCalendarDisplayMode(CalendarMode.WEEKS)
+                .commit()
+        }
+        //캘린더 확장
+        binding!!.calendarDownBtn.setOnClickListener {
+            binding!!.calendarUpBtn.visibility = View.VISIBLE
+            binding!!.calendarDownBtn.visibility = View.INVISIBLE
+            calendar.state().edit()
+                .setCalendarDisplayMode(CalendarMode.MONTHS)
+                .commit()
+        }
 
 
 //        // Fab 클릭시 다이얼로그 띄움

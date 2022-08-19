@@ -58,6 +58,28 @@
                 app:mcv_headerTextAppearance="@style/CustomHeaderTextAppearance"/>-->
 
     <ImageView
+        android:id="@+id/calendar_up_btn"
+        android:layout_width="16dp"
+        android:layout_height="9dp"
+        android:src="@drawable/btn_calendar_up"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <ImageView
+        android:id="@+id/calendar_down_btn"
+        android:layout_width="16dp"
+        android:layout_height="9dp"
+        android:src="@drawable/btn_calendar_down"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <ImageView
         android:id="@+id/all_list_btn"
         android:layout_width="60dp"
         android:layout_height="28dp"
