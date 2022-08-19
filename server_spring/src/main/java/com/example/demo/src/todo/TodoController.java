@@ -57,6 +57,7 @@ public class TodoController {
         }
     }*/
 
+    /*
     @ResponseBody
     @GetMapping("")
     public BaseResponse<GetTodoRes> getTodoList(@RequestParam("date") String date) {
@@ -77,9 +78,9 @@ public class TodoController {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
 
-    /*
+
     //날짜 todo리스트 조회하기
     @ResponseBody
     @GetMapping("/{date}")
@@ -102,7 +103,7 @@ public class TodoController {
             throw new RuntimeException(e);
         }
     }
-    */
+
 
     //todo리스트 생성하기
     @ResponseBody

@@ -19,6 +19,7 @@ public class TodoDao {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+    /*
     //조회
     public GetTodoRes selectTodo(int userIdx, Date date){
         String selectTodoQuery = "SELECT todoName \n" +
@@ -31,8 +32,9 @@ public class TodoDao {
                         rs.getString("todoName")
                 ), selectTodoParam);
     }
+    */
 
-    /*
+
     //조회
     public List<GetTodoRes> selectTodo(int userIdx, Date date){
         String selectTodoQuery = "SELECT complete, todoName, todoDate, todoTime \n" +
@@ -48,7 +50,6 @@ public class TodoDao {
                 ), selectTodoParam);
     }
 
-     */
 
     //생성
     public int insertTodo(int userIdx, Date date, String todoName){

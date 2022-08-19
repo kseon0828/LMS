@@ -8,8 +8,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class GetTodoRes {
-    //private int complete;
+    private int complete;
     private String todoName;
-    //private String todoDate;
-    //private String endTime;
+    private String todoDate;
+    private String endTime;
 }
