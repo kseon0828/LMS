@@ -22,6 +22,10 @@ com/example/demo/src/todoList/TodoListService.java
  com.example.demo.src.todoList.TodoListService
 com/example/demo/src/todoList/model/PostTodoListReq.java
  com.example.demo.src.todoList.model.PostTodoListReq
+com/example/demo/src/work/model/GetWorkListRes.java
+ com.example.demo.src.work.model.GetWorkListRes
+com/example/demo/src/work/WorkController.java
+ com.example.demo.src.work.WorkController
 com/example/demo/src/task/model/PostTaskReq.java
  com.example.demo.src.task.model.PostTaskReq
 com/example/demo/src/inquire/InquireDao.java
@@ -38,6 +42,8 @@ com/example/demo/src/todo/TodoService.java
  com.example.demo.src.todo.TodoService
 com/example/demo/src/user/model/PostUserRes.java
  com.example.demo.src.user.model.PostUserRes
+com/example/demo/src/work/WorkService.java
+ com.example.demo.src.work.WorkService
 com/example/demo/config/BaseResponse.java
  com.example.demo.config.BaseResponse
 com/example/demo/src/task/TaskController.java
@@ -62,6 +68,8 @@ com/example/demo/src/todoList/model/PostTodoListRes.java
  com.example.demo.src.todoList.model.PostTodoListRes
 com/example/demo/src/user/model/PostUserReq.java
  com.example.demo.src.user.model.PostUserReq
+com/example/demo/src/work/model/GetWorkRes.java
+ com.example.demo.src.work.model.GetWorkRes
 com/example/demo/src/todoList/TodoListController.java
  com.example.demo.src.todoList.TodoListController
 com/example/demo/src/todo/TodoProvider.java
@@ -82,6 +90,8 @@ com/example/demo/src/task/TaskService.java
  com.example.demo.src.task.TaskService
 com/example/demo/src/auth/AuthDao.java
  com.example.demo.src.auth.AuthDao
+com/example/demo/src/work/WorkDao.java
+ com.example.demo.src.work.WorkDao
 com/example/demo/src/inquire/InquireController.java
  com.example.demo.src.inquire.InquireController
 com/example/demo/src/task/model/PatchTaskReq.java
@@ -90,6 +100,8 @@ com/example/demo/src/auth/model/PostLoginReq.java
  com.example.demo.src.auth.model.PostLoginReq
 com/example/demo/src/user/UserController.java
  com.example.demo.src.user.UserController
+com/example/demo/src/work/WorkProvider.java
+ com.example.demo.src.work.WorkProvider
 com/example/demo/src/inquire/model/PostInquireRes.java
  com.example.demo.src.inquire.model.PostInquireRes
 com/example/demo/src/auth/AuthController.java
