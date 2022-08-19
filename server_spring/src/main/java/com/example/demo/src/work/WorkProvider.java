@@ -1,8 +1,8 @@
 package com.example.demo.src.work;
 
 import com.example.demo.config.BaseException;
-import com.example.demo.src.task.model.GetTaskListRes;
-import com.example.demo.src.task.model.GetTaskRes;
+import com.example.demo.src.work.model.GetWorkListRes;
+import com.example.demo.src.work.model.GetWorkRes;
 import com.example.demo.utils.JwtService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,12 +29,12 @@ public class WorkProvider {
     }
 
     //task리스트 조회하기
-    public GetTaskListRes retrieveTask(int userIdx, Date date) throws BaseException {
+    public GetWorkListRes retrieveWork(int userIdx, Date date) throws BaseException {
 
         try{
-            List<GetTaskRes> getTaskRes = workDao.selectTask(userIdx, date);
-            GetTaskListRes getTaskListRes =new GetTaskListRes(getTaskRes);
-            return getTaskListRes;
+            List<GetWorkRes> getWorkRes = workDao.selectWork(userIdx, date);
+            GetWorkListRes getWorkListRes =new GetWorkListRes(getWorkRes);
+            return getWorkListRes;
         }
         catch (Exception exception) {
             throw new BaseException(DATABASE_ERROR);

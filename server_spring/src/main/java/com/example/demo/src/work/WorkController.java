@@ -2,7 +2,6 @@ package com.example.demo.src.work;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
-import com.example.demo.src.task.model.GetTaskListRes;
 import com.example.demo.src.work.model.GetWorkListRes;
 import com.example.demo.utils.JwtService;
 import org.slf4j.Logger;
@@ -34,7 +33,7 @@ public class WorkController {
     //날짜 과제 조회하기
     @ResponseBody
     @GetMapping("/{date}")
-    public BaseResponse<GetTaskListRes> getWorkList(@PathVariable("date") String date) {
+    public BaseResponse<GetWorkListRes> getWorkList(@PathVariable("date") String date) {
 
         try{
             SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
@@ -45,7 +44,7 @@ public class WorkController {
             int userIdxByJwt = jwtService.getUserIdx();
             System.out.println();
 
-            GetTaskListRes getWorkRes = workProvider.retrieveTask(userIdxByJwt, formatDate);
+            GetWorkListRes getWorkRes = workProvider.retrieveWork(userIdxByJwt, formatDate);
             return new BaseResponse<>(getWorkRes);
         } catch(BaseException exception){
             return new BaseResponse<>((exception.getStatus()));
