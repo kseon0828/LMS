@@ -30,12 +30,6 @@ public class TodoProvider {
     public GetTodoListRes retrieveTodo(int userIdx, Date date) throws BaseException {
 
         try{
-            //GetTodoRes getTodoRes = todoDao.selectTodo(userIdx, date);
-            //GetTodoListRes getTodoListRes =new GetTodoListRes(getTodoRes);
-            //GetTodoListRes getTodoListRes =new GetTodoListRes(getTodoRes);
-            //return getTodoRes;
-
-
             List<GetTodoRes> getTodoRes = todoDao.selectTodo(userIdx, date);
             GetTodoListRes getTodoListRes =new GetTodoListRes(getTodoRes);
             return getTodoListRes;
@@ -46,21 +40,6 @@ public class TodoProvider {
             throw new BaseException(DATABASE_ERROR);
         }
     }
-
-    /*
-    //todo리스트 조회하기
-    public GetTodoListRes retrieveTodo(int userIdx, Date date) throws BaseException {
-
-        try{
-            List<GetTodoRes> getTodoRes = todoDao.selectTodo(userIdx, date);
-            GetTodoListRes getTodoListRes = new GetTodoListRes(getTodoRes);
-            return getTodoListRes;
-        }
-        catch (Exception exception) {
-            throw new BaseException(DATABASE_ERROR);
-        }
-    }
-     */
 
 }
 

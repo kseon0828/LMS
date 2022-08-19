@@ -19,22 +19,6 @@ public class TodoDao {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    /*
-    //조회
-    public GetTodoRes selectTodo(int userIdx, Date date){
-        String selectTodoQuery = "SELECT todoName \n" +
-                "FROM todoList \n" +
-                "WHERE todoList.userIdx = ? and todoDate = ? \n" +
-                "LIMIT 1";
-        Object[] selectTodoParam = new Object[]{userIdx, date};
-        return this.jdbcTemplate.queryForObject(selectTodoQuery,
-                (rs, rowNum) -> new GetTodoRes(
-                        rs.getString("todoName")
-                ), selectTodoParam);
-    }
-    */
-
-
     //조회
     public List<GetTodoRes> selectTodo(int userIdx, Date date){
         String selectTodoQuery = "SELECT complete, todoName, todoDate, todoTime \n" +
@@ -53,7 +37,7 @@ public class TodoDao {
 
     //생성
     public int insertTodo(int userIdx, Date date, String todoName){
-        String insertTodoQuery = "INSERT into todoList(userIdx, date, complete, todoName) VALUES(?, ?, 0, ?)";
+        String insertTodoQuery = "INSERT into todoList(userIdx, todoDate, complete, todoName) VALUES(?, ?, 0, ?)";
         Object[] insertTodoParams = new Object[]{userIdx, date, todoName};
         this.jdbcTemplate.update(insertTodoQuery, insertTodoParams);
 

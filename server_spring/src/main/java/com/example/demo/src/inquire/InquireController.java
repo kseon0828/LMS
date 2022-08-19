@@ -55,7 +55,7 @@ public class InquireController {
         try{
             PostInquireRes postInquireRes = inquireService.createInquire(postInquireReq);
 
-
+            /*
             RestTemplate restTemplate = new RestTemplate();
 
             Map<String,Object> request = new HashMap<String,Object>();
@@ -70,7 +70,7 @@ public class InquireController {
             String url = "..."; // 사용할 슬랙의 Webhook URL 넣기
 
             restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
-
+             */
 
             return new BaseResponse<>(postInquireRes);
         } catch(BaseException exception){
