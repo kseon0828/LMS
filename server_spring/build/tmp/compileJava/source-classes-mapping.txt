@@ -10,8 +10,6 @@ com/example/demo/src/inquire/InquireService.java
  com.example.demo.src.inquire.InquireService
 com/example/demo/src/task/model/PostTaskRes.java
  com.example.demo.src.task.model.PostTaskRes
-com/example/demo/src/todoNew/TodoNewController.java
- com.example.demo.src.todoNew.TodoNewController
 com/example/demo/utils/ValidationRegex.java
  com.example.demo.utils.ValidationRegex
 com/example/demo/src/inquire/InquireProvider.java
@@ -30,8 +28,6 @@ com/example/demo/src/inquire/InquireDao.java
  com.example.demo.src.inquire.InquireDao
 com/example/demo/src/todoList/model/GetTodoListRes.java
  com.example.demo.src.todoList.model.GetTodoListRes
-com/example/demo/src/todoNew/model/TodoListRes.java
- com.example.demo.src.todoNew.model.TodoListRes
 com/example/demo/src/auth/AuthService.java
  com.example.demo.src.auth.AuthService
 com/example/demo/config/secret/Secret.java
@@ -60,8 +56,6 @@ com/example/demo/config/BaseException.java
  com.example.demo.config.BaseException
 com/example/demo/src/todo/model/PatchTodoReq.java
  com.example.demo.src.todo.model.PatchTodoReq
-com/example/demo/src/todoNew/model/TodoListListRes.java
- com.example.demo.src.todoNew.model.TodoListListRes
 com/example/demo/utils/SHA256.java
  com.example.demo.utils.SHA256
 com/example/demo/src/todoList/model/PostTodoListRes.java
@@ -74,8 +68,6 @@ com/example/demo/src/todo/TodoProvider.java
  com.example.demo.src.todo.TodoProvider
 com/example/demo/src/todo/TodoController.java
  com.example.demo.src.todo.TodoController
-com/example/demo/src/todoNew/TodoNewDao.java
- com.example.demo.src.todoNew.TodoNewDao
 com/example/demo/src/user/UserDao.java
  com.example.demo.src.user.UserDao
 com/example/demo/src/inquire/model/PostInquireReq.java
@@ -114,8 +106,6 @@ com/example/demo/utils/JwtService.java
  com.example.demo.utils.JwtService
 com/example/demo/src/auth/model/User.java
  com.example.demo.src.auth.model.User
-com/example/demo/src/todoNew/TodoNewProvider.java
- com.example.demo.src.todoNew.TodoNewProvider
 com/example/demo/src/user/UserProvider.java
  com.example.demo.src.user.UserProvider
 com/example/demo/src/auth/AuthProvider.java

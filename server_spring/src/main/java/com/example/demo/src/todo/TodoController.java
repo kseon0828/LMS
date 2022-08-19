@@ -59,7 +59,7 @@ public class TodoController {
 
     @ResponseBody
     @GetMapping("")
-    public BaseResponse<GetTodoListRes> getTodoList(@RequestParam("date") String date) {
+    public BaseResponse<GetTodoRes> getTodoList(@RequestParam("date") String date) {
 
         try{
             SimpleDateFormat dtFormat = new SimpleDateFormat("yyyyMMdd");
@@ -70,8 +70,8 @@ public class TodoController {
             int userIdxByJwt = jwtService.getUserIdx();
             System.out.println();
 
-            GetTodoListRes getTodoListRes = todoProvider.retrieveTodo(userIdxByJwt, formatDate);
-            return new BaseResponse<>(getTodoListRes);
+            GetTodoRes getTodoRes = todoProvider.retrieveTodo(userIdxByJwt, formatDate);
+            return new BaseResponse<>(getTodoRes);
         } catch(BaseException exception){
             return new BaseResponse<>((exception.getStatus()));
         } catch (ParseException e) {
