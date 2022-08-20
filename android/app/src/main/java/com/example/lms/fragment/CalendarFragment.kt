@@ -1,6 +1,7 @@
 package com.example.lms.fragment
 
 import android.animation.ObjectAnimator
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,8 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_SETTLING
 import com.example.lms.*
 import com.example.lms.databinding.FragmentCalendarBinding
 import com.example.lms.dialog.MyCustomDialog
@@ -23,6 +22,10 @@ import com.prolificinteractive.materialcalendarview.CalendarMode
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import com.prolificinteractive.materialcalendarview.format.ArrayWeekDayFormatter
 import com.prolificinteractive.materialcalendarview.format.MonthArrayTitleFormatter
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -34,6 +37,7 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
 
     private val homeworkViewModel: HomeworkViewModel by viewModels() // 뷰모델 연결
     private val adapter2 : HomeworkAdapter by lazy { HomeworkAdapter(homeworkViewModel) } // 어댑터 선언
+
 
 //    private var year : Int = 0
 //    private var month : Int = 0
@@ -47,12 +51,19 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
     private var selectedDay: Int  = 0  // 1부터 시작
     lateinit var calendar: MaterialCalendarView
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // 뷰바인딩
         binding = FragmentCalendarBinding.inflate(inflater,container,false)
+
+
+        //jwt
+        val pref = requireActivity().getSharedPreferences("auth2", Context.MODE_PRIVATE)
+        val auth = pref.getString("jwt", "")
 
 
         //전체 버튼 클릭 시 미완료 버튼 보이게
@@ -123,7 +134,39 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
 
             memoViewModel.readDateData(this.selectedYear,this.selectedMonth,this.selectedDay)
             homeworkViewModel.readDateData(this.selectedYear,this.selectedMonth,this.selectedDay)
+
+
+            //val strDate = "${this.selectedYear}0${this.selectedMonth}0${this.selectedDay}"
+//            val strDate = "20220705"
+//            val dtFormat = SimpleDateFormat("yyyyMMdd")
+//            val date: Date = dtFormat.parse(strDate)
+
+            val taskService = getRetrofit().create(TaskRetrofitAPI::class.java)
+            val call: Call<TestItem> = taskService.getData(auth)
+            call.enqueue(object : Callback<TestItem> {
+                override fun onResponse(call: Call<TestItem>, response: Response<TestItem>) {
+                    if (response.isSuccessful && response.code() == 200) {
+                        val dataList: TestItem = response.body()!!
+                        Log.d("CalendarFragment", dataList.toString())
+                        when (val code = dataList.code) {
+                            1000 -> Log.d("CalendarFramenttest",dataList.result.toString())
+
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<TestItem>, t: Throwable) {
+                    Log.d("CalendarFragment", t.toString())
+                }
+            })
+
+
+
         }
+
+
+
+
 //        binding!!.calendarView.setOnDateChangedListener  { _, year, month, day ->
 //            // 날짜 선택시 그 날의 정보 할당
 //            this.year = year
@@ -159,22 +202,37 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
             Log.d("test6", "onCreateView: ggg")
         })
 
-        //캘린더 축소
-        binding!!.calendarUpBtn.setOnClickListener {
-            binding!!.calendarUpBtn.visibility = View.INVISIBLE
-            binding!!.calendarDownBtn.visibility = View.VISIBLE
-            calendar.state().edit()
-                .setCalendarDisplayMode(CalendarMode.WEEKS)
-                .commit()
-        }
-        //캘린더 확장
-        binding!!.calendarDownBtn.setOnClickListener {
-            binding!!.calendarUpBtn.visibility = View.VISIBLE
-            binding!!.calendarDownBtn.visibility = View.INVISIBLE
-            calendar.state().edit()
-                .setCalendarDisplayMode(CalendarMode.MONTHS)
-                .commit()
-        }
+        //캘린더 축소, 확대
+//        val homeworkRecyclerView = binding!!.homeworkCalendarRecyclerview
+//        homeworkRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+//            var ViewState = 0
+//            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+//                super.onScrollStateChanged(recyclerView!!, newState)
+//                ViewState = newState
+//            }
+//
+//            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+//                super.onScrolled(recyclerView, dx, dy)
+//                //축소
+//                if (!recyclerView.canScrollVertically(1) && ViewState == 2) {
+//                    Log.d("SCROLL", "last Position...")
+//                    calendar.state().edit()
+////                        .setFirstDayOfWeek(Calendar.WEDNESDAY)
+////                        .setMinimumDate(CalendarDay.from(2016, 4, 3))
+////                        .setMaximumDate(CalendarDay.from(2016, 5, 12))
+//                        .setCalendarDisplayMode(CalendarMode.WEEKS)
+//                        .commit()
+//                }
+//                //확대
+//                if (!recyclerView.canScrollVertically(-1) && ViewState == 2) {
+//                    //if (!homeworkRecyclerView.canScrollVertically(-1)) {
+//                    Log.d("SCROLL", "up Position...")
+//                    calendar.state().edit()
+//                        .setCalendarDisplayMode(CalendarMode.MONTHS)
+//                        .commit()
+//                }
+//            }
+//        })
 
 
 //        // Fab 클릭시 다이얼로그 띄움
@@ -291,4 +349,7 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
         calendar.addDecorator(EventDecorator(Collections.singleton(selectedDate)))
     }
 
+
 }
+
+
