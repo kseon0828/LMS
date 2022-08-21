@@ -25,7 +25,6 @@ import com.prolificinteractive.materialcalendarview.format.MonthArrayTitleFormat
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -35,9 +34,9 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
     private val memoViewModel: MemoViewModel by viewModels() // 뷰모델 연결
     private val adapter : TodoAdapter by lazy { TodoAdapter(memoViewModel) } // 어댑터 선언
 
-    private val homeworkViewModel: HomeworkViewModel by viewModels() // 뷰모델 연결
-    private val adapter2 : HomeworkAdapter by lazy { HomeworkAdapter(homeworkViewModel) } // 어댑터 선언
-
+    //private val homeworkViewModel: HomeworkViewModel by viewModels() // 뷰모델 연결
+    //private val adapter2 : HomeworkAdapter by lazy { HomeworkAdapter(homeworkViewModel) } // 어댑터 선언
+    private val myAdapter by lazy { TaskRecyclerAdapter() }
 
 //    private var year : Int = 0
 //    private var month : Int = 0
@@ -89,13 +88,16 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
 
         // 아이템에 아이디를 설정해줌 (깜빡이는 현상방지)
         adapter.setHasStableIds(true)
-        adapter2.setHasStableIds(true)
+        //adapter2.setHasStableIds(true)
 
         // 아이템을 가로로 하나씩 보여주고 어댑터 연결
-        binding!!.homeworkCalendarRecyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
-        binding!!.homeworkCalendarRecyclerview.adapter = adapter2
+        //binding!!.homeworkCalendarRecyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
+        //binding!!.homeworkCalendarRecyclerview.adapter = adapter2
         binding!!.memoCalendarRecyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
         binding!!.memoCalendarRecyclerview.adapter = adapter
+
+        binding!!.homeworkCalendarRecyclerview.adapter = myAdapter
+        binding!!.homeworkCalendarRecyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
 
         calendar = binding!!.calendarView
         calendar.setSelectedDate(CalendarDay.today())
@@ -133,7 +135,7 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
             binding!!.calendarDateText.text = "${this.selectedYear}/${this.selectedMonth}/${this.selectedDay}"
 
             memoViewModel.readDateData(this.selectedYear,this.selectedMonth,this.selectedDay)
-            homeworkViewModel.readDateData(this.selectedYear,this.selectedMonth,this.selectedDay)
+            //homeworkViewModel.readDateData(this.selectedYear,this.selectedMonth,this.selectedDay)
 
 
             //val strDate = "${this.selectedYear}0${this.selectedMonth}0${this.selectedDay}"
@@ -146,10 +148,12 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
             call.enqueue(object : Callback<TestItem> {
                 override fun onResponse(call: Call<TestItem>, response: Response<TestItem>) {
                     if (response.isSuccessful && response.code() == 200) {
-                        val dataList: TestItem = response.body()!!
+                        val dataList : TestItem = response.body()!!
                         Log.d("CalendarFragment", dataList.toString())
+                        myAdapter.setData(dataList.result?.getTaskRes!!)
                         when (val code = dataList.code) {
-                            1000 -> Log.d("CalendarFramenttest",dataList.result.toString())
+                            1000 -> Log.d("CalendarFramenttest",dataList.result?.getTaskRes.toString())
+
 
                         }
                     }
@@ -192,15 +196,15 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
         })
 
 
-        homeworkViewModel.readAllData.observe(viewLifecycleOwner, {
-            homeworkViewModel.readDateData(selectedYear, selectedMonth, selectedDay)
-        })
+//        homeworkViewModel.readAllData.observe(viewLifecycleOwner, {
+//            homeworkViewModel.readDateData(selectedYear, selectedMonth, selectedDay)
+//        })
 
 
-        homeworkViewModel.currentData.observe(viewLifecycleOwner, Observer {
-            adapter2.setData(it)
-            Log.d("test6", "onCreateView: ggg")
-        })
+//        homeworkViewModel.currentData.observe(viewLifecycleOwner, Observer {
+//            adapter2.setData(it)
+//            Log.d("test6", "onCreateView: ggg")
+//        })
 
         //캘린더 축소
         binding!!.calendarUpBtn.setOnClickListener {
@@ -243,6 +247,7 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
 
         return binding!!.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setFABClickEvent()
@@ -328,7 +333,7 @@ class CalendarFragment : Fragment(), MyCustomDialogInterface {
 
         // 선택된 날짜로 과제를 추가해줌
         val homework = Homework(0,false, content, selectedYear, selectedMonth, selectedDay)
-        homeworkViewModel.addHomework(homework)
+        //homeworkViewModel.addHomework(homework)
         Toast.makeText(activity, "추가", Toast.LENGTH_SHORT).show()
 
         calendar.addDecorator(EventDecorator(Collections.singleton(selectedDate)))

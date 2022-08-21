@@ -9,8 +9,12 @@ data class TestItem(
     @SerializedName("result") val result: Result2?
 )
 data class Result2(
-    @SerializedName("getTaskRes") var getTaskRes: List<Data>,
+    @SerializedName("getTaskRes") var getTaskRes: ArrayList<Data>,
     @SerializedName("jwt") val jwt: String
+)
+
+data class Data(
+    @SerializedName("taskName") var taskName: String
 )
 
 

@@ -22,7 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            >
+            android:layout_marginStart="25dp"
+            app:layout_constraintStart_toStartOf="parent">
 
             <View
                 android:layout_width="10dp"
@@ -58,14 +59,16 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginStart="25dp"
+            app:layout_constraintStart_toStartOf="parent">
 
             <TextView
                 android:id="@+id/homeworkContentTextView"
                 android:gravity="left"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:layout_height="24dp"
+                android:textSize="16sp"
                 android:layout_marginStart="10dp"
                 android:text="@{homework.content}"
                 android:fontFamily="@font/noto_sans"
