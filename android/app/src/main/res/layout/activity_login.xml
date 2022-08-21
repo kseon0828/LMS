@@ -48,44 +48,6 @@
         android:layout_marginTop="35dp"/>
 
 
-    <LinearLayout
-        android:id="@+id/login_social_login_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_logo"
-        >
-
-        <ImageView
-            android:id="@+id/login_kakako_login_iv"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/btn_login_kakao" />
-
-        <ImageView
-            android:id="@+id/login_naver_login_iv"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="14dp"
-            android:src="@drawable/btn_login_naver" />
-
-        <ImageView
-            android:id="@+id/login_apple_login_iv"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="14dp"
-            android:src="@drawable/btn_login_apple" />
-
-        <ImageView
-            android:id="@+id/login_google_login_iv"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="14dp"
-            android:src="@drawable/btn_login_google"/>
-    </LinearLayout>
 
     <TextView
         android:id="@+id/login_emailstart_tv"
@@ -93,7 +55,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/noto_sans"
         android:textStyle="normal"
-        android:textSize="15sp"
+        android:textSize="17sp"
         android:textColor="#a2a2a2"
         android:letterSpacing="-0.05"
         android:lineSpacingExtra="65sp"
@@ -101,8 +63,8 @@
         android:text="이메일로 계속하기"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_social_login_layout"
-        android:layout_marginTop="20dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/login_logo"
+        android:layout_marginTop="43dp"/>
 
 
     <TextView
@@ -111,7 +73,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/noto_sans"
         android:textStyle="normal"
-        android:textSize="15sp"
+        android:textSize="17sp"
         android:textColor="#a2a2a2"
         android:letterSpacing="-0.05"
         android:lineSpacingExtra="65sp"
@@ -127,20 +89,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/login_notify"
-        app:layout_constraintTop_toBottomOf="@+id/signup_tv"
-        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="49dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
 
-<!--    <androidx.fragment.app.FragmentContainerView-->
-<!--        android:id="@+id/framelayout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
